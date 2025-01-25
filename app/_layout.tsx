@@ -8,6 +8,8 @@ import "react-native-reanimated";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "react-native";
 
+import "../src/global.css";
+
 export {
   // Catch any errors thrown by the Layout component.
   ErrorBoundary
@@ -48,7 +50,7 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView className="flex-1">
       <StatusBar style="auto" />
       <Stack>
         <Stack.Screen
