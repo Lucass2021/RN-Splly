@@ -1,9 +1,12 @@
-Husky
-Lint
-Prettier
+Husky - Ok
+Eslint - Ok
+Prettier - Ok
 Zustand
 Axios
 Tanstack Query
 Native Wind
-SVG Transformer - Optional
+React Hook Form
+Zod
+MMKV
+SVG Transformer ou React Native Svg - Optional
 Jest - Optional

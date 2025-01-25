@@ -6,11 +6,11 @@ import { useEffect } from "react";
 import "react-native-reanimated";
 
 import { StatusBar } from "expo-status-bar";
-import { SafeAreaView, View } from "react-native";
+import { SafeAreaView } from "react-native";
 
 export {
   // Catch any errors thrown by the Layout component.
-  ErrorBoundary,
+  ErrorBoundary
 } from "expo-router";
 
 export const unstable_settings = {
@@ -23,6 +23,7 @@ SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const [loaded, error] = useFonts({
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
     SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
     ...FontAwesome.font,
   });
