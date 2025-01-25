@@ -2,8 +2,8 @@ Husky
 Lint
 Prettier
 Zustand
-SVG Transformer
-Zustand
 Axios
 Tanstack Query
 Native Wind
+SVG Transformer - Optional
+Jest - Optional
