@@ -11,6 +11,12 @@ module.exports = {
       margin: {
         7.5: "30px",
       },
+      height: {
+        13: "50px",
+      },
+      width: {
+        13: "50px",
+      },
       fontFamily: {
         obviouslyMedium: ["ObviouslyMedium", "sans-serif"],
         obviouslySemiBold: ["ObviouslySemiBold", "sans-serif"],
@@ -28,6 +34,7 @@ module.exports = {
         primary: "#3581B8",
         secondary: "#A594F9",
         secondaryVariantOne: "#A663CC",
+        secondaryVariantThree: "#2D1E2F",
         accent: "#E54B4B",
         warning: "#DBE147",
         warningOne: "#F7B32B",
@@ -37,6 +44,8 @@ module.exports = {
         grayOne: "#616161",
         grayTwo: "#424242",
         grayThree: "#757575",
+        grayFour: "#9E9E9E",
+        grayFive: "#EEEEEE",
       },
     },
   },
