@@ -25,7 +25,6 @@ SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const [loaded, error] = useFonts({
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
     ObviouslyMedium: require("../assets/fonts/fonnts.com-Obviously_Medi.otf"),
     ObviouslySemiBold: require("../assets/fonts/fonnts.com-Obviously_Semi.otf"),
     ObviouslyBold: require("../assets/fonts/fonnts.com-Obviously_Bold.otf"),
