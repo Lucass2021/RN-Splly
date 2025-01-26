@@ -11,3 +11,7 @@ Zod - Ok
 MMKV (Requer Prebuild) - Ok
 SVG Transformer ou React Native Svg - Optional
 Jest - Optional
+
+# TODO
+
+- Splash Screen not working properly in Iphone Devices

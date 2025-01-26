@@ -64,7 +64,7 @@ function RootLayoutNav() {
   return (
     <SafeAreaView className="flex-1">
       <StatusBar style="auto" />
-      <Stack>
+      <Stack screenOptions={{headerShown: false}}>
         <Stack.Screen
           name="auth/index"
           redirect={false}

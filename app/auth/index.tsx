@@ -1,10 +1,15 @@
 import Button from "@/components/button/button";
+import {router} from "expo-router";
 import {Dimensions, Image, Text, View} from "react-native";
 
 export default function Index() {
   const bannerDemoImage = require("../../src/assets/images/auth-demo.jpg");
   const {height} = Dimensions.get("window");
   const imageHeight = height * 0.4;
+
+  const handleStartSlider = () => {
+    router.push("/auth/slider");
+  };
 
   return (
     // Utilizar pt-24 ou justify-center?
@@ -33,7 +38,7 @@ export default function Index() {
       </View>
 
       <View>
-        <Button text="Vamos Começar" />
+        <Button text="Vamos Começar" onPress={handleStartSlider} />
         <Text className="mt-3 text-sm text-center font-TTInterphasesRegular color-grayTwo">
           Já tem uma conta?{" "}
           <Text className="color-grayThree underline">Fazer Login</Text>
