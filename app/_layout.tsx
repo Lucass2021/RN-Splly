@@ -1,18 +1,18 @@
 import FontAwesome from "@expo/vector-icons/FontAwesome";
-import { useFonts } from "expo-font";
-import { Stack } from "expo-router";
+import {useFonts} from "expo-font";
+import {Stack} from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
-import { useEffect } from "react";
+import {useEffect} from "react";
 import "react-native-reanimated";
 
-import { StatusBar } from "expo-status-bar";
-import { SafeAreaView } from "react-native";
+import {StatusBar} from "expo-status-bar";
 
 import "../src/global.css";
+import {SafeAreaProvider, SafeAreaView} from "react-native-safe-area-context";
 
 export {
   // Catch any errors thrown by the Layout component.
-  ErrorBoundary
+  ErrorBoundary,
 } from "expo-router";
 
 export const unstable_settings = {
@@ -45,7 +45,11 @@ export default function RootLayout() {
     return null;
   }
 
-  return <RootLayoutNav />;
+  return (
+    <SafeAreaProvider>
+      <RootLayoutNav />
+    </SafeAreaProvider>
+  );
 }
 
 function RootLayoutNav() {
@@ -56,12 +60,12 @@ function RootLayoutNav() {
         <Stack.Screen
           name="auth/index"
           redirect={false}
-          options={{ headerShown: false }}
+          options={{headerShown: false}}
         />
         <Stack.Screen
           name="(app)/index"
           redirect={true}
-          options={{ headerShown: false }}
+          options={{headerShown: false}}
         />
       </Stack>
     </SafeAreaView>

@@ -5,8 +5,9 @@ Zustand - Ok
 Axios - Ok
 Tanstack Query - Ok
 Native Wind - Ok
-React Hook Form
-Zod
-MMKV
+React Hook Form - Ok
+Zod - Ok
+@hookform/resolvers - Ok
+MMKV (Requer Prebuild) - Ok
 SVG Transformer ou React Native Svg - Optional
 Jest - Optional
