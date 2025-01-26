@@ -26,6 +26,14 @@ SplashScreen.preventAutoHideAsync();
 export default function RootLayout() {
   const [loaded, error] = useFonts({
     // eslint-disable-next-line @typescript-eslint/no-require-imports
+    ObviouslyMedium: require("../assets/fonts/fonnts.com-Obviously_Medi.otf"),
+    ObviouslySemiBold: require("../assets/fonts/fonnts.com-Obviously_Semi.otf"),
+    ObviouslyBold: require("../assets/fonts/fonnts.com-Obviously_Bold.otf"),
+    TTInterphasesLight: require("../assets/fonts/TT-Interphases-Pro-Trial-Light.ttf"),
+    TTInterphasesRegular: require("../assets/fonts/TT-Interphases-Pro-Trial-Regular.ttf"),
+    TTInterphasesMedium: require("../assets/fonts/TT-Interphases-Pro-Trial-Medium.ttf"),
+    TTInterphasesSemiBold: require("../assets/fonts/TT-Interphases-Pro-Trial-DemiBold.ttf"),
+    TTInterphasesBold: require("../assets/fonts/TT-Interphases-Pro-Trial-Bold.ttf"),
     SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
     ...FontAwesome.font,
   });
