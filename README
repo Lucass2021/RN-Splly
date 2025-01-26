@@ -15,3 +15,4 @@ Jest - Optional
 # TODO
 
 - Splash Screen not working properly in Iphone Devices
+- Setup Zustand for user custom first access (Show only sign up and sign in screen after first access)

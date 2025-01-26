@@ -1,5 +1,5 @@
-import ArrowLeft from "@/assets/icons/arrow-left.svg";
-import ArrowRight from "@/assets/icons/arrow-right.svg";
+import ArrowLeftComponent from "@/assets/icons/arrowLeft";
+import ArrowRightComponent from "@/assets/icons/arrowRight";
 import {TouchableOpacity, View} from "react-native";
 
 type ArrowButtonSliderProps = {
@@ -7,21 +7,36 @@ type ArrowButtonSliderProps = {
     currentSlide: number;
     totalSlides: number;
   };
+  onPressNextImage: () => void;
+  onPressPrevImage: () => void;
 };
 
 export default function ArrowButtonSlider({
   sliderInfo,
+  onPressNextImage,
+  onPressPrevImage,
 }: ArrowButtonSliderProps) {
+  const buttonStyle = "h-16 w-16 rounded-2xl items-center justify-center pt-2";
   const activeButtonStyle = "bg-secondaryVariantOne";
   const disabledButtonStyle = "bg-transparent border border-grayFour";
-  const buttonStyle = "h-13 w-13 rounded-2xl items-center justify-center";
+
+  const activeIconColor = "#FFFAFA";
+  const disabledIconColor = "#9E9E9E";
 
   return (
     <View className="flex-row justify-between items-center">
       <TouchableOpacity
-        className={`${buttonStyle} ${disabledButtonStyle}`}
-        activeOpacity={0.7}>
-        <ArrowLeft />
+        className={`${buttonStyle} ${sliderInfo.currentSlide > 1 ? activeButtonStyle : disabledButtonStyle}`}
+        activeOpacity={0.7}
+        onPress={onPressPrevImage}
+        disabled={sliderInfo.currentSlide === 1}>
+        <ArrowLeftComponent
+          color={
+            sliderInfo.currentSlide > 1 ? activeIconColor : disabledIconColor
+          }
+          width={50}
+          height={25}
+        />
       </TouchableOpacity>
 
       <View className="flex-row gap-2">
@@ -35,8 +50,9 @@ export default function ArrowButtonSlider({
 
       <TouchableOpacity
         className={`${buttonStyle} ${activeButtonStyle}`}
-        activeOpacity={0.7}>
-        <ArrowRight />
+        activeOpacity={0.7}
+        onPress={onPressNextImage}>
+        <ArrowRightComponent color={activeIconColor} width={50} height={25} />
       </TouchableOpacity>
     </View>
   );

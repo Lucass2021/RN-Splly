@@ -1,10 +1,37 @@
 import ArrowButtonSlider from "@/components/arrowButtonSlider/arrowButtonSlider";
+import {router} from "expo-router";
+import {useState} from "react";
 import {Dimensions, Image, Text, View} from "react-native";
 
 export default function Slider() {
-  const bannerDemoImage = require("../../src/assets/images/auth-demo.jpg");
+  const [currentBannerImage, setCurrentBannerImage] = useState(0);
+
   const {height} = Dimensions.get("window");
   const imageHeight = height * 0.4;
+
+  const sliderImages = [
+    require("../../src/assets/images/auth-demo.jpg"),
+    require("../../src/assets/images/auth-demo-2.jpg"),
+    require("../../src/assets/images/auth-demo-3.jpg"),
+  ];
+
+  const bannerDemoImage = sliderImages[currentBannerImage];
+
+  const handlePrevSliderImage = () => {
+    if (currentBannerImage > 0) {
+      setCurrentBannerImage(currentBannerImage - 1);
+    }
+  };
+
+  const handleNextSliderImage = () => {
+    if (currentBannerImage < sliderImages.length - 1) {
+      setCurrentBannerImage(currentBannerImage + 1);
+    }
+
+    if (currentBannerImage + 1 === sliderImages.length) {
+      router.push("/auth/sign-up");
+    }
+  };
 
   return (
     <View className="flex-1 px-7.5 justify-center">
@@ -35,7 +62,14 @@ export default function Slider() {
       </View>
 
       <View>
-        <ArrowButtonSlider sliderInfo={{currentSlide: 1, totalSlides: 3}} />
+        <ArrowButtonSlider
+          sliderInfo={{
+            currentSlide: currentBannerImage + 1,
+            totalSlides: sliderImages.length,
+          }}
+          onPressNextImage={handleNextSliderImage}
+          onPressPrevImage={handlePrevSliderImage}
+        />
       </View>
     </View>
   );

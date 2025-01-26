@@ -6,6 +6,7 @@ export default function AuthLayout() {
     <View className="flex-1">
       <Stack.Screen name="auth" options={{headerShown: false}} />
       <Stack.Screen name="auth/slider" options={{headerShown: false}} />
+      <Stack.Screen name="auth/sign-up" options={{headerShown: false}} />
     </View>
   );
 }
