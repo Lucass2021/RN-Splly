@@ -9,7 +9,8 @@ React Hook Form - Ok
 Zod - Ok
 @hookform/resolvers - Ok
 MMKV (Requer Prebuild) - Ok
-SVG Transformer ou React Native Svg - Optional
+React Native Svg - Ok
+React Native SVG Transformer - Ok
 Jest - Optional
 
 # TODO

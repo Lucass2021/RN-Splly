@@ -16,7 +16,11 @@ export default function Button({
     <Pressable
       onPress={onPress}
       disabled={disabled}
-      className="bg-secondaryVariantOne h-14 rounded-2xl items-center justify-center"
+      className={`h-14 rounded-2xl items-center justify-center ${
+        disabled
+          ? "opacity-70 bg-secondaryVariantOne"
+          : "bg-secondaryVariantOne"
+      }`}
       {...props}>
       <Text className="text-center font-obviouslyBold text-white">{text}</Text>
     </Pressable>

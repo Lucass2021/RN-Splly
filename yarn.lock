@@ -4103,6 +4103,11 @@ expo-asset@~11.0.2:
     invariant "^2.2.4"
     md5-file "^3.2.3"
 
+expo-checkbox@~4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/expo-checkbox/-/expo-checkbox-4.0.1.tgz#753f0f8423066ada1fc669d591de69cdd6959797"
+  integrity sha512-dZECDqNVeAl8bLbho4mvZD+Vvqwr8mpa6lAHU7tBGGXtx4xfkztw05XlvB89yiIcG3FOQX5KhUBVhXOz+S2+VQ==
+
 expo-constants@~17.0.4:
   version "17.0.4"
   resolved "https://registry.yarnpkg.com/expo-constants/-/expo-constants-17.0.4.tgz#d0b653dc9a36fc0b25887c99a46d9806bdfe462d"

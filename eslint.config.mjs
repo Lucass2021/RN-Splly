@@ -15,6 +15,7 @@ export default [
       "react/no-unescaped-entities": "off",
       "react/react-in-jsx-scope": "off",
       "@typescript-eslint/no-require-imports": "off",
+      "@typescript-eslint/no-explicit-any": "off",
     },
   },
 ];
