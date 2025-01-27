@@ -1,6 +1,6 @@
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import {useFonts} from "expo-font";
-import {Stack} from "expo-router";
+import {Stack, useRouter} from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import {useEffect} from "react";
 import "react-native-reanimated";
@@ -9,6 +9,7 @@ import {StatusBar} from "expo-status-bar";
 
 import "../src/global.css";
 import {SafeAreaProvider, SafeAreaView} from "react-native-safe-area-context";
+import {useIsLoggedIn} from "@/store/auth";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -60,18 +61,27 @@ export default function RootLayout() {
 }
 
 function RootLayoutNav() {
+  const isLoggedIn = useIsLoggedIn();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      router.replace("/");
+    }
+  }, [isLoggedIn, router]);
+
   return (
     <SafeAreaView className="flex-1">
       <StatusBar style="auto" />
       <Stack screenOptions={{headerShown: false}}>
         <Stack.Screen
-          name="auth/index"
-          redirect={false}
+          name="(app)/index"
+          redirect={!isLoggedIn}
           options={{headerShown: false}}
         />
         <Stack.Screen
-          name="(app)/index"
-          redirect={true}
+          name="auth/index"
+          redirect={isLoggedIn}
           options={{headerShown: false}}
         />
       </Stack>

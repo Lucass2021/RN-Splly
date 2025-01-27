@@ -29,7 +29,7 @@ export default function Slider() {
     }
 
     if (currentBannerImage + 1 === sliderImages.length) {
-      router.push("/auth/sign-up");
+      router.replace("/auth/sign-up");
     }
   };
 
