@@ -86,21 +86,26 @@ export default function SignUp() {
             />
           </FormProvider>
 
-          <Pressable
-            className="flex-row gap-2.5"
-            onPress={() => setChecked(!isChecked)}>
-            <Checkbox
-              value={isChecked}
-              onValueChange={setChecked}
-              color={checkBoxColor}
-            />
-            <Text className="font-TTInterphasesLight text-base color-black">
-              Concordo com os{" "}
-              <Text className="font-TTInterphasesRegular underline">
-                Termos & Condições
+          <View className="flex-row gap-2.5">
+            <Pressable onPress={() => setChecked(!isChecked)} hitSlop={20}>
+              <Checkbox
+                value={isChecked}
+                onValueChange={setChecked}
+                color={checkBoxColor}
+              />
+            </Pressable>
+
+            <View className="flex-row">
+              <Text className="font-TTInterphasesLight text-base color-black">
+                Concordo com os{" "}
               </Text>
-            </Text>
-          </Pressable>
+              <Pressable onPress={() => router.push("/terms-and-conditions")}>
+                <Text className="font-TTInterphasesRegular underline text-base color-black">
+                  Termos & Condições
+                </Text>
+              </Pressable>
+            </View>
+          </View>
 
           <View className="mt-12 w-full">
             <Button

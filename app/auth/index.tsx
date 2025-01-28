@@ -7,10 +7,6 @@ export default function Index() {
   const {height} = Dimensions.get("window");
   const imageHeight = height * 0.4;
 
-  const handleStartSlider = () => {
-    router.push("/auth/slider");
-  };
-
   return (
     // Utilizar pt-24 ou justify-center?
     <View className="flex-1 px-7.5 justify-center">
@@ -38,7 +34,10 @@ export default function Index() {
       </View>
 
       <View>
-        <Button text="Vamos Começar" onPress={handleStartSlider} />
+        <Button
+          text="Vamos Começar"
+          onPress={() => router.push("/auth/slider")}
+        />
         <Pressable onPress={() => router.push("/auth/sign-in")}>
           <Text className="mt-3 text-sm text-center font-TTInterphasesRegular color-grayTwo">
             Já tem uma conta?{" "}

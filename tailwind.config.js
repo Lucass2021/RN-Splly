@@ -10,6 +10,7 @@ module.exports = {
       },
       margin: {
         7.5: "30px",
+        13: "50px",
       },
       height: {
         13: "50px",
