@@ -1,21 +1,6 @@
-import {MMKV} from "react-native-mmkv";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import {create} from "zustand";
 import {combine, createJSONStorage, persist} from "zustand/middleware";
-
-const mmkvStorage = new MMKV();
-
-const mmkvAdapter = {
-  getItem: (key: string): any => {
-    const value = mmkvStorage.getString(key);
-    return value ? JSON.parse(value) : null;
-  },
-  setItem: (key: string, value: any): void => {
-    mmkvStorage.set(key, JSON.stringify(value));
-  },
-  removeItem: (key: string): void => {
-    mmkvStorage.delete(key);
-  },
-};
 
 const authStore = create(
   persist(
@@ -39,7 +24,7 @@ const authStore = create(
     ),
     {
       name: "user",
-      storage: createJSONStorage(() => mmkvAdapter),
+      storage: createJSONStorage(() => AsyncStorage),
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       partialize: ({actions, ...rest}) => rest,
     },
