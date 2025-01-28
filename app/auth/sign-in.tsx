@@ -1,9 +1,8 @@
 import Button from "@/components/button/button";
 import Input from "@/components/input/input";
+import {useAuthActions} from "@/store/auth";
 import {zodResolver} from "@hookform/resolvers/zod";
-import Checkbox from "expo-checkbox";
 import {router} from "expo-router";
-import {useState} from "react";
 import {FormProvider, useForm} from "react-hook-form";
 import {
   KeyboardAvoidingView,
@@ -15,8 +14,7 @@ import {
 } from "react-native";
 import {z} from "zod";
 
-const signUpFormSchema = z.object({
-  name: z.string().min(1, {message: "Informe o seu nome"}),
+const signInFormSchema = z.object({
   email: z
     .string()
     .email("Email inválido")
@@ -24,16 +22,14 @@ const signUpFormSchema = z.object({
   password: z.string().min(1, {message: "Informe sua senha"}),
 });
 
-type SignUpForm = z.infer<typeof signUpFormSchema>;
+type SignInForm = z.infer<typeof signInFormSchema>;
 
-export default function SignUp() {
-  const [isChecked, setChecked] = useState(false);
-  const checkBoxColor = isChecked ? "#A9E5BB" : "#808080";
+export default function SignIn() {
+  const {setUserEmail, login} = useAuthActions();
 
-  const form = useForm<SignUpForm>({
-    resolver: zodResolver(signUpFormSchema),
+  const form = useForm<SignInForm>({
+    resolver: zodResolver(signInFormSchema),
     defaultValues: {
-      name: "",
       email: "",
       password: "",
     },
@@ -41,8 +37,12 @@ export default function SignUp() {
 
   const {handleSubmit} = form;
 
-  const handleSignUp = async (data: SignUpForm) => {
+  const handleSignIn = async (data: SignInForm) => {
     console.log("data", data);
+    setUserEmail(data.email);
+
+    login();
+    router.replace("/");
   };
 
   return (
@@ -60,7 +60,7 @@ export default function SignUp() {
           }}>
           <View className="mb-7.5">
             <Text className="text-center color-warningOne text-3xl font-obviouslyBold mb-5">
-              Crie sua conta
+              Bem vindo de volta!
             </Text>
             <Text className="text-center color-grayOne text-base font-TTInterphasesRegular">
               Lorem ipsum potenti orci suspendisse aliquam nullam ornare
@@ -69,7 +69,6 @@ export default function SignUp() {
           </View>
 
           <FormProvider {...form}>
-            <Input name="name" customPlaceholder="Nome" />
             <Input
               name="email"
               customPlaceholder="E-mail"
@@ -86,37 +85,22 @@ export default function SignUp() {
             />
           </FormProvider>
 
-          <View className="flex-row gap-2.5">
-            <Pressable onPress={() => setChecked(!isChecked)} hitSlop={20}>
-              <Checkbox
-                value={isChecked}
-                onValueChange={setChecked}
-                color={checkBoxColor}
-              />
-            </Pressable>
-
-            <View className="flex-row">
-              <Text className="font-TTInterphasesLight text-base color-black">
-                Concordo com os{" "}
-              </Text>
-              <Pressable onPress={() => router.push("/terms-and-conditions")}>
-                <Text className="font-TTInterphasesRegular underline text-base color-black">
-                  Termos & Condições
-                </Text>
-              </Pressable>
-            </View>
-          </View>
+          <Pressable className=" w-full">
+            <Text className="font-TTInterphasesRegular text-base color-black underline">
+              Esqueci minha senha
+            </Text>
+          </Pressable>
 
           <View className="mt-12 w-full">
             <Button
-              text="Criar Conta"
-              onPress={() => handleSubmit(handleSignUp)()}
-              disabled={!isChecked}
+              text="Entrar"
+              onPress={() => handleSubmit(handleSignIn)()}
+              disabled={false}
             />
-            <Pressable onPress={() => router.push("/auth/sign-in")}>
+            <Pressable onPress={() => router.push("/auth/sign-up")}>
               <Text className="mt-3 text-sm text-center font-TTInterphasesRegular color-grayTwo">
-                Já tem uma conta?{" "}
-                <Text className="color-grayThree underline">Fazer Login</Text>
+                Ainda não tem uma conta?{" "}
+                <Text className="color-grayThree underline">Criar uma</Text>
               </Text>
             </Pressable>
           </View>
