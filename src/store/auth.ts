@@ -9,6 +9,7 @@ const authStore = create(
         isLoggedIn: false,
         userName: "",
         userEmail: "",
+        hasUserAcceptedTermsAndConditions: false,
       },
       set => ({
         actions: {
@@ -16,6 +17,8 @@ const authStore = create(
           logout: () => set({isLoggedIn: false}),
           setUserName: (name: string) => set({userName: name}),
           setUserEmail: (email: string) => set({userEmail: email}),
+          setUserTermsAndConditions: (userTermsAndConditions: boolean) =>
+            set({hasUserAcceptedTermsAndConditions: userTermsAndConditions}),
         },
       }),
     ),
@@ -34,3 +37,5 @@ export const useIsLoggedIn = () => authStore(state => state.isLoggedIn);
 
 export const useUserName = () => authStore(state => state.userName);
 export const useUserEmail = () => authStore(state => state.userEmail);
+export const useUserTermsAndConditions = () =>
+  authStore(state => state.hasUserAcceptedTermsAndConditions);
