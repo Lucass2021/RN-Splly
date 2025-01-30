@@ -1,48 +1,44 @@
 import Button from "@/components/button/button";
 import Input from "@/components/input/input";
-import {useAuthActions} from "@/store/auth";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {router} from "expo-router";
 import {FormProvider, useForm} from "react-hook-form";
 import {
   KeyboardAvoidingView,
   Platform,
-  Pressable,
   ScrollView,
   Text,
   View,
 } from "react-native";
 import {z} from "zod";
 
-const signInFormSchema = z.object({
+const forgotPasswordFormSchema = z.object({
   email: z
     .string()
     .email("Email inválido")
     .min(1, {message: "Informe o seu Email"}),
   password: z.string().min(1, {message: "Informe sua senha"}),
+  newPassword: z.string().min(1, {message: "Informe sua nova senha"}),
 });
 
-type SignInForm = z.infer<typeof signInFormSchema>;
+type ForgotPasswordForm = z.infer<typeof forgotPasswordFormSchema>;
 
-export default function SignIn() {
-  const {setUserEmail, login} = useAuthActions();
-
-  const form = useForm<SignInForm>({
-    resolver: zodResolver(signInFormSchema),
+export default function ForgotPassword() {
+  const form = useForm<ForgotPasswordForm>({
+    resolver: zodResolver(forgotPasswordFormSchema),
     defaultValues: {
       email: "",
       password: "",
+      newPassword: "",
     },
   });
 
   const {handleSubmit} = form;
 
-  const handleSignIn = async (data: SignInForm) => {
+  const handleResetPassword = async (data: ForgotPasswordForm) => {
     console.log("data", data);
-    setUserEmail(data.email);
 
-    login();
-    router.replace("/");
+    router.replace("/auth/sign-in");
   };
 
   return (
@@ -59,7 +55,7 @@ export default function SignIn() {
           }}>
           <View className="mb-7.5">
             <Text className="text-center color-warningOne text-3xl font-obviouslyBold mb-5">
-              Bem vindo de volta!
+              Redefina sua senha
             </Text>
             <Text className="text-center color-grayOne text-base font-TTInterphasesRegular">
               Lorem ipsum potenti orci suspendisse aliquam nullam ornare
@@ -82,28 +78,20 @@ export default function SignIn() {
               keyboardType="default"
               secureTextEntry
             />
+            <Input
+              name="newPassword"
+              customPlaceholder="Nova senha"
+              keyboardType="default"
+              secureTextEntry
+            />
           </FormProvider>
-
-          <Pressable
-            className="w-full"
-            onPress={() => router.push("/auth/forgot-password")}>
-            <Text className="font-TTInterphasesRegular text-base color-black underline">
-              Esqueci minha senha
-            </Text>
-          </Pressable>
 
           <View className="mt-12 w-full">
             <Button
               text="Entrar"
-              onPress={() => handleSubmit(handleSignIn)()}
+              onPress={() => handleSubmit(handleResetPassword)()}
               disabled={false}
             />
-            <Pressable onPress={() => router.push("/auth/sign-up")}>
-              <Text className="mt-3 text-sm text-center font-TTInterphasesRegular color-grayTwo">
-                Ainda não tem uma conta?{" "}
-                <Text className="color-grayThree underline">Criar uma</Text>
-              </Text>
-            </Pressable>
           </View>
         </ScrollView>
       </View>

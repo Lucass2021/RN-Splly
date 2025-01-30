@@ -37,10 +37,12 @@ export default function Input({
 
   return (
     <View className="w-full mb-5">
-      <Text className="font-TTInterphasesMedium color-black text-base mb-2">
+      <Text
+        className={`font-TTInterphasesMedium text-base mb-2 ${error ? "color-red-500" : "color-black"}`}>
         {customPlaceholder}
       </Text>
-      <View className="flex-row items-center border rounded-2xl border-grayFour">
+      <View
+        className={`flex-row items-center border rounded-2xl ${error ? "border-red-500" : "border-grayFour"}`}>
         <TextInput
           ref={textInputRef}
           className={`flex-1 font-TTInterphasesLight color-black text-base px-5 h-12 ${className}`}
@@ -64,7 +66,7 @@ export default function Input({
         )}
       </View>
       {error && (
-        <Text className="font-semibold text-center text-red-500 text-sm mt-3">
+        <Text className="font-semibold  text-red-500 text-sm mt-1">
           {error.message}
         </Text>
       )}

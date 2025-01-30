@@ -7,6 +7,7 @@ const authStore = create(
     combine(
       {
         isLoggedIn: false,
+        isFirstAccess: true,
         userName: "",
         userEmail: "",
         hasUserAcceptedTermsAndConditions: false,
@@ -15,6 +16,8 @@ const authStore = create(
         actions: {
           login: () => set({isLoggedIn: true}),
           logout: () => set({isLoggedIn: false}),
+          setFirstAccess: (firstAccessValue: boolean) =>
+            set({isFirstAccess: firstAccessValue}),
           setUserName: (name: string) => set({userName: name}),
           setUserEmail: (email: string) => set({userEmail: email}),
           setUserTermsAndConditions: (userTermsAndConditions: boolean) =>
@@ -34,6 +37,7 @@ const authStore = create(
 export const useAuthActions = () => authStore(state => state.actions);
 
 export const useIsLoggedIn = () => authStore(state => state.isLoggedIn);
+export const useIsFirstAccess = () => authStore(state => state.isFirstAccess);
 
 export const useUserName = () => authStore(state => state.userName);
 export const useUserEmail = () => authStore(state => state.userEmail);
