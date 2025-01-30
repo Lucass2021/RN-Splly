@@ -18,3 +18,8 @@ Jest - Optional
 - Splash Screen not working properly in Iphone Devices
 - Setup Zustand for user custom first access (Show only sign up and sign in screen after first access) - Ok
 - Update zustand from Async Storage to MMKV
+- Change font weight in slider from medium to 300
+- Remove first arrow from slider
+- Test with light images in slider
+- Fix input text in IOS devices
+- Fix button in TermsAndConditions screen
