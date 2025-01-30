@@ -67,7 +67,7 @@ export default function TermsAndConditions() {
   ];
 
   return (
-    <View className="flex-1 px-7.5 pt-10 bg-white">
+    <View className="flex-1 px-7.5 pt-13 bg-white">
       <BackButtonHeader title="Privacidade" />
       <Topic topicData={topicData} />
     </View>

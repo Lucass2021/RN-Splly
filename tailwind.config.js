@@ -7,6 +7,8 @@ module.exports = {
     extend: {
       padding: {
         7.5: "30px",
+        13: "50px",
+        15: "60px",
       },
       margin: {
         7.5: "30px",
