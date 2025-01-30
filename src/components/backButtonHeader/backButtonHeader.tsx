@@ -10,7 +10,7 @@ export default function BackButtonHeader({title}: BackButtonHeaderProps) {
   const iconColor = "#2D1E2F";
 
   return (
-    <View className="flex-1 flex-row items-center justify-between mb-13">
+    <View className=" flex-row items-center justify-between mb-10">
       <TouchableOpacity
         className="h-16 w-16 rounded-2xl items-center justify-center pt-2 bg-grayFive"
         activeOpacity={0.7}

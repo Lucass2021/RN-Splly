@@ -1,9 +1,9 @@
 import Button from "@/components/button/button";
 import Input from "@/components/input/input";
+import {useAuthActions, useUserTermsAndConditions} from "@/store/auth";
 import {zodResolver} from "@hookform/resolvers/zod";
 import Checkbox from "expo-checkbox";
 import {router} from "expo-router";
-import {useState} from "react";
 import {FormProvider, useForm} from "react-hook-form";
 import {
   KeyboardAvoidingView,
@@ -27,8 +27,9 @@ const signUpFormSchema = z.object({
 type SignUpForm = z.infer<typeof signUpFormSchema>;
 
 export default function SignUp() {
-  const [isChecked, setChecked] = useState(false);
-  const checkBoxColor = isChecked ? "#A9E5BB" : "#808080";
+  const userTermsAndConditions = useUserTermsAndConditions();
+  const {setUserTermsAndConditions} = useAuthActions();
+  const checkBoxColor = userTermsAndConditions ? "#A9E5BB" : "#808080";
 
   const form = useForm<SignUpForm>({
     resolver: zodResolver(signUpFormSchema),
@@ -45,11 +46,15 @@ export default function SignUp() {
     console.log("data", data);
   };
 
+  const handleAcceptTermsAndConditions = () => {
+    setUserTermsAndConditions(!userTermsAndConditions);
+  };
+
   return (
     <KeyboardAvoidingView
       className="flex-1"
       behavior={Platform.OS === "ios" ? "padding" : "height"}>
-      <View className="flex-1 px-7.5 justify-center">
+      <View className="flex-1 px-7.5 justify-center bg-white">
         <ScrollView
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator={false}
@@ -87,10 +92,10 @@ export default function SignUp() {
           </FormProvider>
 
           <View className="flex-row gap-2.5">
-            <Pressable onPress={() => setChecked(!isChecked)} hitSlop={20}>
+            <Pressable onPress={handleAcceptTermsAndConditions} hitSlop={20}>
               <Checkbox
-                value={isChecked}
-                onValueChange={setChecked}
+                value={userTermsAndConditions}
+                onValueChange={handleAcceptTermsAndConditions}
                 color={checkBoxColor}
               />
             </Pressable>
@@ -111,7 +116,7 @@ export default function SignUp() {
             <Button
               text="Criar Conta"
               onPress={() => handleSubmit(handleSignUp)()}
-              disabled={!isChecked}
+              disabled={!userTermsAndConditions}
             />
             <Pressable onPress={() => router.push("/auth/sign-in")}>
               <Text className="mt-3 text-sm text-center font-TTInterphasesRegular color-grayTwo">

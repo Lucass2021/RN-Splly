@@ -1,6 +1,6 @@
 import BackButtonHeader from "@/components/backButtonHeader/backButtonHeader";
 import Topic from "@/components/topic/topic";
-import {ScrollView, View} from "react-native";
+import {View} from "react-native";
 
 export default function TermsAndConditions() {
   const topicData = [
@@ -67,14 +67,9 @@ export default function TermsAndConditions() {
   ];
 
   return (
-    <ScrollView
-      className="flex-1 px-7.5 pt-10 bg-white"
-      showsVerticalScrollIndicator={false}>
+    <View className="flex-1 px-7.5 pt-10 bg-white">
       <BackButtonHeader title="Privacidade" />
-
-      <View>
-        <Topic topicData={topicData} />
-      </View>
-    </ScrollView>
+      <Topic topicData={topicData} />
+    </View>
   );
 }

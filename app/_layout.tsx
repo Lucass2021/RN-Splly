@@ -80,15 +80,14 @@ function RootLayoutNav() {
           options={{headerShown: false}}
         />
         <Stack.Screen
-          // name="auth/index"
-          name="terms-and-conditions"
+          name="auth/index"
           redirect={isLoggedIn}
           options={{headerShown: false}}
         />
-        {/* <Stack.Screen
+        <Stack.Screen
           name="terms-and-conditions"
           options={{headerShown: false}}
-        /> */}
+        />
       </Stack>
     </SafeAreaView>
   );

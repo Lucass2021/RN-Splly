@@ -43,7 +43,7 @@ export default function ArrowButtonSlider({
         {Array.from({length: sliderInfo.totalSlides}).map((_, index) => (
           <View
             key={index}
-            className={`h-3 w-3 rounded-full ${index === sliderInfo.currentSlide - 1 ? "bg-secondaryVariantThree" : "bg-grayFour"}`}
+            className={`h-3 w-3 rounded-full ${index === sliderInfo.currentSlide - 1 ? "bg-secondaryVariantThree" : "bg-grayFive"}`}
           />
         ))}
       </View>

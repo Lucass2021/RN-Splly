@@ -49,7 +49,7 @@ export default function SignIn() {
     <KeyboardAvoidingView
       className="flex-1"
       behavior={Platform.OS === "ios" ? "padding" : "height"}>
-      <View className="flex-1 px-7.5 justify-center">
+      <View className="flex-1 px-7.5 justify-center bg-white">
         <ScrollView
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator={false}
