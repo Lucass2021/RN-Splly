@@ -7,9 +7,9 @@ import "react-native-reanimated";
 
 import {StatusBar} from "expo-status-bar";
 
-import "../src/global.css";
-import {SafeAreaProvider, SafeAreaView} from "react-native-safe-area-context";
 import {useIsLoggedIn} from "@/store/auth";
+import {SafeAreaProvider, SafeAreaView} from "react-native-safe-area-context";
+import "../src/global.css";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -75,12 +75,12 @@ function RootLayoutNav() {
       <StatusBar style="auto" />
       <Stack screenOptions={{headerShown: false}}>
         <Stack.Screen
-          name="(app)/index"
+          name="(app)"
           redirect={!isLoggedIn}
           options={{headerShown: false}}
         />
         <Stack.Screen
-          name="auth/index"
+          name="auth"
           redirect={isLoggedIn}
           options={{headerShown: false}}
         />
