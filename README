@@ -16,5 +16,5 @@ Jest - Optional
 # TODO
 
 - Splash Screen not working properly in Iphone Devices
-- Setup Zustand for user custom first access (Show only sign up and sign in screen after first access)
+- Setup Zustand for user custom first access (Show only sign up and sign in screen after first access) - Ok
 - Update zustand from Async Storage to MMKV
