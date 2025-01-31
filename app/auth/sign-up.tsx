@@ -1,3 +1,4 @@
+import {Colors} from "@/colors/colors";
 import Button from "@/components/button/button";
 import Input from "@/components/input/input";
 import {useAuthActions, useUserTermsAndConditions} from "@/store/auth";
@@ -29,7 +30,9 @@ type SignUpForm = z.infer<typeof signUpFormSchema>;
 export default function SignUp() {
   const userTermsAndConditions = useUserTermsAndConditions();
   const {setUserTermsAndConditions} = useAuthActions();
-  const checkBoxColor = userTermsAndConditions ? "#A9E5BB" : "#808080";
+  const checkBoxColor = userTermsAndConditions
+    ? Colors.confirm
+    : Colors.graySix;
 
   const form = useForm<SignUpForm>({
     resolver: zodResolver(signUpFormSchema),
@@ -54,7 +57,7 @@ export default function SignUp() {
     <KeyboardAvoidingView
       className="flex-1"
       behavior={Platform.OS === "ios" ? "padding" : "height"}>
-      <View className="flex-1 px-7.5 pt-13 bg-white">
+      <View className="flex-1 px-7.5 pt-13 bg-light">
         <ScrollView
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator={false}

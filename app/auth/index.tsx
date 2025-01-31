@@ -21,7 +21,7 @@ export default function Index() {
 
   return (
     // Utilizar pt-24 ou justify-center?
-    <View className="flex-1 px-7.5 justify-center bg-white">
+    <View className="flex-1 px-7.5 justify-center bg-light">
       <View className="rounded-2xl">
         <Image
           source={bannerDemoImage}
@@ -32,7 +32,7 @@ export default function Index() {
       </View>
 
       <View className="mt-10 mb-5">
-        <Text className="font-obviouslyMedium text-2.5xl color-darkOne text-center">
+        <Text className="font-ObviouslyLight text-2.5xl color-darkOne text-center">
           <Text className="font-obviouslyBold color-warningOne">O seu app</Text>{" "}
           de agendamentos
         </Text>

@@ -10,9 +10,9 @@ export default function Slider() {
   const imageHeight = height * 0.4;
 
   const sliderImages = [
-    require("../../src/assets/images/auth-demo.jpg"),
-    require("../../src/assets/images/auth-demo-2.jpg"),
-    require("../../src/assets/images/auth-demo-3.jpg"),
+    require("../../src/assets/images/slider-demo-100kb-1.jpg"),
+    require("../../src/assets/images/slider-demo-100kb-2.jpg"),
+    require("../../src/assets/images/slider-demo-100kb-3.jpg"),
   ];
 
   const bannerDemoImage = sliderImages[currentBannerImage];
@@ -34,7 +34,7 @@ export default function Slider() {
   };
 
   return (
-    <View className="flex-1 px-7.5 justify-center bg-white">
+    <View className="flex-1 px-7.5 justify-center bg-light">
       <View className="rounded-2xl">
         <Image
           source={bannerDemoImage}
@@ -45,7 +45,7 @@ export default function Slider() {
       </View>
 
       <View className="mt-10 mb-5">
-        <Text className="font-obviouslyMedium text-2.5xl color-darkOne text-center">
+        <Text className="font-obviouslyLight text-2.5xl color-darkOne text-center">
           Conheça{" "}
           <Text className="font-obviouslyBold color-warningOne">
             salões próximos

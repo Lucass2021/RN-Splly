@@ -45,7 +45,7 @@ export default function ForgotPassword() {
     <KeyboardAvoidingView
       className="flex-1"
       behavior={Platform.OS === "ios" ? "padding" : "height"}>
-      <View className="flex-1 px-7.5 pt-13 justify-center bg-white">
+      <View className="flex-1 px-7.5 pt-13 justify-center bg-light">
         <ScrollView
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator={false}

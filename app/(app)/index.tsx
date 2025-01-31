@@ -1,24 +1,10 @@
-import Button from "@/components/button/button";
-import {useAuthActions} from "@/store/auth";
-import {router} from "expo-router";
-import {Text, View} from "react-native";
+import AddressAndNotificationHeader from "@/components/addressAndNotificationHeader/addressAndNotificationHeader";
+import {View} from "react-native";
 
 export default function Index() {
-  const {logout} = useAuthActions();
-
-  const handleUserLogout = () => {
-    logout();
-    router.replace("/auth/sign-in");
-  };
-
   return (
-    <View className="flex-1 justify-center items-center px-7.5">
-      <View className="w-full">
-        <Text className="text-center mb-5 font-obviouslyBold">
-          Home App Route
-        </Text>
-        <Button text="Logout" onPress={handleUserLogout} />
-      </View>
+    <View className="flex-1 px-7.5 pt-13 bg-light">
+      <AddressAndNotificationHeader />
     </View>
   );
 }

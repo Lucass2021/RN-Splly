@@ -26,6 +26,7 @@ SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const [loaded, error] = useFonts({
+    ObviouslyLight: require("../assets/fonts/fonnts.com-Obviously_Lght.otf"),
     ObviouslyMedium: require("../assets/fonts/fonnts.com-Obviously_Medi.otf"),
     ObviouslySemiBold: require("../assets/fonts/fonnts.com-Obviously_Semi.otf"),
     ObviouslyBold: require("../assets/fonts/fonnts.com-Obviously_Bold.otf"),
