@@ -77,7 +77,7 @@ export default function TermsAndConditions() {
   };
 
   return (
-    <View className="flex-1 px-7.5 pt-13 bg-white">
+    <View className="flex-1 px-7.5 pt-13 bg-light">
       <Topic topicData={topicData} />
       <View className="position-absolute bottom-0">
         {!userTermsAndConditions && (

@@ -1,4 +1,5 @@
 import ArrowLeftComponent from "@/assets/icons/arrowLeft";
+import {Colors} from "@/colors/colors";
 import {router} from "expo-router";
 import {Text, TouchableOpacity, View} from "react-native";
 
@@ -7,7 +8,7 @@ type BackButtonHeaderProps = {
 };
 
 export default function BackButtonHeader({title}: BackButtonHeaderProps) {
-  const iconColor = "#2D1E2F";
+  const iconColor = Colors.secondaryVariantThree;
 
   return (
     <View className="flex-row items-center justify-between mb-10">

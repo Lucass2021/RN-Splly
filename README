@@ -25,3 +25,4 @@ Jest - Optional
 - ~~Fix button in TermsAndConditions screen - Ok~~
 - ~~Fix TermsAndConditions screen scrollview - Ok~~
 - Add toast
+- ~~Fix colors by using colors.ts file - Ok~~

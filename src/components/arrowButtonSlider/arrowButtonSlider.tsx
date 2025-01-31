@@ -1,5 +1,6 @@
 import ArrowLeftComponent from "@/assets/icons/arrowLeft";
 import ArrowRightComponent from "@/assets/icons/arrowRight";
+import {Colors} from "@/colors/colors";
 import {TouchableOpacity, View} from "react-native";
 
 type ArrowButtonSliderProps = {
@@ -20,8 +21,8 @@ export default function ArrowButtonSlider({
   const activeButtonStyle = "bg-secondaryVariantOne";
   const disabledButtonStyle = "bg-transparent border border-grayFour";
 
-  const activeIconColor = "#FFFAFA";
-  const disabledIconColor = "#9E9E9E";
+  const activeIconColor = Colors.lightOne;
+  const disabledIconColor = Colors.grayFour;
 
   return (
     <View className="flex-row justify-between items-center">

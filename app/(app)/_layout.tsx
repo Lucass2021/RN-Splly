@@ -1,4 +1,8 @@
-import {FontAwesome} from "@expo/vector-icons";
+import ExploreComponent from "@/assets/icons/explore";
+import HomeComponent from "@/assets/icons/home";
+import ProfileComponent from "@/assets/icons/profile";
+import ScheduleComponent from "@/assets/icons/schedule";
+import {Colors} from "@/colors/colors";
 import {Tabs} from "expo-router";
 import {Text} from "react-native";
 
@@ -18,16 +22,20 @@ export default function AppLayout() {
           tabBarIcon: ({focused}) => {
             if (focused) {
               return (
-                <FontAwesome name="list-ul" className="text-accent text-2xl" />
+                <HomeComponent
+                  color={Colors.secondaryVariantOne}
+                  width={20}
+                  height={20}
+                />
               );
             }
             return (
-              <FontAwesome name="list-ul" className="text-body text-2xl" />
+              <HomeComponent color={Colors.grayOne} width={20} height={20} />
             );
           },
           tabBarLabel: ({focused}) => (
             <Text
-              className={focused ? "text-secondaryVariantOne" : "text-grayOne"}>
+              className={`font-TTInterphasesMedium text-base mt-1  ${focused ? "text-secondaryVariantOne" : "text-grayOne"}`}>
               Home
             </Text>
           ),
@@ -39,16 +47,20 @@ export default function AppLayout() {
           tabBarIcon: ({focused}) => {
             if (focused) {
               return (
-                <FontAwesome name="list-ul" className="text-accent text-2xl" />
+                <ExploreComponent
+                  color={Colors.secondaryVariantOne}
+                  width={20}
+                  height={20}
+                />
               );
             }
             return (
-              <FontAwesome name="list-ul" className="text-body text-2xl" />
+              <ExploreComponent color={Colors.grayOne} width={20} height={20} />
             );
           },
           tabBarLabel: ({focused}) => (
             <Text
-              className={focused ? "text-secondaryVariantOne" : "text-grayOne"}>
+              className={`font-TTInterphasesMedium text-base mt-1  ${focused ? "text-secondaryVariantOne" : "text-grayOne"}`}>
               Explorar
             </Text>
           ),
@@ -60,16 +72,24 @@ export default function AppLayout() {
           tabBarIcon: ({focused}) => {
             if (focused) {
               return (
-                <FontAwesome name="list-ul" className="text-accent text-2xl" />
+                <ScheduleComponent
+                  color={Colors.secondaryVariantOne}
+                  width={20}
+                  height={20}
+                />
               );
             }
             return (
-              <FontAwesome name="list-ul" className="text-body text-2xl" />
+              <ScheduleComponent
+                color={Colors.grayOne}
+                width={20}
+                height={20}
+              />
             );
           },
           tabBarLabel: ({focused}) => (
             <Text
-              className={focused ? "text-secondaryVariantOne" : "text-grayOne"}>
+              className={`font-TTInterphasesMedium text-base mt-1 ${focused ? "text-secondaryVariantOne" : "text-grayOne"}`}>
               Agenda
             </Text>
           ),
@@ -81,16 +101,20 @@ export default function AppLayout() {
           tabBarIcon: ({focused}) => {
             if (focused) {
               return (
-                <FontAwesome name="list-ul" className="text-accent text-2xl" />
+                <ProfileComponent
+                  color={Colors.secondaryVariantOne}
+                  width={20}
+                  height={20}
+                />
               );
             }
             return (
-              <FontAwesome name="list-ul" className="text-body text-2xl" />
+              <ProfileComponent color={Colors.grayOne} width={20} height={20} />
             );
           },
           tabBarLabel: ({focused}) => (
             <Text
-              className={focused ? "text-secondaryVariantOne" : "text-grayOne"}>
+              className={`font-TTInterphasesMedium text-base mt-1 ${focused ? "text-secondaryVariantOne" : "text-grayOne"}`}>
               Perfil
             </Text>
           ),

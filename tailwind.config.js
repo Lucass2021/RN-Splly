@@ -44,6 +44,7 @@ module.exports = {
         warning: "#DBE147",
         warningOne: "#F7B32B",
         light: "#FFFFFF",
+        lightOne: "#FFFAFA",
         dark: "#000000",
         darkOne: "#191919",
         grayOne: "#616161",

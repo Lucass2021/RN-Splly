@@ -34,7 +34,7 @@ export default function Slider() {
   };
 
   return (
-    <View className="flex-1 px-7.5 justify-center bg-white">
+    <View className="flex-1 px-7.5 justify-center bg-light">
       <View className="rounded-2xl">
         <Image
           source={bannerDemoImage}
