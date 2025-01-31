@@ -1,5 +1,7 @@
-import BackButtonHeader from "@/components/backButtonHeader/backButtonHeader";
+import Button from "@/components/button/button";
 import Topic from "@/components/topic/topic";
+import {useAuthActions, useUserTermsAndConditions} from "@/store/auth";
+import {router} from "expo-router";
 import {View} from "react-native";
 
 export default function TermsAndConditions() {
@@ -66,10 +68,28 @@ export default function TermsAndConditions() {
     },
   ];
 
+  const {setUserTermsAndConditions} = useAuthActions();
+  const userTermsAndConditions = useUserTermsAndConditions();
+
+  const handleAcceptTermsAndConditions = () => {
+    setUserTermsAndConditions(true);
+    router.push("/auth/sign-up");
+  };
+
   return (
     <View className="flex-1 px-7.5 pt-13 bg-white">
-      <BackButtonHeader title="Privacidade" />
       <Topic topicData={topicData} />
+      <View className="position-absolute bottom-0">
+        {!userTermsAndConditions && (
+          <View className="pb-10">
+            <Button
+              text="Aceitar"
+              onPress={handleAcceptTermsAndConditions}
+              disabled={userTermsAndConditions}
+            />
+          </View>
+        )}
+      </View>
     </View>
   );
 }

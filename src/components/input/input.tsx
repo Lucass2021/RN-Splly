@@ -1,6 +1,7 @@
 import {useRef, useState} from "react";
 import {useController, useFormContext} from "react-hook-form";
 import {
+  Platform,
   TextInputProps as RnTextInputProps,
   Text,
   TextInput,
@@ -42,10 +43,13 @@ export default function Input({
         {customPlaceholder}
       </Text>
       <View
-        className={`flex-row items-center border rounded-2xl ${error ? "border-red-500" : "border-grayFour"}`}>
+        className={`flex-row items-center border rounded-2xl ${error ? "border-red-500" : "border-grayFour"}`}
+        style={{
+          paddingBottom: Platform.OS === "ios" ? 8 : 0,
+        }}>
         <TextInput
           ref={textInputRef}
-          className={`flex-1 font-TTInterphasesLight color-black text-base px-5 h-12 ${className}`}
+          className={`flex-1 font-TTInterphasesLight color-black text-base px-5 h-12  ${className}`}
           onChangeText={onChange}
           onBlur={onBlur}
           value={value}

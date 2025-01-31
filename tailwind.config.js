@@ -15,12 +15,14 @@ module.exports = {
         13: "50px",
       },
       height: {
+        6.5: "25px",
         13: "50px",
       },
       width: {
         13: "50px",
       },
       fontFamily: {
+        obviouslyLight: ["ObviouslyLight", "sans-serif"],
         obviouslyMedium: ["ObviouslyMedium", "sans-serif"],
         obviouslySemiBold: ["ObviouslySemiBold", "sans-serif"],
         obviouslyBold: ["ObviouslyBold", "sans-serif"],
