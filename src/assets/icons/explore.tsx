@@ -7,7 +7,7 @@ type ExploreProps = {
   height?: number;
 };
 
-const ExploreComponent = ({
+export const ExploreComponent = ({
   color = "black",
   width = 20,
   height = 20,

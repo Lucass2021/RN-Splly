@@ -14,7 +14,7 @@ export default function ProfileScreen() {
   return (
     <View className="flex-1 justify-center items-center px-7.5">
       <View className="w-full">
-        <Text className="text-center mb-5 font-obviouslyBold">
+        <Text className="text-center mb-5 font-obviouslySemiBold">
           Profile App Route
         </Text>
         <Button text="Logout" onPress={handleUserLogout} />

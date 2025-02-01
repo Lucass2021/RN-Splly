@@ -1,7 +1,5 @@
-import ArrowLeftComponent from "@/assets/icons/arrowLeft";
-import ArrowRightComponent from "@/assets/icons/arrowRight";
-import {Colors} from "@/colors/colors";
-import {TouchableOpacity, View} from "react-native";
+import {View} from "react-native";
+import IconButton from "../iconButton/iconButton";
 
 type ArrowButtonSliderProps = {
   sliderInfo: {
@@ -17,29 +15,18 @@ export default function ArrowButtonSlider({
   onPressNextImage,
   onPressPrevImage,
 }: ArrowButtonSliderProps) {
-  const buttonStyle = "h-16 w-16 rounded-2xl items-center justify-center pt-2";
-  const activeButtonStyle = "bg-secondaryVariantOne";
-  const disabledButtonStyle = "bg-transparent border border-grayFour";
-
-  const activeIconColor = Colors.lightOne;
-  const disabledIconColor = Colors.grayFour;
-
   return (
     <View className="flex-row justify-between items-center">
       {sliderInfo.currentSlide > 1 ? (
-        <TouchableOpacity
-          className={`${buttonStyle} ${sliderInfo.currentSlide > 1 ? activeButtonStyle : disabledButtonStyle}`}
-          activeOpacity={0.7}
+        <IconButton
+          iconName="arrowLeft"
+          iconColor="lightOne"
+          buttonBackgroundColor="secondaryVariantOne"
+          iconWidth={50}
+          iconHeight={25}
+          disabled={sliderInfo.currentSlide === 1}
           onPress={onPressPrevImage}
-          disabled={sliderInfo.currentSlide === 1}>
-          <ArrowLeftComponent
-            color={
-              sliderInfo.currentSlide > 1 ? activeIconColor : disabledIconColor
-            }
-            width={50}
-            height={25}
-          />
-        </TouchableOpacity>
+        />
       ) : (
         <View className="w-13 h-6.5" />
       )}
@@ -52,13 +39,14 @@ export default function ArrowButtonSlider({
           />
         ))}
       </View>
-
-      <TouchableOpacity
-        className={`${buttonStyle} ${activeButtonStyle}`}
-        activeOpacity={0.7}
-        onPress={onPressNextImage}>
-        <ArrowRightComponent color={activeIconColor} width={50} height={25} />
-      </TouchableOpacity>
+      <IconButton
+        iconName="arrowRight"
+        iconColor="lightOne"
+        buttonBackgroundColor="secondaryVariantOne"
+        iconWidth={50}
+        iconHeight={25}
+        onPress={onPressNextImage}
+      />
     </View>
   );
 }

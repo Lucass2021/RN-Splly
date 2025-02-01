@@ -70,7 +70,7 @@ export default function Input({
         )}
       </View>
       {error && (
-        <Text className="font-semibold  text-red-500 text-sm mt-1">
+        <Text className="font-obviouslySemiBold  text-red-500 text-sm mt-1">
           {error.message}
         </Text>
       )}

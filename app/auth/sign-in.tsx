@@ -58,7 +58,7 @@ export default function SignIn() {
             alignItems: "center",
           }}>
           <View className="mb-7.5">
-            <Text className="text-center color-warningOne text-3xl font-obviouslyBold mb-5">
+            <Text className="text-center color-warningOne text-3xl font-obviouslySemiBold mb-5">
               Bem vindo de volta!
             </Text>
             <Text className="text-center color-grayOne text-base font-TTInterphasesRegular">

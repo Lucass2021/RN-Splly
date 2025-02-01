@@ -26,3 +26,5 @@ Jest - Optional
 - ~~Fix TermsAndConditions screen scrollview - Ok~~
 - Add toast
 - ~~Fix colors by using colors.ts file - Ok~~
+- ~~Unify approach to add new colors in colors.ts file - Ok~~
+- Fix texts by creating a custom text component(weight and sizes)

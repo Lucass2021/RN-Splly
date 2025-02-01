@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const {Colors} = require("./src/colors/colors.ts");
+
 module.exports = {
   // NOTE: Update this to include the paths to all of your component files.
   content: ["./app/**/*.{js,jsx,ts,tsx}", "./src/**/*.{ts,tsx}"],
@@ -35,24 +37,7 @@ module.exports = {
       fontSize: {
         "2.5xl": ["32px", "40px"],
       },
-      colors: {
-        primary: "#3581B8",
-        secondary: "#A594F9",
-        secondaryVariantOne: "#A663CC",
-        secondaryVariantThree: "#2D1E2F",
-        accent: "#E54B4B",
-        warning: "#DBE147",
-        warningOne: "#F7B32B",
-        light: "#FFFFFF",
-        lightOne: "#FFFAFA",
-        dark: "#000000",
-        darkOne: "#191919",
-        grayOne: "#616161",
-        grayTwo: "#424242",
-        grayThree: "#757575",
-        grayFour: "#9E9E9E",
-        grayFive: "#EEEEEE",
-      },
+      colors: Colors,
     },
   },
   plugins: [],
