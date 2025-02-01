@@ -1,22 +1,23 @@
 import React from "react";
 import Svg, {Path} from "react-native-svg";
 
-type ArrowLeftProps = {
+type ArrowDownProps = {
   color?: string;
   width?: number;
   height?: number;
 };
 
-export const ArrowLeftComponent = ({
+export const ArrowDownComponent = ({
   color = "black",
   width = 20,
   height = 20,
-}: ArrowLeftProps) => {
+}: ArrowDownProps) => {
   return (
-    <Svg width={width} height={height} viewBox="0 0 24 24" fill={color}>
+    <Svg width={width} height={height} viewBox="0 0 12 6" fill="none">
       <Path
-        d="M1 7.99972H24M1 7.99972C1 9.84436 8.18722 15 8.18722 15M1 7.99972C1 6.15508 8.18736 1 8.18736 1"
+        d="M1 1C1 1 4.68243 4.99999 6.00002 5C7.31761 5.00001 11 1 11 1"
         stroke={color}
+        stroke-width="1.5"
         stroke-linecap="round"
         stroke-linejoin="round"
       />
@@ -24,4 +25,4 @@ export const ArrowLeftComponent = ({
   );
 };
 
-export default ArrowLeftComponent;
+export default ArrowDownComponent;

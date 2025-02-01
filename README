@@ -15,6 +15,16 @@ Jest - Optional
 
 # TODO
 
-- Splash Screen not working properly in Iphone Devices
-- Setup Zustand for user custom first access (Show only sign up and sign in screen after first access)
-- Update zustand from Async Storage to MMKV
+- ~~Splash Screen not working properly in iPhone Devices - Ok~~
+- ~~Setup Zustand for user custom first access (Show only sign up and sign in screen after first access) - Ok~~
+- Update Zustand from Async Storage to MMKV
+- ~~Change font weight in slider from medium to 300 - Ok~~
+- ~~Remove first arrow from slider - Ok~~
+- ~~Test with light images in slider (Use images without require and with less than 300kb) - Ok~~
+- ~~Fix input text in iOS devices - Ok~~
+- ~~Fix button in TermsAndConditions screen - Ok~~
+- ~~Fix TermsAndConditions screen scrollview - Ok~~
+- Add toast
+- ~~Fix colors by using colors.ts file - Ok~~
+- ~~Unify approach to add new colors in colors.ts file - Ok~~
+- Fix texts by creating a custom text component(weight and sizes)

@@ -7,7 +7,7 @@ type ArrowRightProps = {
   height?: number;
 };
 
-const ArrowRightComponent = ({
+export const ArrowRightComponent = ({
   color = "black",
   width = 20,
   height = 20,

@@ -32,7 +32,9 @@ export default function Button({
         ${disabled ? "opacity-70 bg-secondaryVariantOne" : "bg-secondaryVariantOne"} 
         ${buttonWasPressed ? "opacity-70" : "opacity-100"}`}
       {...props}>
-      <Text className="text-center font-obviouslyBold text-white">{text}</Text>
+      <Text className="text-center font-obviouslySemiBold text-white">
+        {text}
+      </Text>
     </Pressable>
   );
 }

@@ -7,7 +7,7 @@ type HomeProps = {
   height?: number;
 };
 
-const HomeComponent = ({
+export const HomeComponent = ({
   color = "black",
   width = 20,
   height = 20,

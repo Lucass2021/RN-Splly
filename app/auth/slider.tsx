@@ -47,7 +47,7 @@ export default function Slider() {
       <View className="mt-10 mb-5">
         <Text className="font-obviouslyLight text-2.5xl color-darkOne text-center">
           Conheça{" "}
-          <Text className="font-obviouslyBold color-warningOne">
+          <Text className="font-obviouslySemiBold color-warningOne">
             salões próximos
           </Text>{" "}
           de você

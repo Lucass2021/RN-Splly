@@ -7,7 +7,7 @@ type ProfileProps = {
   height?: number;
 };
 
-const ProfileComponent = ({
+export const ProfileComponent = ({
   color = "black",
   width = 20,
   height = 20,

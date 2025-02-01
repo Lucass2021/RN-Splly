@@ -7,7 +7,7 @@ type ScheduleProps = {
   height?: number;
 };
 
-const ScheduleComponent = ({
+export const ScheduleComponent = ({
   color = "black",
   width = 20,
   height = 20,
