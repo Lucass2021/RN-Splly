@@ -2,7 +2,7 @@ import ExploreComponent from "@/assets/icons/explore";
 import HomeComponent from "@/assets/icons/home";
 import ProfileComponent from "@/assets/icons/profile";
 import ScheduleComponent from "@/assets/icons/schedule";
-import {Colors} from "@/colors/colors";
+import {Colors} from "@/theme/colors";
 import {Tabs} from "expo-router";
 import {Text} from "react-native";
 
