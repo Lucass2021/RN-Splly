@@ -25,6 +25,7 @@ module.exports = {
       },
       fontFamily: {
         obviouslyLight: ["ObviouslyLight", "sans-serif"],
+        obviouslyRegular: ["ObviouslyRegular", "sans-serif"],
         obviouslyMedium: ["ObviouslyMedium", "sans-serif"],
         obviouslySemiBold: ["ObviouslySemiBold", "sans-serif"],
         obviouslyBold: ["ObviouslyBold", "sans-serif"],

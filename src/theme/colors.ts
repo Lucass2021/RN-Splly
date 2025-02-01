@@ -1,0 +1,34 @@
+export const Colors = {
+  primary: "#3581B8",
+  primaryVariantOne: "#141B34",
+  secondary: "#A594F9",
+  secondaryVariantOne: "#A663CC",
+  secondaryVariantThree: "#2D1E2F",
+  accent: "#E54B4B",
+  warning: "#DBE147",
+  warningOne: "#F7B32B",
+  light: "#FFFFFF",
+  lightOne: "#FFFAFA",
+  dark: "#000000",
+  darkOne: "#191919",
+  grayOne: "#616161",
+  grayTwo: "#424242",
+  grayThree: "#757575",
+  grayFour: "#9E9E9E",
+  grayFive: "#EEEEEE",
+  graySix: "#808080",
+  confirm: "#A9E5BB",
+} as const;
+
+export const generateColorClasses = (prefix: string) =>
+  Object.keys(Colors).reduce(
+    (acc, key) => {
+      const typedKey = key as keyof typeof Colors;
+      acc[typedKey] = `${prefix}-${key}`;
+      return acc;
+    },
+    {} as Record<keyof typeof Colors, string>,
+  );
+
+export const backgroundColors = generateColorClasses("bg");
+export const textColors = generateColorClasses("text");

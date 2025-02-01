@@ -1,4 +1,4 @@
-import {Colors} from "@/colors/colors";
+import {Colors} from "@/theme/colors";
 import Button from "@/components/button/button";
 import Input from "@/components/input/input";
 import {useAuthActions, useUserTermsAndConditions} from "@/store/auth";

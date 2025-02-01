@@ -27,4 +27,6 @@ Jest - Optional
 - Add toast
 - ~~Fix colors by using colors.ts file - Ok~~
 - ~~Unify approach to add new colors in colors.ts file - Ok~~
-- Fix texts by creating a custom text component(weight and sizes)
+- ~~Fix texts by creating a custom text component(weight and sizes)~~
+- Replace Text with custom text component
+- Add Toast Lib - https://www.npmjs.com/package/react-native-toast-message

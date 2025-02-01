@@ -28,6 +28,7 @@ export default function RootLayout() {
   const [loaded, error] = useFonts({
     ObviouslyLight: require("../assets/fonts/fonnts.com-Obviously_Lght.otf"),
     ObviouslyMedium: require("../assets/fonts/fonnts.com-Obviously_Medi.otf"),
+    ObviouslyRegular: require("../assets/fonts/Obviously-Regular.otf"),
     ObviouslySemiBold: require("../assets/fonts/fonnts.com-Obviously_Semi.otf"),
     ObviouslyBold: require("../assets/fonts/fonnts.com-Obviously_Bold.otf"),
     TTInterphasesLight: require("../assets/fonts/TT-Interphases-Pro-Trial-Light.ttf"),
