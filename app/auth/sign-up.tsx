@@ -14,6 +14,7 @@ import {
   ScrollView,
   View,
 } from "react-native";
+import Toast from "react-native-toast-message";
 import {z} from "zod";
 
 const signUpFormSchema = z.object({
@@ -45,8 +46,16 @@ export default function SignUp() {
 
   const {handleSubmit} = form;
 
+  const showToast = () => {
+    Toast.show({
+      type: "success",
+      text1: "Usuario criado com sucesso",
+    });
+  };
+
   const handleSignUp = async (data: SignUpForm) => {
     console.log("data", data);
+    showToast();
   };
 
   const handleAcceptTermsAndConditions = () => {
