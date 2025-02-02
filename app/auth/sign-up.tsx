@@ -1,7 +1,8 @@
-import {Colors} from "@/theme/colors";
 import Button from "@/components/button/button";
 import Input from "@/components/input/input";
+import TextComponent from "@/components/text/text";
 import {useAuthActions, useUserTermsAndConditions} from "@/store/auth";
+import {Colors} from "@/theme/colors";
 import {zodResolver} from "@hookform/resolvers/zod";
 import Checkbox from "expo-checkbox";
 import {router} from "expo-router";
@@ -11,9 +12,9 @@ import {
   Platform,
   Pressable,
   ScrollView,
-  Text,
   View,
 } from "react-native";
+import Toast from "react-native-toast-message";
 import {z} from "zod";
 
 const signUpFormSchema = z.object({
@@ -45,8 +46,16 @@ export default function SignUp() {
 
   const {handleSubmit} = form;
 
+  const showToast = () => {
+    Toast.show({
+      type: "success",
+      text1: "Usuario criado com sucesso",
+    });
+  };
+
   const handleSignUp = async (data: SignUpForm) => {
     console.log("data", data);
+    showToast();
   };
 
   const handleAcceptTermsAndConditions = () => {
@@ -66,13 +75,24 @@ export default function SignUp() {
             alignItems: "center",
           }}>
           <View className="mb-7.5">
-            <Text className="text-center color-warningOne text-3xl font-obviouslySemiBold mb-5">
+            <TextComponent
+              fontFamily="Obviously"
+              fontWeight="SemiBold"
+              color="warningOne"
+              // fontSize="h3"
+              fontSize="h4"
+              customClassName="text-center mb-5">
               Crie sua conta
-            </Text>
-            <Text className="text-center color-grayOne text-base font-TTInterphasesRegular">
+            </TextComponent>
+            <TextComponent
+              fontFamily="TTInterphases"
+              fontWeight="Regular"
+              color="grayOne"
+              fontSize="subtitleOne"
+              customClassName="text-center">
               Lorem ipsum potenti orci suspendisse aliquam nullam ornare
               dictumst id, dictumst risus viverra.
-            </Text>
+            </TextComponent>
           </View>
 
           <FormProvider {...form}>
@@ -103,13 +123,23 @@ export default function SignUp() {
             </Pressable>
 
             <View className="flex-row">
-              <Text className="font-TTInterphasesLight text-base color-black">
+              <TextComponent
+                fontFamily="TTInterphases"
+                fontWeight="Light"
+                color="dark"
+                fontSize="paragraphTwo">
                 Concordo com os{" "}
-              </Text>
+              </TextComponent>
+
               <Pressable onPress={() => router.push("/terms-and-conditions")}>
-                <Text className="font-TTInterphasesRegular underline text-base color-black">
+                <TextComponent
+                  fontFamily="TTInterphases"
+                  fontWeight="Regular"
+                  color="dark"
+                  fontSize="paragraphTwo"
+                  customClassName="underline">
                   Termos & Condições
-                </Text>
+                </TextComponent>
               </Pressable>
             </View>
           </View>
@@ -121,10 +151,22 @@ export default function SignUp() {
               disabled={!userTermsAndConditions}
             />
             <Pressable onPress={() => router.push("/auth/sign-in")}>
-              <Text className="mt-3 text-sm text-center font-TTInterphasesRegular color-grayTwo">
+              <TextComponent
+                fontFamily="TTInterphases"
+                fontWeight="Regular"
+                color="grayTwo"
+                fontSize="caption"
+                customClassName="mt-3 text-center">
                 Já tem uma conta?{" "}
-                <Text className="color-grayThree underline">Fazer Login</Text>
-              </Text>
+                <TextComponent
+                  fontFamily="TTInterphases"
+                  fontWeight="Regular"
+                  color="grayThree"
+                  fontSize="caption"
+                  customClassName="underline">
+                  Fazer Login
+                </TextComponent>
+              </TextComponent>
             </Pressable>
           </View>
         </ScrollView>

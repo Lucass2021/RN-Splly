@@ -1,7 +1,8 @@
 import ArrowButtonSlider from "@/components/arrowButtonSlider/arrowButtonSlider";
+import TextComponent from "@/components/text/text";
 import {router} from "expo-router";
 import {useState} from "react";
-import {Dimensions, Image, Text, View} from "react-native";
+import {Dimensions, Image, View} from "react-native";
 
 export default function Slider() {
   const [currentBannerImage, setCurrentBannerImage] = useState(0);
@@ -45,20 +46,34 @@ export default function Slider() {
       </View>
 
       <View className="mt-10 mb-5">
-        <Text className="font-obviouslyLight text-2.5xl color-darkOne text-center">
+        <TextComponent
+          fontFamily="Obviously"
+          fontWeight="Light"
+          color="darkOne"
+          fontSize="h3"
+          customClassName="text-center">
           Conheça{" "}
-          <Text className="font-obviouslySemiBold color-warningOne">
+          <TextComponent
+            fontFamily="Obviously"
+            fontWeight="SemiBold"
+            color="warningOne"
+            fontSize="h3">
             salões próximos
-          </Text>{" "}
+          </TextComponent>{" "}
           de você
-        </Text>
+        </TextComponent>
       </View>
 
       <View className="mb-11">
-        <Text className="font-TTInterphasesMedium  text-base text-center color-grayOne">
+        <TextComponent
+          fontFamily="TTInterphases"
+          fontWeight="Medium"
+          color="grayOne"
+          fontSize="subtitleOne"
+          customClassName="text-center">
           Lorem ipsum potenti orci suspendisse aliquam nullam ornare dictumst
           id, dictumst risus viverra.
-        </Text>
+        </TextComponent>
       </View>
 
       <View>

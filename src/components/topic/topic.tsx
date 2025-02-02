@@ -1,5 +1,6 @@
-import {FlatList, Text, View} from "react-native";
+import {FlatList, View} from "react-native";
 import BackButtonHeader from "../backButtonHeader/backButtonHeader";
+import TextComponent from "../text/text";
 
 type topicData = {
   title: string;
@@ -13,12 +14,21 @@ type TopicProps = {
 export default function Topic({topicData}: TopicProps) {
   const renderItem = ({item, index}: {item: topicData; index: number}) => (
     <View className="mb-6" key={index}>
-      <Text className="font-TTInterphasesSemiBold text-lg color-secondaryVariantOne mb-2.5">
+      <TextComponent
+        fontFamily="TTInterphases"
+        fontWeight="SemiBold"
+        color="secondaryVariantOne"
+        fontSize="subtitleOne"
+        customClassName="mb-2.5">
         {item.title}
-      </Text>
-      <Text className="font-TTInterphasesRegular text-base color-black">
+      </TextComponent>
+      <TextComponent
+        fontFamily="TTInterphases"
+        fontWeight="Regular"
+        color="dark"
+        fontSize="paragraphTwo">
         {item.description}
-      </Text>
+      </TextComponent>
     </View>
   );
 

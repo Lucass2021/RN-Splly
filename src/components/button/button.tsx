@@ -1,5 +1,6 @@
 import {useState} from "react";
-import {Pressable, Text} from "react-native";
+import {Pressable} from "react-native";
+import TextComponent from "../text/text";
 
 type ButtonProps = {
   text: string;
@@ -32,9 +33,14 @@ export default function Button({
         ${disabled ? "opacity-70 bg-secondaryVariantOne" : "bg-secondaryVariantOne"} 
         ${buttonWasPressed ? "opacity-70" : "opacity-100"}`}
       {...props}>
-      <Text className="text-center font-obviouslySemiBold text-white">
+      <TextComponent
+        fontFamily="Obviously"
+        fontWeight="SemiBold"
+        color="light"
+        fontSize="buttonMd"
+        customClassName="text-center">
         {text}
-      </Text>
+      </TextComponent>
     </Pressable>
   );
 }

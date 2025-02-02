@@ -3,12 +3,13 @@ import ArrowLeftComponent from "@/assets/icons/arrowLeft";
 import ArrowRightComponent from "@/assets/icons/arrowRight";
 import BellComponent from "@/assets/icons/bell";
 import ExploreComponent from "@/assets/icons/explore";
+import FilterSearchComponent from "@/assets/icons/filterSearch";
 import HomeComponent from "@/assets/icons/home";
 import LocationPinComponent from "@/assets/icons/locationPin";
 import ProfileComponent from "@/assets/icons/profile";
 import ScheduleComponent from "@/assets/icons/schedule";
 import {backgroundColors, Colors} from "@/theme/colors";
-import {TouchableOpacity} from "react-native";
+import {TouchableOpacity, TouchableOpacityProps} from "react-native";
 
 const iconRegistry = {
   arrowLeft: ArrowLeftComponent,
@@ -20,11 +21,12 @@ const iconRegistry = {
   profile: ProfileComponent,
   schedule: ScheduleComponent,
   bell: BellComponent,
+  filterSearch: FilterSearchComponent,
 };
 
 type IconName = keyof typeof iconRegistry;
 
-type IconButtonProps = {
+export interface IconButtonProps extends TouchableOpacityProps {
   iconName: IconName;
   iconColor: keyof typeof Colors;
   buttonBackgroundColor: keyof typeof backgroundColors;
@@ -32,7 +34,8 @@ type IconButtonProps = {
   iconHeight: number;
   disabled?: boolean;
   onPress?: () => void;
-};
+  customClassName?: string;
+}
 
 export default function IconButton({
   iconName,
@@ -42,6 +45,8 @@ export default function IconButton({
   iconHeight,
   disabled = false,
   onPress,
+  customClassName,
+  ...props
 }: IconButtonProps) {
   const IconComponent = iconRegistry[iconName];
   const color = Colors[iconColor];
@@ -49,10 +54,11 @@ export default function IconButton({
 
   return (
     <TouchableOpacity
-      className={`h-16 w-16 rounded-2xl items-center justify-center pt-2 ${backgroundColor}`}
+      className={`h-16 w-16 rounded-2xl items-center justify-center pt-2 ${backgroundColor} ${customClassName}`}
       activeOpacity={0.7}
       onPress={onPress}
-      disabled={disabled}>
+      disabled={disabled}
+      {...props}>
       <IconComponent color={color} width={iconWidth} height={iconHeight} />
     </TouchableOpacity>
   );

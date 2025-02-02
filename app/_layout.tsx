@@ -4,12 +4,14 @@ import {Stack, useRouter} from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import {useEffect} from "react";
 import "react-native-reanimated";
+import Toast from "react-native-toast-message";
 
 import {StatusBar} from "expo-status-bar";
 
 import {useIsLoggedIn} from "@/store/auth";
 import {SafeAreaProvider, SafeAreaView} from "react-native-safe-area-context";
 import "../src/global.css";
+import {toastConfig} from "@/theme/toastConfig";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -58,6 +60,7 @@ export default function RootLayout() {
   return (
     <SafeAreaProvider>
       <RootLayoutNav />
+      <Toast config={toastConfig} />
     </SafeAreaProvider>
   );
 }

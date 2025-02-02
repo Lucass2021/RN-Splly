@@ -24,9 +24,9 @@ Jest - Optional
 - ~~Fix input text in iOS devices - Ok~~
 - ~~Fix button in TermsAndConditions screen - Ok~~
 - ~~Fix TermsAndConditions screen scrollview - Ok~~
-- Add toast
+- ~~Add Toast Lib - https://www.npmjs.com/package/react-native-toast-message - Ok~~
 - ~~Fix colors by using colors.ts file - Ok~~
 - ~~Unify approach to add new colors in colors.ts file - Ok~~
-- ~~Fix texts by creating a custom text component(weight and sizes)~~
-- Replace Text with custom text component
-- Add Toast Lib - https://www.npmjs.com/package/react-native-toast-message
+- ~~Fix texts by creating a custom text component(weight and sizes) - Ok~~
+- ~~Replace Text with custom text component - Ok~~
+- Fix background bug in homeHeader icon button

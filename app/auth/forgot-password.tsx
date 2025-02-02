@@ -1,15 +1,10 @@
 import Button from "@/components/button/button";
 import Input from "@/components/input/input";
+import TextComponent from "@/components/text/text";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {router} from "expo-router";
 import {FormProvider, useForm} from "react-hook-form";
-import {
-  KeyboardAvoidingView,
-  Platform,
-  ScrollView,
-  Text,
-  View,
-} from "react-native";
+import {KeyboardAvoidingView, Platform, ScrollView, View} from "react-native";
 import {z} from "zod";
 
 const forgotPasswordFormSchema = z.object({
@@ -54,13 +49,24 @@ export default function ForgotPassword() {
             alignItems: "center",
           }}>
           <View className="mb-7.5">
-            <Text className="text-center color-warningOne text-3xl font-obviouslySemiBold mb-5">
+            <TextComponent
+              fontFamily="Obviously"
+              fontWeight="SemiBold"
+              color="warningOne"
+              // fontSize="h3"
+              fontSize="h4"
+              customClassName="text-center mb-5">
               Redefina sua senha
-            </Text>
-            <Text className="text-center color-grayOne text-base font-TTInterphasesRegular">
+            </TextComponent>
+            <TextComponent
+              fontFamily="TTInterphases"
+              fontWeight="Regular"
+              color="grayOne"
+              fontSize="subtitleOne"
+              customClassName="text-center">
               Lorem ipsum potenti orci suspendisse aliquam nullam ornare
               dictumst id, dictumst risus viverra.
-            </Text>
+            </TextComponent>
           </View>
 
           <FormProvider {...form}>

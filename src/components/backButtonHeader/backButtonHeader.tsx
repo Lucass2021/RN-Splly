@@ -1,6 +1,7 @@
 import {router} from "expo-router";
-import {Text, View} from "react-native";
+import {View} from "react-native";
 import IconButton from "../iconButton/iconButton";
+import TextComponent from "../text/text";
 
 type BackButtonHeaderProps = {
   title: string;
@@ -17,9 +18,13 @@ export default function BackButtonHeader({title}: BackButtonHeaderProps) {
         iconHeight={25}
         onPress={() => router.back()}
       />
-      <Text className="font-obviouslySemiBold text-lg color-black">
+      <TextComponent
+        fontFamily="Obviously"
+        fontWeight="SemiBold"
+        color="dark"
+        fontSize="h6">
         {title}
-      </Text>
+      </TextComponent>
       <View className="w-16" />
     </View>
   );
