@@ -1,24 +1,35 @@
 import ArrowDownComponent from "@/assets/icons/arrowDown";
 import LocationPinComponent from "@/assets/icons/locationPin";
-import {Pressable, Text, View} from "react-native";
+import {Pressable, View} from "react-native";
 import {Colors} from "react-native/Libraries/NewAppScreen";
 import IconButton from "../iconButton/iconButton";
+import TextComponent from "../text/text";
 
 export default function AddressAndNotificationHeader() {
   return (
     <View>
       <View className="flex-row items-center justify-between">
         <View>
-          <Text className="font-TTInterphasesLight text-base color-grayTwo">
+          <TextComponent
+            fontFamily="TTInterphases"
+            fontWeight="Light"
+            color="grayTwo"
+            fontSize="paragraphTwo">
             Localização
-          </Text>
+          </TextComponent>
           <Pressable className="flex-row items-center gap-2.5">
             <LocationPinComponent
               width={22}
               height={24}
               color={Colors.secondaryVariantThree}
             />
-            <Text className="font-obviouslyBold text-lg">São Jorge, NH</Text>
+            <TextComponent
+              fontFamily="Obviously"
+              fontWeight="Bold"
+              color="dark"
+              fontSize="h6">
+              São Jorge, NH
+            </TextComponent>
             <ArrowDownComponent
               color={Colors.primaryVariantOne}
               width={10}

@@ -1,7 +1,8 @@
 import Button from "@/components/button/button";
+import TextComponent from "@/components/text/text";
 import {useAuthActions} from "@/store/auth";
 import {router} from "expo-router";
-import {Dimensions, Image, Pressable, Text, View} from "react-native";
+import {Dimensions, Image, Pressable, View} from "react-native";
 
 export default function Index() {
   const {setFirstAccess} = useAuthActions();
@@ -31,28 +32,54 @@ export default function Index() {
       </View>
 
       <View className="mt-10 mb-5">
-        <Text className="font-ObviouslyLight text-2.5xl color-darkOne text-center">
-          <Text className="font-obviouslySemiBold color-warningOne">
-            O seu app
-          </Text>{" "}
-          de agendamentos
-        </Text>
+        <TextComponent
+          fontFamily="Obviously"
+          fontWeight="SemiBold"
+          fontSize="h3"
+          color="warningOne"
+          customClassName="text-center">
+          O seu app{" "}
+          <TextComponent
+            fontFamily="Obviously"
+            fontWeight="Light"
+            color="darkOne"
+            fontSize="h3">
+            de agendamentos
+          </TextComponent>
+        </TextComponent>
       </View>
 
       <View className="mb-7.5">
-        <Text className="font-TTInterphasesMedium  text-base text-center color-grayOne">
+        <TextComponent
+          fontFamily="TTInterphases"
+          fontWeight="Medium"
+          color="grayOne"
+          fontSize="subtitleOne"
+          customClassName="text-center">
           Lorem ipsum potenti orci suspendisse aliquam nullam ornare dictumst
           id, dictumst risus viverra.
-        </Text>
+        </TextComponent>
       </View>
 
       <View>
         <Button text="Vamos Começar" onPress={handleNavigateToSlider} />
         <Pressable onPress={handleNavigateToSignIn}>
-          <Text className="mt-3 text-sm text-center font-TTInterphasesRegular color-grayTwo">
+          <TextComponent
+            fontFamily="TTInterphases"
+            fontWeight="Regular"
+            color="grayTwo"
+            fontSize="caption"
+            customClassName="mt-3 text-center">
             Já tem uma conta?{" "}
-            <Text className="color-grayThree underline">Fazer Login</Text>
-          </Text>
+            <TextComponent
+              fontFamily="TTInterphases"
+              fontWeight="Regular"
+              color="grayThree"
+              fontSize="caption"
+              customClassName="underline">
+              Fazer Login
+            </TextComponent>
+          </TextComponent>
         </Pressable>
       </View>
     </View>

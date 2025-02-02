@@ -1,5 +1,6 @@
 import Button from "@/components/button/button";
 import Input from "@/components/input/input";
+import TextComponent from "@/components/text/text";
 import {useAuthActions} from "@/store/auth";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {router} from "expo-router";
@@ -9,7 +10,6 @@ import {
   Platform,
   Pressable,
   ScrollView,
-  Text,
   View,
 } from "react-native";
 import {z} from "zod";
@@ -58,13 +58,24 @@ export default function SignIn() {
             alignItems: "center",
           }}>
           <View className="mb-7.5">
-            <Text className="text-center color-warningOne text-3xl font-obviouslySemiBold mb-5">
+            <TextComponent
+              fontFamily="Obviously"
+              fontWeight="SemiBold"
+              color="warningOne"
+              // fontSize="h3"
+              fontSize="h4"
+              customClassName="text-center mb-5">
               Bem vindo de volta!
-            </Text>
-            <Text className="text-center color-grayOne text-base font-TTInterphasesRegular">
+            </TextComponent>
+            <TextComponent
+              fontFamily="TTInterphases"
+              fontWeight="Regular"
+              color="grayOne"
+              fontSize="subtitleOne"
+              customClassName="text-center">
               Lorem ipsum potenti orci suspendisse aliquam nullam ornare
               dictumst id, dictumst risus viverra.
-            </Text>
+            </TextComponent>
           </View>
 
           <FormProvider {...form}>
@@ -87,9 +98,14 @@ export default function SignIn() {
           <Pressable
             className="w-full"
             onPress={() => router.push("/auth/forgot-password")}>
-            <Text className="font-TTInterphasesRegular text-base color-black underline">
+            <TextComponent
+              fontFamily="TTInterphases"
+              fontWeight="Regular"
+              color="dark"
+              fontSize="paragraphTwo"
+              customClassName="underline">
               Esqueci minha senha
-            </Text>
+            </TextComponent>
           </Pressable>
 
           <View className="mt-12 w-full">
@@ -99,10 +115,22 @@ export default function SignIn() {
               disabled={false}
             />
             <Pressable onPress={() => router.push("/auth/sign-up")}>
-              <Text className="mt-3 text-sm text-center font-TTInterphasesRegular color-grayTwo">
+              <TextComponent
+                fontFamily="TTInterphases"
+                fontWeight="Regular"
+                color="grayTwo"
+                fontSize="caption"
+                customClassName="mt-3 text-center">
                 Ainda não tem uma conta?{" "}
-                <Text className="color-grayThree underline">Criar uma</Text>
-              </Text>
+                <TextComponent
+                  fontFamily="TTInterphases"
+                  fontWeight="Regular"
+                  color="grayThree"
+                  fontSize="caption"
+                  customClassName="underline">
+                  Criar uma
+                </TextComponent>
+              </TextComponent>
             </Pressable>
           </View>
         </ScrollView>

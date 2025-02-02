@@ -1,14 +1,14 @@
+import {Ionicons} from "@expo/vector-icons";
 import {useRef, useState} from "react";
 import {useController, useFormContext} from "react-hook-form";
 import {
   Platform,
   TextInputProps as RnTextInputProps,
-  Text,
   TextInput,
   TouchableOpacity,
   View,
 } from "react-native";
-import {Ionicons} from "@expo/vector-icons";
+import TextComponent from "../text/text";
 
 type InputProps = {
   name: string;
@@ -38,10 +38,14 @@ export default function Input({
 
   return (
     <View className="w-full mb-5">
-      <Text
-        className={`font-TTInterphasesMedium text-base mb-2 ${error ? "color-red-500" : "color-black"}`}>
+      <TextComponent
+        fontFamily="TTInterphases"
+        fontWeight="Medium"
+        color={`${error ? "accent" : "dark"}`}
+        fontSize="paragraphTwo"
+        customClassName="mb-2">
         {customPlaceholder}
-      </Text>
+      </TextComponent>
       <View
         className={`flex-row items-center border rounded-2xl ${error ? "border-red-500" : "border-grayFour"}`}
         style={{
@@ -70,9 +74,14 @@ export default function Input({
         )}
       </View>
       {error && (
-        <Text className="font-obviouslySemiBold  text-red-500 text-sm mt-1">
+        <TextComponent
+          fontFamily="Obviously"
+          fontWeight="SemiBold"
+          color="accent"
+          fontSize="caption"
+          customClassName="mt-1">
           {error.message}
-        </Text>
+        </TextComponent>
       )}
     </View>
   );

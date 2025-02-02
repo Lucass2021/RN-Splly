@@ -1,21 +1,24 @@
-import {textColors} from "@/theme/colors";
-import {Texts, Titles} from "@/theme/text";
+import {Colors, textColors} from "@/theme/colors";
+import {ButonsText, Texts, Titles} from "@/theme/text";
+import React from "react";
 import {Text} from "react-native";
 
 type TextProps = {
-  text: string;
+  children: React.ReactNode;
   color: keyof typeof textColors;
   fontFamily: "TTInterphases" | "Obviously";
   fontWeight: "Light" | "Regular" | "Medium" | "SemiBold" | "Bold";
-  fontSize: keyof typeof Titles | keyof typeof Texts;
+  fontSize: keyof typeof Titles | keyof typeof Texts | keyof typeof ButonsText;
+  customClassName?: string;
 };
 
 export default function TextComponent({
-  text,
+  children,
   color,
   fontFamily,
   fontWeight,
   fontSize,
+  customClassName,
 }: TextProps) {
   const generateFontFamilyAndWeight = (
     fontFamily: string,
@@ -45,20 +48,22 @@ export default function TextComponent({
     );
   };
 
-  const customColorName = textColors[color];
+  const customColorName = Colors[color];
+
   const customFontSizeAndLineHeight =
     Titles[fontSize as keyof typeof Titles] ||
-    Texts[fontSize as keyof typeof Texts];
+    Texts[fontSize as keyof typeof Texts] ||
+    ButonsText[fontSize as keyof typeof ButonsText];
   const fontClass = generateFontFamilyAndWeight(fontFamily, fontWeight);
-
   return (
     <Text
-      className={`${customColorName} ${fontClass} `}
+      className={`${fontClass} ${customClassName}`}
       style={{
+        color: customColorName,
         fontSize: customFontSizeAndLineHeight.fontSize,
         lineHeight: customFontSizeAndLineHeight.lineHeight,
       }}>
-      {text}
+      {children}
     </Text>
   );
 }

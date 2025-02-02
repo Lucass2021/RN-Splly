@@ -2,9 +2,9 @@ import ExploreComponent from "@/assets/icons/explore";
 import HomeComponent from "@/assets/icons/home";
 import ProfileComponent from "@/assets/icons/profile";
 import ScheduleComponent from "@/assets/icons/schedule";
+import TextComponent from "@/components/text/text";
 import {Colors} from "@/theme/colors";
 import {Tabs} from "expo-router";
-import {Text} from "react-native";
 
 export default function AppLayout() {
   return (
@@ -34,10 +34,14 @@ export default function AppLayout() {
             );
           },
           tabBarLabel: ({focused}) => (
-            <Text
-              className={`font-TTInterphasesMedium text-base mt-1  ${focused ? "text-secondaryVariantOne" : "text-grayOne"}`}>
+            <TextComponent
+              fontFamily="TTInterphases"
+              fontWeight="Medium"
+              color={`${focused ? "secondaryVariantOne" : "grayOne"}`}
+              fontSize="subtitleTwo"
+              customClassName="mt-1">
               Home
-            </Text>
+            </TextComponent>
           ),
         }}
       />
@@ -59,10 +63,14 @@ export default function AppLayout() {
             );
           },
           tabBarLabel: ({focused}) => (
-            <Text
-              className={`font-TTInterphasesMedium text-base mt-1  ${focused ? "text-secondaryVariantOne" : "text-grayOne"}`}>
+            <TextComponent
+              fontFamily="TTInterphases"
+              fontWeight="Medium"
+              color={`${focused ? "secondaryVariantOne" : "grayOne"}`}
+              fontSize="subtitleTwo"
+              customClassName="mt-1">
               Explorar
-            </Text>
+            </TextComponent>
           ),
         }}
       />
@@ -88,10 +96,14 @@ export default function AppLayout() {
             );
           },
           tabBarLabel: ({focused}) => (
-            <Text
-              className={`font-TTInterphasesMedium text-base mt-1 ${focused ? "text-secondaryVariantOne" : "text-grayOne"}`}>
+            <TextComponent
+              fontFamily="TTInterphases"
+              fontWeight="Medium"
+              color={`${focused ? "secondaryVariantOne" : "grayOne"}`}
+              fontSize="subtitleTwo"
+              customClassName="mt-1">
               Agenda
-            </Text>
+            </TextComponent>
           ),
         }}
       />
@@ -113,10 +125,14 @@ export default function AppLayout() {
             );
           },
           tabBarLabel: ({focused}) => (
-            <Text
-              className={`font-TTInterphasesMedium text-base mt-1 ${focused ? "text-secondaryVariantOne" : "text-grayOne"}`}>
+            <TextComponent
+              fontFamily="TTInterphases"
+              fontWeight="Medium"
+              color={`${focused ? "secondaryVariantOne" : "grayOne"}`}
+              fontSize="subtitleTwo"
+              customClassName="mt-1">
               Perfil
-            </Text>
+            </TextComponent>
           ),
         }}
       />
