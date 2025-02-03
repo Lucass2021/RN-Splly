@@ -26,6 +26,7 @@ export default function ArrowButtonSlider({
           iconHeight={25}
           disabled={sliderInfo.currentSlide === 1}
           onPress={onPressPrevImage}
+          customClassName="pt-2"
         />
       ) : (
         <View className="w-13 h-6.5" />
@@ -46,6 +47,7 @@ export default function ArrowButtonSlider({
         iconWidth={50}
         iconHeight={25}
         onPress={onPressNextImage}
+        customClassName="pt-2"
       />
     </View>
   );
