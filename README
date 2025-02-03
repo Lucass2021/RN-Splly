@@ -15,18 +15,19 @@ Jest - Optional
 
 # TODO
 
-- ~~Splash Screen not working properly in iPhone Devices - Ok~~
-- ~~Setup Zustand for user custom first access (Show only sign up and sign in screen after first access) - Ok~~
+- Splash Screen not working properly in iPhone Devices - Ok
+- Setup Zustand for user custom first access (Show only sign up and sign in screen after first access) - Ok
 - Update Zustand from Async Storage to MMKV
-- ~~Change font weight in slider from medium to 300 - Ok~~
-- ~~Remove first arrow from slider - Ok~~
-- ~~Test with light images in slider (Use images without require and with less than 300kb) - Ok~~
-- ~~Fix input text in iOS devices - Ok~~
-- ~~Fix button in TermsAndConditions screen - Ok~~
-- ~~Fix TermsAndConditions screen scrollview - Ok~~
-- ~~Add Toast Lib - https://www.npmjs.com/package/react-native-toast-message - Ok~~
-- ~~Fix colors by using colors.ts file - Ok~~
-- ~~Unify approach to add new colors in colors.ts file - Ok~~
-- ~~Fix texts by creating a custom text component(weight and sizes) - Ok~~
-- ~~Replace Text with custom text component - Ok~~
-- Fix background bug in homeHeader icon button
+- Change font weight in slider from medium to 300 - Ok
+- Remove first arrow from slider - Ok
+- Test with light images in slider (Use images without require and with less than 300kb) - Ok
+- Fix input text in iOS devices - Ok
+- Fix button in TermsAndConditions screen - Ok
+- Fix TermsAndConditions screen scrollview - Ok
+- Add Toast Lib - https://www.npmjs.com/package/react-native-toast-message - Ok
+- Fix colors by using colors.ts file - Ok
+- Unify approach to add new colors in colors.ts file - Ok
+- Fix texts by creating a custom text component(weight and sizes) - Ok
+- Replace Text with custom text component - Ok
+- Fix background bug in homeHeader icon button - Ok
+- Remake forgot password screen

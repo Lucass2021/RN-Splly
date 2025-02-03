@@ -17,6 +17,7 @@ export default function BackButtonHeader({title}: BackButtonHeaderProps) {
         iconWidth={50}
         iconHeight={25}
         onPress={() => router.back()}
+        customClassName="pt-2"
       />
       <TextComponent
         fontFamily="Obviously"

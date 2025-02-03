@@ -34,7 +34,7 @@ export default function HomeHeader({onPress}: HomeHeaderProps) {
         iconWidth={18}
         iconHeight={16}
         onPress={onPress}
-        customClassName="rounded-l-none pb-2"
+        customClassName="rounded-l-none"
         hitSlop={15}
       />
     </View>

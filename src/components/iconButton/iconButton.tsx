@@ -50,11 +50,12 @@ export default function IconButton({
 }: IconButtonProps) {
   const IconComponent = iconRegistry[iconName];
   const color = Colors[iconColor];
-  const backgroundColor = backgroundColors[buttonBackgroundColor];
+  const backgroundColor = Colors[buttonBackgroundColor];
 
   return (
     <TouchableOpacity
-      className={`h-16 w-16 rounded-2xl items-center justify-center pt-2 ${backgroundColor} ${customClassName}`}
+      style={{backgroundColor: backgroundColor}}
+      className={`h-16 w-16 rounded-2xl items-center justify-center ${customClassName}`}
       activeOpacity={0.7}
       onPress={onPress}
       disabled={disabled}
