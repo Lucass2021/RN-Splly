@@ -5,6 +5,7 @@ export const Colors = {
   secondaryVariantOne: "#A663CC",
   secondaryVariantThree: "#2D1E2F",
   accent: "#E54B4B",
+  accentOne: "#D3201C",
   warning: "#DBE147",
   warningOne: "#F7B32B",
   light: "#FFFFFF",
