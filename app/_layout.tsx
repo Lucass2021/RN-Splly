@@ -12,6 +12,7 @@ import {useIsLoggedIn} from "@/store/auth";
 import {SafeAreaProvider, SafeAreaView} from "react-native-safe-area-context";
 import "../src/global.css";
 import {toastConfig} from "@/theme/toastConfig";
+import {GestureHandlerRootView} from "react-native-gesture-handler";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -58,10 +59,12 @@ export default function RootLayout() {
   }
 
   return (
-    <SafeAreaProvider>
-      <RootLayoutNav />
-      <Toast config={toastConfig} />
-    </SafeAreaProvider>
+    <GestureHandlerRootView>
+      <SafeAreaProvider>
+        <RootLayoutNav />
+        <Toast config={toastConfig} />
+      </SafeAreaProvider>
+    </GestureHandlerRootView>
   );
 }
 

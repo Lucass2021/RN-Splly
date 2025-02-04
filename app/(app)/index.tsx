@@ -1,11 +1,11 @@
+import sliderDemo1 from "@/assets/images/slider-demo-100kb-1.jpg";
+import sliderDemo2 from "@/assets/images/slider-demo-100kb-2.jpg";
 import AddressAndNotificationHeader from "@/components/addressAndNotificationHeader/addressAndNotificationHeader";
 import HomeHeader from "@/components/homeHeader/homeHeader";
 import HorizontalBannerCarousel, {
   HorizontalBannerData,
 } from "@/components/horizontalBannerCarousel/horizontalBannerCarousel";
 import {ScrollView, View} from "react-native";
-import sliderDemo1 from "@/assets/images/slider-demo-100kb-1.jpg";
-import sliderDemo2 from "@/assets/images/slider-demo-100kb-2.jpg";
 
 export default function Index() {
   const bannerListData: HorizontalBannerData[] = [
