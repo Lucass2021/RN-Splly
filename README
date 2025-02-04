@@ -32,3 +32,6 @@ Jest - Optional
 - Fix background bug in homeHeader icon button - Ok
 - Remake forgot password screen
 - Replace splashscreen with image in app.json configs
+- Slider Refactor?
+- Slider Ref 1: https://github.com/meliorence/react-native-snap-carousel/tree/master
+- Slider Ref 2: https://rn-carousel.dev/usage

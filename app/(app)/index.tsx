@@ -10,17 +10,17 @@ import {ScrollView, View} from "react-native";
 export default function Index() {
   const bannerListData: HorizontalBannerData[] = [
     {
-      primaryTagTitle: "Barbearia",
-      primaryTagColor: "secondaryVariantOne",
-      secondaryTagTitle: "Serviços",
-      secondaryTagColor: "secondaryVariantTwo",
+      primaryTagTitle: "Acaba logo!",
+      primaryTagColor: "accentOne",
+      secondaryTagTitle: "Resgatar",
+      secondaryTagColor: "secondaryVariantOne",
       image: sliderDemo1,
     },
     {
-      primaryTagTitle: "Barbearia 2",
-      primaryTagColor: "secondaryVariantOne",
-      secondaryTagTitle: "Serviços 2",
-      secondaryTagColor: "secondaryVariantTwo",
+      primaryTagTitle: "Promoção agora!",
+      primaryTagColor: "warningOne",
+      secondaryTagTitle: "Comprar",
+      secondaryTagColor: "confirm",
       image: sliderDemo2,
     },
   ];
