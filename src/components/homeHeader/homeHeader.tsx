@@ -18,7 +18,7 @@ export default function HomeHeader({onPress}: HomeHeaderProps) {
   };
 
   return (
-    <View className="flex-row items-center border rounded-2xl">
+    <View className="flex-row items-center border rounded-2xl border-grayFour">
       <Pressable className="pl-5 pr-3" hitSlop={15} onPress={handleInputPress}>
         <ExploreComponent color={Colors.grayOne} width={16} height={16} />
       </Pressable>
