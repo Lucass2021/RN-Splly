@@ -14,14 +14,20 @@ export default function Index() {
       primaryTagColor: "accentOne",
       secondaryTagTitle: "Resgatar",
       secondaryTagColor: "secondaryVariantOne",
+      title: "Promoção, até 40% OFF",
+      subtitle: "Somente até as 14hrs.",
       image: sliderDemo1,
+      onPress: () => console.log("Serviço 1"),
     },
     {
       primaryTagTitle: "Promoção agora!",
       primaryTagColor: "warningOne",
       secondaryTagTitle: "Comprar",
       secondaryTagColor: "confirm",
+      title: "Previsão de agora 🌦️",
+      subtitle: "Tespestade de descontos!",
       image: sliderDemo2,
+      onPress: () => console.log("Serviço 2"),
     },
   ];
 

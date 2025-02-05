@@ -30,8 +30,5 @@ Jest - Optional
 - Fix texts by creating a custom text component(weight and sizes) - Ok
 - Replace Text with custom text component - Ok
 - Fix background bug in homeHeader icon button - Ok
-- Remake forgot password screen
+- Remake forgot password screen using deep link
 - Replace splashscreen with image in app.json configs
-- Slider Refactor?
-- Slider Ref 1: https://github.com/meliorence/react-native-snap-carousel/tree/master
-- Slider Ref 2: https://rn-carousel.dev/usage

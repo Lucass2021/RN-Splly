@@ -1,11 +1,12 @@
 import React, {useRef, useState} from "react";
-import {Dimensions, Image, ImageProps, View} from "react-native";
+import {Dimensions, Image, ImageProps, Pressable, View} from "react-native";
 import Carousel, {ICarouselInstance} from "react-native-reanimated-carousel";
 import TextComponent from "../text/text";
 import {
   configureReanimatedLogger,
   ReanimatedLogLevel,
 } from "react-native-reanimated";
+import {backgroundColors, Colors} from "@/theme/colors";
 
 configureReanimatedLogger({
   level: ReanimatedLogLevel.warn,
@@ -14,10 +15,13 @@ configureReanimatedLogger({
 
 export type HorizontalBannerData = {
   primaryTagTitle: string;
-  primaryTagColor: string;
+  primaryTagColor: keyof typeof backgroundColors;
   secondaryTagTitle: string;
-  secondaryTagColor: string;
+  secondaryTagColor: keyof typeof backgroundColors;
   image: ImageProps;
+  title: string;
+  subtitle: string;
+  onPress: () => void;
 };
 
 type HorizontalBannerCarouselProps = {
@@ -34,8 +38,20 @@ export default function HorizontalBannerCarousel({
   const bannerDemoImage = bannerList.map(item => item.image);
 
   const {height, width} = Dimensions.get("window");
-  const imageHeight = height * 0.2;
+  const imageHeight = height * 0.23;
   const imageWidth = width * 0.85;
+
+  const backgroundColorPrimaryTag =
+    Colors[bannerList[currentBannerImage].primaryTagColor];
+  const backgroundColorSecondaryTag =
+    Colors[bannerList[currentBannerImage].secondaryTagColor];
+
+  const handleBannerOnPress = () => {
+    const currentBanner = bannerList[currentBannerImage];
+    if (currentBanner && currentBanner.onPress) {
+      currentBanner.onPress();
+    }
+  };
 
   return (
     <>
@@ -48,7 +64,7 @@ export default function HorizontalBannerCarousel({
         {title}
       </TextComponent>
 
-      <View>
+      <Pressable onPress={handleBannerOnPress}>
         <Carousel
           ref={ref}
           data={bannerDemoImage}
@@ -71,15 +87,58 @@ export default function HorizontalBannerCarousel({
             parallaxScrollingOffset: 50,
           }}
           renderItem={({item}) => (
-            <Image
-              source={item}
-              className="w-full rounded-2xl"
-              style={{height: "100%"}}
-              resizeMode="cover"
-            />
+            <View className="position-relative">
+              <Image
+                source={item}
+                className="w-full rounded-2xl"
+                style={{height: "100%"}}
+                resizeMode="cover"
+              />
+
+              <View
+                className={`absolute top-3 left-3 py-2 px-6 rounded-2xl`}
+                style={{backgroundColor: backgroundColorPrimaryTag}}>
+                <TextComponent
+                  fontFamily="TTInterphases"
+                  fontWeight="Bold"
+                  color="light"
+                  fontSize="overlay">
+                  {bannerList[currentBannerImage].primaryTagTitle}
+                </TextComponent>
+              </View>
+
+              <View
+                className={`absolute bottom-3 right-3 py-2 px-6 rounded-2xl`}
+                style={{backgroundColor: backgroundColorSecondaryTag}}>
+                <TextComponent
+                  fontFamily="Obviously"
+                  fontWeight="SemiBold"
+                  color="light"
+                  fontSize="overlay">
+                  {bannerList[currentBannerImage].secondaryTagTitle}
+                </TextComponent>
+              </View>
+
+              <View className={`absolute bottom-[20.5%] left-3 w-8/12`}>
+                <TextComponent
+                  fontFamily="Obviously"
+                  fontWeight="SemiBold"
+                  color="lightOne"
+                  fontSize="h4">
+                  {bannerList[currentBannerImage].title}
+                </TextComponent>
+                <TextComponent
+                  fontFamily="Obviously"
+                  fontWeight="Medium"
+                  color="lightOne"
+                  fontSize="subtitleTwo">
+                  {bannerList[currentBannerImage].subtitle}
+                </TextComponent>
+              </View>
+            </View>
           )}
         />
-      </View>
+      </Pressable>
 
       <View className="flex-row gap-2 justify-center mt-2.5 pr-7.5">
         {Array.from({length: bannerList.length}).map((_, index) => (
