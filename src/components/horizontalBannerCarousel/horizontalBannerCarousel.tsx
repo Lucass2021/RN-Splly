@@ -119,7 +119,7 @@ export default function HorizontalBannerCarousel({
                 </TextComponent>
               </View>
 
-              <View className={`absolute bottom-[20.5%] left-3 w-8/12`}>
+              {/* <View className={`absolute bottom-[20.5%] left-3 w-6/12`}>
                 <TextComponent
                   fontFamily="Obviously"
                   fontWeight="SemiBold"
@@ -134,7 +134,7 @@ export default function HorizontalBannerCarousel({
                   fontSize="subtitleTwo">
                   {bannerList[currentBannerImage].subtitle}
                 </TextComponent>
-              </View>
+              </View> */}
             </View>
           )}
         />
