@@ -19,9 +19,11 @@ module.exports = {
       height: {
         6.5: "25px",
         13: "50px",
+        18: "75px",
       },
       width: {
         13: "50px",
+        18: "75px",
       },
       fontFamily: {
         obviouslyLight: ["ObviouslyLight", "sans-serif"],
