@@ -36,7 +36,7 @@ export default function MenuCircle({title, list}: MenuCircleProps) {
               <Pressable className="mr-5 items-center" onPress={item.onPress}>
                 <View className="bg-confirm w-18 h-18 rounded-2xl">
                   <View className="flex-1 justify-center items-center">
-                    <ImageComponent width={24} height={24} />
+                    <ImageComponent width={35} height={35} />
                   </View>
                 </View>
                 <View className="mt-2">
