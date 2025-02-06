@@ -3,6 +3,7 @@ import ArrowLeftComponent from "@/assets/icons/arrowLeft";
 import ArrowRightComponent from "@/assets/icons/arrowRight";
 import BellComponent from "@/assets/icons/bell";
 import ExploreComponent from "@/assets/icons/explore";
+import FavoriteComponent from "@/assets/icons/favorite";
 import FilterSearchComponent from "@/assets/icons/filterSearch";
 import HomeComponent from "@/assets/icons/home";
 import LocationPinComponent from "@/assets/icons/locationPin";
@@ -22,6 +23,7 @@ const iconRegistry = {
   schedule: ScheduleComponent,
   bell: BellComponent,
   filterSearch: FilterSearchComponent,
+  favorite: FavoriteComponent,
 };
 
 type IconName = keyof typeof iconRegistry;

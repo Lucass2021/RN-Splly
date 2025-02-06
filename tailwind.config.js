@@ -20,10 +20,12 @@ module.exports = {
         6.5: "25px",
         13: "50px",
         18: "75px",
+        50: "200px",
       },
       width: {
         13: "50px",
         18: "75px",
+        65: "260px",
       },
       fontFamily: {
         obviouslyLight: ["ObviouslyLight", "sans-serif"],

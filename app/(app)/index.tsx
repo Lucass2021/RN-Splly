@@ -1,16 +1,25 @@
+import menuCircleDemo from "@/assets/icons/menuCircleDemo.svg";
 import sliderDemo1 from "@/assets/images/slider-demo-100kb-1.jpg";
 import sliderDemo2 from "@/assets/images/slider-demo-100kb-2.jpg";
-import menuCircleDemo from "@/assets/icons/menuCircleDemo.svg";
+import highLightCardsDemo1 from "@/assets/images/highlight-card-1.jpg";
+import highLightCardsDemo2 from "@/assets/images/highlight-card-2.jpg";
+import highLightCardsDemo3 from "@/assets/images/highlight-card-3.jpg";
+import highLightCardsDemo4 from "@/assets/images/highlight-card-4.jpg";
+import highLightCardsDemo5 from "@/assets/images/highlight-card-5.jpg";
 import AddressAndNotificationHeader from "@/components/addressAndNotificationHeader/addressAndNotificationHeader";
 import HomeHeader from "@/components/homeHeader/homeHeader";
-import HorizontalBannerCarousel, {
-  HorizontalBannerData,
-} from "@/components/horizontalBannerCarousel/horizontalBannerCarousel";
+
+import BannerCarousel, {
+  BannerCarouselData,
+} from "@/components/bannerCarousel/bannerCarousel";
+import HighlightCards, {
+  HighlightCardsProps,
+} from "@/components/highlightCards/highlightCards";
 import MenuCircle, {MenuCircleProps} from "@/components/menuCircle/menuCircle";
 import {ScrollView, View} from "react-native";
 
 export default function Index() {
-  const bannerListData: HorizontalBannerData[] = [
+  const bannerListData: BannerCarouselData[] = [
     {
       primaryTagTitle: "Acaba logo!",
       primaryTagColor: "accentOne",
@@ -74,10 +83,67 @@ export default function Index() {
     ],
   };
 
+  const HighlightCardsData: HighlightCardsProps = {
+    title: "Mais avaliados",
+    cardsData: [
+      {
+        title: "Corte + Barba",
+        subtitle: "Barberia dos Galos",
+        locationName: "Novo Hamburgo",
+        discountPrice: "50,00",
+        price: "75,00",
+        onPress: () => console.log("Corte + Barba"),
+        image: highLightCardsDemo1,
+        isFavorite: false,
+      },
+      {
+        title: "Barba",
+        subtitle: "Old Style",
+        locationName: "Säo Leopoldo",
+        discountPrice: null,
+        price: "35,00",
+        onPress: () => console.log("Barba"),
+        image: highLightCardsDemo2,
+        isFavorite: true,
+      },
+      {
+        title: "Corte Masculino",
+        subtitle: "The Classic Barber",
+        locationName: "Porto Alegre",
+        discountPrice: "40,00",
+        price: "60,00",
+        onPress: () => console.log("Corte Masculino"),
+        image: highLightCardsDemo3,
+        isFavorite: false,
+      },
+      {
+        title: "Sobrancelha",
+        subtitle: "Estilo & Cia",
+        locationName: "Canoas",
+        discountPrice: "20,00",
+        price: "30,00",
+        onPress: () => console.log("Sobrancelha"),
+        image: highLightCardsDemo4,
+        isFavorite: true,
+      },
+      {
+        title: "Corte + Hidratação",
+        subtitle: "Barbearia Moderna",
+        locationName: "Esteio",
+        discountPrice: "70,00",
+        price: "90,00",
+        onPress: () => console.log("Corte + Hidratação"),
+        image: highLightCardsDemo5,
+        isFavorite: false,
+      },
+    ],
+  };
+
   return (
     <ScrollView
       className="flex-1 pt-13 bg-light"
-      showsVerticalScrollIndicator={false}>
+      showsVerticalScrollIndicator={false}
+      contentContainerStyle={{paddingBottom: 100}}>
       <View className="px-7.5">
         <View className="mb-4">
           <AddressAndNotificationHeader />
@@ -89,14 +155,18 @@ export default function Index() {
       </View>
 
       <View className="ps-7.5 mb-4">
-        <HorizontalBannerCarousel
-          title="Feitos para você"
-          bannerList={bannerListData}
-        />
+        <BannerCarousel title="Feitos para você" bannerList={bannerListData} />
+      </View>
+
+      <View className="ps-7.5 mb-8">
+        <MenuCircle title={MenuCircleData.title} list={MenuCircleData.list} />
       </View>
 
       <View className="ps-7.5">
-        <MenuCircle title={MenuCircleData.title} list={MenuCircleData.list} />
+        <HighlightCards
+          title={HighlightCardsData.title}
+          cardsData={HighlightCardsData.cardsData}
+        />
       </View>
     </ScrollView>
   );
