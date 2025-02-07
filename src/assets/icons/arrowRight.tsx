@@ -17,8 +17,8 @@ export const ArrowRightComponent = ({
       <Path
         d="M24 7.99972H1M24 7.99972C24 9.84436 16.8128 15 16.8128 15M24 7.99972C24 6.15508 16.8126 1 16.8126 1"
         stroke={color}
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </Svg>
   );

@@ -5,11 +5,16 @@ import TextComponent from "../text/text";
 
 type BackButtonHeaderProps = {
   title: string;
+  customClassName?: string;
 };
 
-export default function BackButtonHeader({title}: BackButtonHeaderProps) {
+export default function BackButtonHeader({
+  title,
+  customClassName,
+}: BackButtonHeaderProps) {
   return (
-    <View className="flex-row items-center justify-between mb-10">
+    <View
+      className={`flex-row items-center justify-between mb-10 ${customClassName}`}>
       <IconButton
         iconName="arrowLeft"
         iconColor="secondaryVariantThree"

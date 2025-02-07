@@ -17,6 +17,7 @@ import HighlightCards, {
 } from "@/components/highlightCards/highlightCards";
 import MenuCircle, {MenuCircleProps} from "@/components/menuCircle/menuCircle";
 import {ScrollView, View} from "react-native";
+import {router} from "expo-router";
 
 export default function Index() {
   const bannerListData: BannerCarouselData[] = [
@@ -128,9 +129,9 @@ export default function Index() {
       },
       {
         title: "Corte + Hidratação",
-        subtitle: "Barbearia Moderna",
+        subtitle: null,
         locationName: "Esteio",
-        discountPrice: "70,00",
+        discountPrice: null,
         price: "90,00",
         onPress: () => console.log("Corte + Hidratação"),
         image: highLightCardsDemo5,
@@ -150,7 +151,7 @@ export default function Index() {
         </View>
 
         <View className="mb-7.5">
-          <HomeHeader onPress={() => {}} />
+          <HomeHeader onPress={() => router.push("/filter")} />
         </View>
       </View>
 

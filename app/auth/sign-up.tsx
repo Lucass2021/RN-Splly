@@ -77,9 +77,8 @@ export default function SignUp() {
           <View className="mb-7.5">
             <TextComponent
               fontFamily="Obviously"
-              fontWeight="SemiBold"
+              fontWeight="Bold"
               color="warningOne"
-              // fontSize="h3"
               fontSize="h4"
               customClassName="text-center mb-5">
               Crie sua conta

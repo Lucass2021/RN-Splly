@@ -17,7 +17,7 @@ Jest - Optional
 
 - Splash Screen not working properly in iPhone Devices - Ok
 - Setup Zustand for user custom first access (Show only sign up and sign in screen after first access) - Ok
-- Update Zustand from Async Storage to MMKV
+
 - Change font weight in slider from medium to 300 - Ok
 - Remove first arrow from slider - Ok
 - Test with light images in slider (Use images without require and with less than 300kb) - Ok
@@ -30,4 +30,22 @@ Jest - Optional
 - Fix texts by creating a custom text component(weight and sizes) - Ok
 - Replace Text with custom text component - Ok
 - Fix background bug in homeHeader icon button - Ok
+- Fix SearchBar in real devices - Ok
+
+- Update Zustand from Async Storage to MMKV
 - Remake forgot password screen using deep link
+- Fix input text in iOS devices
+- Align to left Terms and Conditions
+- Add background and shadow view in terms and condition buttons
+
+- Diminuir padding das tags do banner
+- Deixar tag primary optional
+- Diminuir o tamanho das bolas de baixo do banner
+- Aumentar o espaçamento das bolas de baixo do banner
+- Remover tags secondary
+- Remover texto central dos banners
+- Aumentar altura do banner
+
+- Validar highCard title length with 2 line height and add three dots.
+- Ajustar padding esquerdo no highlightcard
+- Change location pin color in filter screen

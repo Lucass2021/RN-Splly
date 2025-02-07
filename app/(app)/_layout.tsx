@@ -136,6 +136,13 @@ export default function AppLayout() {
           ),
         }}
       />
+
+      <Tabs.Screen
+        name="filter"
+        options={{
+          href: null,
+        }}
+      />
     </Tabs>
   );
 }
