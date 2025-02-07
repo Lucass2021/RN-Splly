@@ -128,9 +128,9 @@ export default function Index() {
       },
       {
         title: "Corte + Hidratação",
-        subtitle: "Barbearia Moderna",
+        subtitle: null,
         locationName: "Esteio",
-        discountPrice: "70,00",
+        discountPrice: null,
         price: "90,00",
         onPress: () => console.log("Corte + Hidratação"),
         image: highLightCardsDemo5,

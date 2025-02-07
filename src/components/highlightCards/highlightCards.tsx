@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   FlatList,
   Image,
@@ -14,7 +14,7 @@ export type HighlightCardsProps = {
   title: string;
   cardsData: {
     title: string;
-    subtitle?: string;
+    subtitle?: string | null;
     locationName: string;
     discountPrice: string | null;
     price: string;
@@ -29,9 +29,24 @@ export default function HighlightCards({
   cardsData,
 }: HighlightCardsProps) {
   const LocationComponent = LocationPin;
+  const [favorites, setFavorites] = useState<Record<string, boolean>>(
+    cardsData.reduce(
+      (acc, item) => {
+        acc[item.title] = item.isFavorite;
+        return acc;
+      },
+      {} as Record<string, boolean>,
+    ),
+  );
 
-  const handleSetFavorite = () => {
-    console.log("favoritar");
+  const handleSetFavorite = (title: string) => {
+    setFavorites(prevFavorites => ({
+      ...prevFavorites,
+      [title]: !prevFavorites[title],
+    }));
+
+    // # TODO: Must call api to set favorite
+    console.log("Favorite title", title);
   };
 
   return (
@@ -63,6 +78,8 @@ export default function HighlightCards({
           keyExtractor={card => String(card.title)}
           data={cardsData}
           renderItem={({item}) => {
+            const isFavorite = favorites[item.title];
+
             return (
               <View className="flex-col">
                 <Pressable
@@ -75,12 +92,15 @@ export default function HighlightCards({
                       resizeMode="cover"
                     />
                     <IconButton
-                      iconName="favorite"
-                      iconColor="grayTwo"
+                      iconName={isFavorite ? "favoriteFill" : "favorite"}
+                      iconColor={isFavorite ? "accent" : "grayTwo"}
+                      iconStrokeColor={
+                        isFavorite ? "secondaryVariantThree" : "grayTwo"
+                      }
                       buttonBackgroundColor="grayFive"
                       iconWidth={18}
                       iconHeight={15}
-                      onPress={() => handleSetFavorite()}
+                      onPress={() => handleSetFavorite(item.title)}
                       customClassName="absolute top-3 right-3 z-10 w-9 h-9 rounded-lg"
                     />
                   </View>
@@ -95,14 +115,17 @@ export default function HighlightCards({
                     customClassName="mb-0.5">
                     {item.title}
                   </TextComponent>
-                  <TextComponent
-                    fontFamily="TTInterphases"
-                    fontWeight="Medium"
-                    color="dark"
-                    fontSize="subtitleTwo"
-                    customClassName="mb-1.5">
-                    {item.subtitle}
-                  </TextComponent>
+                  {item.subtitle && (
+                    <TextComponent
+                      fontFamily="TTInterphases"
+                      fontWeight="Medium"
+                      color="dark"
+                      fontSize="subtitleTwo"
+                      customClassName="mb-1.5">
+                      {item.subtitle}
+                    </TextComponent>
+                  )}
+
                   <View className="flex-row gap-2 items-center mb-2.5">
                     <LocationComponent width={12} height={14} />
                     <TextComponent

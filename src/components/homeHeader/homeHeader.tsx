@@ -25,7 +25,7 @@ export default function HomeHeader({onPress}: HomeHeaderProps) {
       <TextInput
         ref={inputExploreIconRef}
         className="flex-1 placeholder:text-grayFour"
-        placeholder="Pesquisar uma Barbearia, Serviço..."
+        placeholder="O que você precisa?"
       />
       <IconButton
         iconName="filterSearch"

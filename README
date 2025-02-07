@@ -31,3 +31,4 @@ Jest - Optional
 - Replace Text with custom text component - Ok
 - Fix background bug in homeHeader icon button - Ok
 - Remake forgot password screen using deep link
+- Fix SearchBar in real devices - Ok

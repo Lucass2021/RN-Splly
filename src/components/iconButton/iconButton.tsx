@@ -4,6 +4,7 @@ import ArrowRightComponent from "@/assets/icons/arrowRight";
 import BellComponent from "@/assets/icons/bell";
 import ExploreComponent from "@/assets/icons/explore";
 import FavoriteComponent from "@/assets/icons/favorite";
+import FavoriteFillComponent from "@/assets/icons/favorite-fill";
 import FilterSearchComponent from "@/assets/icons/filterSearch";
 import HomeComponent from "@/assets/icons/home";
 import LocationPinComponent from "@/assets/icons/locationPin";
@@ -24,6 +25,7 @@ const iconRegistry = {
   bell: BellComponent,
   filterSearch: FilterSearchComponent,
   favorite: FavoriteComponent,
+  favoriteFill: FavoriteFillComponent,
 };
 
 type IconName = keyof typeof iconRegistry;
@@ -31,6 +33,7 @@ type IconName = keyof typeof iconRegistry;
 export interface IconButtonProps extends TouchableOpacityProps {
   iconName: IconName;
   iconColor: keyof typeof Colors;
+  iconStrokeColor?: keyof typeof Colors;
   buttonBackgroundColor: keyof typeof backgroundColors;
   iconWidth: number;
   iconHeight: number;
@@ -42,6 +45,7 @@ export interface IconButtonProps extends TouchableOpacityProps {
 export default function IconButton({
   iconName,
   iconColor,
+  iconStrokeColor = "dark",
   buttonBackgroundColor,
   iconWidth,
   iconHeight,
@@ -53,6 +57,7 @@ export default function IconButton({
   const IconComponent = iconRegistry[iconName];
   const color = Colors[iconColor];
   const backgroundColor = Colors[buttonBackgroundColor];
+  const strokeColor = Colors[iconStrokeColor];
 
   return (
     <TouchableOpacity
@@ -62,7 +67,12 @@ export default function IconButton({
       onPress={onPress}
       disabled={disabled}
       {...props}>
-      <IconComponent color={color} width={iconWidth} height={iconHeight} />
+      <IconComponent
+        color={color}
+        width={iconWidth}
+        height={iconHeight}
+        stroke={strokeColor}
+      />
     </TouchableOpacity>
   );
 }
