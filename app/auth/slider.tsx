@@ -48,7 +48,7 @@ export default function Slider() {
       <View className="mt-10 mb-5">
         <TextComponent
           fontFamily="Obviously"
-          fontWeight="Light"
+          fontWeight="Regular"
           color="darkOne"
           fontSize="h3"
           customClassName="text-center">

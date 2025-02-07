@@ -41,7 +41,7 @@ export default function Index() {
           O seu app{" "}
           <TextComponent
             fontFamily="Obviously"
-            fontWeight="Light"
+            fontWeight="Regular"
             color="darkOne"
             fontSize="h3">
             de agendamentos

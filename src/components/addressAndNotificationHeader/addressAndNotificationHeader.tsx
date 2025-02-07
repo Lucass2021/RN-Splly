@@ -5,7 +5,18 @@ import {Colors} from "react-native/Libraries/NewAppScreen";
 import IconButton from "../iconButton/iconButton";
 import TextComponent from "../text/text";
 
-export default function AddressAndNotificationHeader() {
+type AddressAndNotificationHeaderProps = {
+  onPress?: () => void;
+  showNotificationBell?: boolean;
+  locationPinColor?: keyof typeof Colors;
+};
+
+export default function AddressAndNotificationHeader({
+  onPress,
+  showNotificationBell = true,
+  locationPinColor = "secondaryVariantThree",
+}: AddressAndNotificationHeaderProps) {
+  const color = Colors[locationPinColor];
   return (
     <View>
       <View className="flex-row items-center justify-between">
@@ -18,11 +29,7 @@ export default function AddressAndNotificationHeader() {
             Localização
           </TextComponent>
           <Pressable className="flex-row items-center gap-2.5">
-            <LocationPinComponent
-              width={22}
-              height={24}
-              color={Colors.secondaryVariantThree}
-            />
+            <LocationPinComponent width={22} height={24} color={color} />
             <TextComponent
               fontFamily="Obviously"
               fontWeight="Bold"
@@ -38,14 +45,16 @@ export default function AddressAndNotificationHeader() {
           </Pressable>
         </View>
 
-        <IconButton
-          iconName="bell"
-          iconColor="primaryVariantOne"
-          buttonBackgroundColor="grayFive"
-          iconWidth={24}
-          iconHeight={24}
-          onPress={() => {}}
-        />
+        {showNotificationBell && (
+          <IconButton
+            iconName="bell"
+            iconColor="primaryVariantOne"
+            buttonBackgroundColor="grayFive"
+            iconWidth={24}
+            iconHeight={24}
+            onPress={onPress}
+          />
+        )}
       </View>
     </View>
   );

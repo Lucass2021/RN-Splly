@@ -137,7 +137,7 @@ export default function HighlightCards({
                     </TextComponent>
                   </View>
 
-                  <View className="flex-row items-center">
+                  <View className="flex-row items-end">
                     <TextComponent
                       fontFamily="TTInterphases"
                       fontWeight="Bold"
