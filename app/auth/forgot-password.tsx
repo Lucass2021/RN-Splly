@@ -96,7 +96,7 @@ export default function ForgotPassword() {
               onPress={() => handleSubmit(handleResetPassword)()}
               disabled={false}
             />
-            <Pressable onPress={() => router.push("/auth/sign-up")}>
+            <Pressable onPress={() => router.push("/auth/sign-in")}>
               <TextComponent
                 fontFamily="TTInterphases"
                 fontWeight="Regular"
@@ -104,6 +104,16 @@ export default function ForgotPassword() {
                 fontSize="caption"
                 customClassName="mt-3 text-center underline">
                 Voltar
+              </TextComponent>
+            </Pressable>
+            <Pressable onPress={() => router.push("/auth/reset-password")}>
+              <TextComponent
+                fontFamily="TTInterphases"
+                fontWeight="Regular"
+                color="grayThree"
+                fontSize="caption"
+                customClassName="mt-10 text-center underline">
+                Reset password deep link
               </TextComponent>
             </Pressable>
           </View>
