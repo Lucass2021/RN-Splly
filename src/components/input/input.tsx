@@ -57,7 +57,7 @@ export default function Input({
           secureTextEntry={isSecure}
           style={{
             textAlignVertical: "center",
-            paddingBottom: Platform.OS === "ios" ? 7 : 0,
+            paddingBottom: Platform.OS === "ios" ? 7 : null,
           }}
           {...props}
         />

@@ -1,6 +1,4 @@
 import menuCircleDemo from "@/assets/icons/menuCircleDemo.svg";
-import sliderDemo1 from "@/assets/images/slider-demo-100kb-1.jpg";
-import sliderDemo2 from "@/assets/images/slider-demo-100kb-2.jpg";
 import highLightCardsDemo1 from "@/assets/images/highlight-card-1.jpg";
 import highLightCardsDemo2 from "@/assets/images/highlight-card-2.jpg";
 import highLightCardsDemo3 from "@/assets/images/highlight-card-3.jpg";
@@ -16,30 +14,31 @@ import HighlightCards, {
   HighlightCardsProps,
 } from "@/components/highlightCards/highlightCards";
 import MenuCircle, {MenuCircleProps} from "@/components/menuCircle/menuCircle";
-import {ScrollView, View} from "react-native";
 import {router} from "expo-router";
+import {ScrollView, View} from "react-native";
 
 export default function Index() {
   const bannerListData: BannerCarouselData[] = [
     {
       primaryTagTitle: "Acaba logo!",
-      primaryTagColor: "accentOne",
-      secondaryTagTitle: "Resgatar",
-      secondaryTagColor: "secondaryVariantOne",
-      title: "Promoção, até 40% OFF",
-      subtitle: "Somente até as 14hrs.",
-      image: sliderDemo1,
+      primaryTagBackroundColor: "accentOne",
+      primaryTagTextColor: "light",
+      image: highLightCardsDemo1,
       onPress: () => console.log("Serviço 1"),
     },
     {
       primaryTagTitle: "Promoção agora!",
-      primaryTagColor: "warningOne",
-      secondaryTagTitle: "Comprar",
-      secondaryTagColor: "grayOne",
-      title: "Previsão de agora 🌦️",
-      subtitle: "Tespestade de descontos!",
-      image: sliderDemo2,
+      primaryTagBackroundColor: "warningOne",
+      primaryTagTextColor: "light",
+      image: highLightCardsDemo2,
       onPress: () => console.log("Serviço 2"),
+    },
+    {
+      primaryTagTitle: "Último dia!",
+      primaryTagBackroundColor: "accentOne",
+      primaryTagTextColor: "light",
+      image: highLightCardsDemo3,
+      onPress: () => console.log("Serviço 3"),
     },
   ];
 
