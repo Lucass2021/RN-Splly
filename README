@@ -39,7 +39,7 @@ Jest - Optional
 - https://voce.doctorclin.com.br/#/senha/b3f9a246ea0b32a9dbf202839566c2776383bf50
 
 - Fix input text in iOS devices - Ok
-- Align to left Terms and Conditions
+- Align to left Terms and Conditions - Ok
 - Add background and shadow view in terms and condition buttons
 
 - Diminuir padding das tags do banner
@@ -53,3 +53,4 @@ Jest - Optional
 - Validar highCard title length with 2 line height and add three dots.
 - Ajustar padding esquerdo no highlightcard
 - Change location pin color in filter screen
+- Optmize images size

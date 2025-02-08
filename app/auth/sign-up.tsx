@@ -112,7 +112,7 @@ export default function SignUp() {
             />
           </FormProvider>
 
-          <View className="flex-row gap-2.5">
+          <View className="flex-row gap-2.5 w-full">
             <Pressable onPress={handleAcceptTermsAndConditions} hitSlop={20}>
               <Checkbox
                 value={userTermsAndConditions}
