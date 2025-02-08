@@ -32,8 +32,12 @@ Jest - Optional
 - Fix background bug in homeHeader icon button - Ok
 - Fix SearchBar in real devices - Ok
 
-- Update Zustand from Async Storage to MMKV
-- Remake forgot password screen using deep link
+- Update Zustand from Async Storage to MMKV (The efficiency must be tested before making any changes)
+- Remake forgot password screen using deep link - Ok
+
+- Deep link Example
+- https://voce.doctorclin.com.br/#/senha/b3f9a246ea0b32a9dbf202839566c2776383bf50
+
 - Fix input text in iOS devices
 - Align to left Terms and Conditions
 - Add background and shadow view in terms and condition buttons

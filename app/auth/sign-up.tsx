@@ -46,7 +46,7 @@ export default function SignUp() {
 
   const {handleSubmit} = form;
 
-  const showToast = () => {
+  const signUpToast = () => {
     Toast.show({
       type: "success",
       text1: "Usuario criado com sucesso",
@@ -55,7 +55,7 @@ export default function SignUp() {
 
   const handleSignUp = async (data: SignUpForm) => {
     console.log("data", data);
-    showToast();
+    signUpToast();
   };
 
   const handleAcceptTermsAndConditions = () => {

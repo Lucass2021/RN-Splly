@@ -15,7 +15,8 @@ const authStore = create(
       set => ({
         actions: {
           login: () => set({isLoggedIn: true}),
-          logout: () => set({isLoggedIn: false}),
+          logout: () =>
+            set({isLoggedIn: false, hasUserAcceptedTermsAndConditions: false}),
           setFirstAccess: (firstAccessValue: boolean) =>
             set({isFirstAccess: firstAccessValue}),
           setUserName: (name: string) => set({userName: name}),
