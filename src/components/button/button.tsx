@@ -6,12 +6,14 @@ type ButtonProps = {
   text: string;
   onPress: () => void;
   disabled?: boolean;
+  customClassName?: string;
 };
 
 export default function Button({
   text,
   onPress,
   disabled,
+  customClassName,
   ...props
 }: ButtonProps) {
   const [buttonWasPressed, setButtonWasPressed] = useState(false);
@@ -31,7 +33,9 @@ export default function Button({
       disabled={disabled || buttonWasPressed}
       className={`h-14 rounded-2xl items-center justify-center 
         ${disabled ? "opacity-70 bg-secondaryVariantOne" : "bg-secondaryVariantOne"} 
-        ${buttonWasPressed ? "opacity-70" : "opacity-100"}`}
+        ${buttonWasPressed ? "opacity-70" : "opacity-100"}
+        ${customClassName}
+        `}
       {...props}>
       <TextComponent
         fontFamily="Obviously"

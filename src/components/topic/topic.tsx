@@ -9,11 +9,12 @@ type topicData = {
 
 type TopicProps = {
   topicData: topicData[];
+  customClassName?: string;
 };
 
-export default function Topic({topicData}: TopicProps) {
+export default function Topic({topicData, customClassName}: TopicProps) {
   const renderItem = ({item, index}: {item: topicData; index: number}) => (
-    <View className="mb-6" key={index}>
+    <View className={`mb-6 ${customClassName}`} key={index}>
       <TextComponent
         fontFamily="TTInterphases"
         fontWeight="SemiBold"
@@ -37,7 +38,11 @@ export default function Topic({topicData}: TopicProps) {
       data={topicData}
       renderItem={renderItem}
       showsVerticalScrollIndicator={false}
-      ListHeaderComponent={<BackButtonHeader title="Privacidade" />}
+      ListHeaderComponent={
+        <View className="px-7.5">
+          <BackButtonHeader title="Privacidade" />
+        </View>
+      }
     />
   );
 }

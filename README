@@ -13,10 +13,15 @@ React Native Svg - Ok
 React Native SVG Transformer - Ok
 Jest - Optional
 
-# TODO
+# Generic TODO
 
 - Splash Screen not working properly in iPhone Devices - Ok
 - Setup Zustand for user custom first access (Show only sign up and sign in screen after first access) - Ok
+- Update Zustand from Async Storage to MMKV (The efficiency must be tested before making any changes)
+- Deep link Example
+- https://voce.doctorclin.com.br/#/senha/b3f9a246ea0b32a9dbf202839566c2776383bf50
+
+# First meeting TODO
 
 - Change font weight in slider from medium to 300 - Ok
 - Remove first arrow from slider - Ok
@@ -32,20 +37,25 @@ Jest - Optional
 - Fix background bug in homeHeader icon button - Ok
 - Fix SearchBar in real devices - Ok
 
-- Update Zustand from Async Storage to MMKV
-- Remake forgot password screen using deep link
-- Fix input text in iOS devices
-- Align to left Terms and Conditions
-- Add background and shadow view in terms and condition buttons
+# Second meeting TODO
 
-- Diminuir padding das tags do banner
-- Deixar tag primary optional
-- Diminuir o tamanho das bolas de baixo do banner
-- Aumentar o espaçamento das bolas de baixo do banner
-- Remover tags secondary
-- Remover texto central dos banners
-- Aumentar altura do banner
+- Remake forgot password screen using deep link - Ok
 
-- Validar highCard title length with 2 line height and add three dots.
-- Ajustar padding esquerdo no highlightcard
+- Fix input text in iOS devices - Ok
+- Align to left Terms and Conditions - Ok
+- Add background and shadow view in terms and condition buttons - Ok
+
+- Decrease banner tag padding - Ok
+- Allow optional Tags in banner - Ok
+- Decrease banner balls size - Ok
+- Increase spacing between banner balls - Ok
+- Remove secondary tags - ok
+- Remove title and subtitle from banner - Ok
+- Increase banner height - Ok
+
+- Add validations to HighlightCards title and subtitle (max 2 line height and three dots if text is too long)
+- Fix left padding in HighlightCards while scrolling
 - Change location pin color in filter screen
+- Compress images size in HighlightCards - Ok
+
+- Fix navigation animation in tabBar onPress

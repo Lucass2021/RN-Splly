@@ -11,39 +11,29 @@ import {
   ScrollView,
   View,
 } from "react-native";
-import Toast from "react-native-toast-message";
 import {z} from "zod";
 
-const forgotPasswordFormSchema = z.object({
-  email: z
-    .string()
-    .email("Email inválido")
-    .min(1, {message: "Informe o seu Email"}),
+const resetPasswordFormSchema = z.object({
+  password: z.string().min(1, {message: "Informe sua senha"}),
+  newPassword: z.string().min(1, {message: "Informe sua nova senha"}),
 });
 
-type ForgotPasswordForm = z.infer<typeof forgotPasswordFormSchema>;
+type ResetPasswordForm = z.infer<typeof resetPasswordFormSchema>;
 
-export default function ForgotPassword() {
-  const form = useForm<ForgotPasswordForm>({
-    resolver: zodResolver(forgotPasswordFormSchema),
+export default function ResetPasswordScreen() {
+  const form = useForm<ResetPasswordForm>({
+    resolver: zodResolver(resetPasswordFormSchema),
     defaultValues: {
-      email: "",
+      password: "",
+      newPassword: "",
     },
   });
 
   const {handleSubmit} = form;
 
-  const forgotPasswordToast = () => {
-    Toast.show({
-      type: "success",
-      text1: "Solicitaçao enviada",
-      text2: "Por favor verifique seu e-mail e altere sua senha.",
-    });
-  };
-
-  const handleResetPassword = async (data: ForgotPasswordForm) => {
+  const handleResetPassword = async (data: ResetPasswordForm) => {
     console.log("data", data);
-    forgotPasswordToast();
+
     router.replace("/auth/sign-in");
   };
 
@@ -66,7 +56,7 @@ export default function ForgotPassword() {
               color="warningOne"
               fontSize="h4"
               customClassName="text-center mb-5">
-              Esqueci minha senha
+              Redefina sua senha
             </TextComponent>
             <TextComponent
               fontFamily="TTInterphases"
@@ -81,12 +71,16 @@ export default function ForgotPassword() {
 
           <FormProvider {...form}>
             <Input
-              name="email"
-              customPlaceholder="E-mail"
-              keyboardType="email-address"
-              autoCapitalize="none"
-              autoComplete="off"
-              autoCorrect={false}
+              name="password"
+              customPlaceholder="Senha"
+              keyboardType="default"
+              secureTextEntry
+            />
+            <Input
+              name="newPassword"
+              customPlaceholder="Nova senha"
+              keyboardType="default"
+              secureTextEntry
             />
           </FormProvider>
 
@@ -96,7 +90,7 @@ export default function ForgotPassword() {
               onPress={() => handleSubmit(handleResetPassword)()}
               disabled={false}
             />
-            <Pressable onPress={() => router.push("/auth/sign-in")}>
+            <Pressable onPress={() => router.push("/auth/sign-up")}>
               <TextComponent
                 fontFamily="TTInterphases"
                 fontWeight="Regular"
@@ -104,16 +98,6 @@ export default function ForgotPassword() {
                 fontSize="caption"
                 customClassName="mt-3 text-center underline">
                 Voltar
-              </TextComponent>
-            </Pressable>
-            <Pressable onPress={() => router.push("/auth/reset-password")}>
-              <TextComponent
-                fontFamily="TTInterphases"
-                fontWeight="Regular"
-                color="grayThree"
-                fontSize="caption"
-                customClassName="mt-10 text-center underline">
-                Reset password deep link
               </TextComponent>
             </Pressable>
           </View>

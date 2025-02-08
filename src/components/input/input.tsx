@@ -47,10 +47,7 @@ export default function Input({
         {customPlaceholder}
       </TextComponent>
       <View
-        className={`flex-row items-center border rounded-2xl ${error ? "border-red-500" : "border-grayFour"}`}
-        style={{
-          paddingBottom: Platform.OS === "ios" ? 8 : 0,
-        }}>
+        className={`flex-row items-center border rounded-2xl ${error ? "border-red-500" : "border-grayFour"}`}>
         <TextInput
           ref={textInputRef}
           className={`flex-1 font-TTInterphasesLight color-black text-base px-5 h-12  ${className}`}
@@ -58,6 +55,10 @@ export default function Input({
           onBlur={onBlur}
           value={value}
           secureTextEntry={isSecure}
+          style={{
+            textAlignVertical: "center",
+            paddingBottom: Platform.OS === "ios" ? 7 : null,
+          }}
           {...props}
         />
         {secureTextEntry && (

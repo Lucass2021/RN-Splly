@@ -14,13 +14,10 @@ configureReanimatedLogger({
 });
 
 export type BannerCarouselData = {
-  primaryTagTitle: string;
-  primaryTagColor: keyof typeof backgroundColors;
-  secondaryTagTitle: string;
-  secondaryTagColor: keyof typeof backgroundColors;
+  primaryTagTitle?: string | null;
+  primaryTagBackroundColor?: keyof typeof backgroundColors | null;
+  primaryTagTextColor?: keyof typeof backgroundColors | null;
   image: ImageProps;
-  title: string;
-  subtitle: string;
   onPress: () => void;
 };
 
@@ -38,13 +35,28 @@ export default function BannerCarousel({
   const bannerDemoImage = bannerList.map(item => item.image);
 
   const {height, width} = Dimensions.get("window");
-  const imageHeight = height * 0.23;
+  const imageHeight = height * 0.3;
   const imageWidth = width * 0.85;
 
+  const hasPrimaryTag =
+    bannerList[currentBannerImage].primaryTagBackroundColor &&
+    bannerList[currentBannerImage].primaryTagTitle &&
+    bannerList[currentBannerImage].primaryTagTextColor;
+
+  const primaryTagBackroundColor =
+    bannerList[currentBannerImage].primaryTagBackroundColor;
+
   const backgroundColorPrimaryTag =
-    Colors[bannerList[currentBannerImage].primaryTagColor];
-  const backgroundColorSecondaryTag =
-    Colors[bannerList[currentBannerImage].secondaryTagColor];
+    primaryTagBackroundColor !== null && primaryTagBackroundColor !== undefined
+      ? Colors[primaryTagBackroundColor]
+      : Colors.accent;
+
+  const primaryTextColor = bannerList[currentBannerImage].primaryTagTextColor;
+
+  const primaryTagTextColor =
+    primaryTextColor !== null && primaryTextColor !== undefined
+      ? primaryTextColor
+      : "light";
 
   const handleBannerOnPress = () => {
     const currentBanner = bannerList[currentBannerImage];
@@ -81,7 +93,6 @@ export default function BannerCarousel({
           autoPlay
           autoPlayInterval={3000}
           loop={true}
-          // mode="parallax"
           modeConfig={{
             parallaxScrollingScale: 0.9,
             parallaxScrollingOffset: 50,
@@ -95,56 +106,31 @@ export default function BannerCarousel({
                 resizeMode="cover"
               />
 
-              <View
-                className={`absolute top-3 left-3 py-2 px-6 rounded-2xl`}
-                style={{backgroundColor: backgroundColorPrimaryTag}}>
-                <TextComponent
-                  fontFamily="TTInterphases"
-                  fontWeight="Bold"
-                  color="light"
-                  fontSize="overlay">
-                  {bannerList[currentBannerImage].primaryTagTitle}
-                </TextComponent>
-              </View>
-
-              <View
-                className={`absolute bottom-3 right-3 py-2 px-6 rounded-2xl`}
-                style={{backgroundColor: backgroundColorSecondaryTag}}>
-                <TextComponent
-                  fontFamily="Obviously"
-                  fontWeight="SemiBold"
-                  color="light"
-                  fontSize="overlay">
-                  {bannerList[currentBannerImage].secondaryTagTitle}
-                </TextComponent>
-              </View>
-
-              {/* <View className={`absolute bottom-[20.5%] left-3 w-6/12`}>
-                <TextComponent
-                  fontFamily="Obviously"
-                  fontWeight="SemiBold"
-                  color="lightOne"
-                  fontSize="h4">
-                  {bannerList[currentBannerImage].title}
-                </TextComponent>
-                <TextComponent
-                  fontFamily="Obviously"
-                  fontWeight="Medium"
-                  color="lightOne"
-                  fontSize="subtitleTwo">
-                  {bannerList[currentBannerImage].subtitle}
-                </TextComponent>
-              </View> */}
+              {hasPrimaryTag && (
+                <View
+                  className={`absolute top-3 left-3 py-1 px-5 rounded-2xl`}
+                  style={{
+                    backgroundColor: backgroundColorPrimaryTag,
+                  }}>
+                  <TextComponent
+                    fontFamily="TTInterphases"
+                    fontWeight="Bold"
+                    color={primaryTagTextColor}
+                    fontSize="overlay">
+                    {bannerList[currentBannerImage].primaryTagTitle}
+                  </TextComponent>
+                </View>
+              )}
             </View>
           )}
         />
       </Pressable>
 
-      <View className="flex-row gap-2 justify-center mt-2.5 pr-7.5">
+      <View className="flex-row gap-2.5 justify-center mt-2.5 pr-7.5">
         {Array.from({length: bannerList.length}).map((_, index) => (
           <View
             key={index}
-            className={`h-3 w-3 rounded-full ${index === currentBannerImage ? "bg-secondaryVariantThree" : "bg-grayFive"}`}
+            className={`h-2 w-2 rounded-full ${index === currentBannerImage ? "bg-secondaryVariantThree" : "bg-grayFive"}`}
           />
         ))}
       </View>
