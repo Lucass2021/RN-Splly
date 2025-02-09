@@ -106,13 +106,15 @@ export default function HighlightCards({
                   </View>
                 </Pressable>
 
-                <View>
+                <View className="max-w-72">
                   <TextComponent
                     fontFamily="Obviously"
                     fontWeight="SemiBold"
                     color="dark"
                     fontSize="h6"
-                    customClassName="mb-0.5">
+                    customClassName="mb-0.5"
+                    numberOfLines={2}
+                    ellipsizeMode="tail">
                     {item.title}
                   </TextComponent>
                   {item.subtitle && (
@@ -121,7 +123,9 @@ export default function HighlightCards({
                       fontWeight="Medium"
                       color="dark"
                       fontSize="subtitleTwo"
-                      customClassName="mb-1.5">
+                      customClassName="mb-1.5"
+                      numberOfLines={2}
+                      ellipsizeMode="tail">
                       {item.subtitle}
                     </TextComponent>
                   )}
