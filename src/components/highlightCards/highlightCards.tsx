@@ -132,7 +132,11 @@ export default function HighlightCards({
                   )}
 
                   <View className="flex-row gap-2 items-center mb-2.5">
-                    <LocationComponent width={12} height={14} />
+                    <LocationComponent
+                      width={12}
+                      height={14}
+                      color={"grayTwo"}
+                    />
                     <TextComponent
                       fontFamily="TTInterphases"
                       fontWeight="Medium"

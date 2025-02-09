@@ -1,9 +1,9 @@
 import ArrowDownComponent from "@/assets/icons/arrowDown";
 import LocationPinComponent from "@/assets/icons/locationPin";
 import {Pressable, View} from "react-native";
-import {Colors} from "react-native/Libraries/NewAppScreen";
 import IconButton from "../iconButton/iconButton";
 import TextComponent from "../text/text";
+import {Colors} from "@/theme/colors";
 
 type AddressAndNotificationHeaderProps = {
   onPress?: () => void;
@@ -14,9 +14,10 @@ type AddressAndNotificationHeaderProps = {
 export default function AddressAndNotificationHeader({
   onPress,
   showNotificationBell = true,
-  locationPinColor = "secondaryVariantThree",
+  locationPinColor = "grayTwo",
 }: AddressAndNotificationHeaderProps) {
   const color = Colors[locationPinColor];
+
   return (
     <View>
       <View className="flex-row items-center justify-between">

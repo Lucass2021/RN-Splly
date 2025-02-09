@@ -7,7 +7,10 @@ export default function FilterScreen() {
     <View className="flex-1 px-7.5 pt-13 bg-light">
       <BackButtonHeader title="Filtros" customClassName="mb-7" />
       <View className="mb-4">
-        <AddressAndNotificationHeader showNotificationBell={false} />
+        <AddressAndNotificationHeader
+          showNotificationBell={false}
+          locationPinColor="warningOne"
+        />
       </View>
     </View>
   );
