@@ -160,16 +160,14 @@ export default function Index() {
         <BannerCarousel title="Feitos para você" bannerList={bannerListData} />
       </View>
 
-      <View className="ps-7.5 mb-8">
+      <View className="mb-8">
         <MenuCircle title={MenuCircleData.title} list={MenuCircleData.list} />
       </View>
 
-      <View className="ps-7.5">
-        <HighlightCards
-          title={HighlightCardsData.title}
-          cardsData={HighlightCardsData.cardsData}
-        />
-      </View>
+      <HighlightCards
+        title={HighlightCardsData.title}
+        cardsData={HighlightCardsData.cardsData}
+      />
     </ScrollView>
   );
 }

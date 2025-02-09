@@ -51,7 +51,7 @@ export default function HighlightCards({
 
   return (
     <>
-      <View className="flex-row items-center justify-between mb-5 pr-7.5">
+      <View className="flex-row items-center justify-between mb-5 pr-7.5 ps-7.5">
         <TextComponent
           fontFamily="Obviously"
           fontWeight="SemiBold"
@@ -77,6 +77,7 @@ export default function HighlightCards({
           showsHorizontalScrollIndicator={false}
           keyExtractor={card => String(card.title)}
           data={cardsData}
+          contentContainerStyle={{paddingLeft: 30, paddingRight: 15}}
           renderItem={({item}) => {
             const isFavorite = favorites[item.title];
 

@@ -15,14 +15,16 @@ export type MenuCircleProps = {
 export default function MenuCircle({title, list}: MenuCircleProps) {
   return (
     <>
-      <TextComponent
-        fontFamily="Obviously"
-        fontWeight="SemiBold"
-        color="dark"
-        fontSize="h6"
-        customClassName="mb-5">
-        {title}
-      </TextComponent>
+      <View className="ps-7.5">
+        <TextComponent
+          fontFamily="Obviously"
+          fontWeight="SemiBold"
+          color="dark"
+          fontSize="h6"
+          customClassName="mb-5">
+          {title}
+        </TextComponent>
+      </View>
 
       <View>
         <FlatList
@@ -30,6 +32,7 @@ export default function MenuCircle({title, list}: MenuCircleProps) {
           showsHorizontalScrollIndicator={false}
           keyExtractor={card => String(card.name)}
           data={list}
+          contentContainerStyle={{paddingLeft: 30, paddingRight: 15}}
           renderItem={({item}) => {
             const ImageComponent = item.image;
             return (

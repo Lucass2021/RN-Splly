@@ -54,7 +54,7 @@ Jest - Optional
 - Increase banner height - Ok
 
 - Add validations to HighlightCards title and subtitle (max 2 line height and three dots if text is too long) - Ok
-- Fix left padding in HighlightCards while scrolling
+- Fix left padding in HighlightCards while scrolling - Ok
 - Change location pin color in filter screen
 - Compress images size in HighlightCards - Ok
 
