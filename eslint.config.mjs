@@ -5,7 +5,10 @@ import pluginReact from "eslint-plugin-react";
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
-  {files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"]},
+  {
+    files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
+    ignores: ["node_modules/**"],
+  },
   {languageOptions: {globals: {...globals.browser, ...globals.node}}},
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,

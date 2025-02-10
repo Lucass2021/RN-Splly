@@ -87,7 +87,7 @@ export default function Index() {
     title: "Mais avaliados",
     cardsData: [
       {
-        title: "Corte + Barba",
+        title: "Corte + Barba Corte",
         subtitle: "Barberia dos Galos",
         locationName: "Novo Hamburgo",
         discountPrice: "50,00",
@@ -117,8 +117,10 @@ export default function Index() {
         isFavorite: false,
       },
       {
-        title: "Sobrancelha",
-        subtitle: "Estilo & Cia",
+        title:
+          "Especial Sobrancelha dos galos & Barba dos crias super especial.",
+        subtitle:
+          "Estilo é nosso mantra, cuidar dos nossos galos é o lance. Sobrancelha dos galos & Barba dos crias super especial.",
         locationName: "Canoas",
         discountPrice: "20,00",
         price: "30,00",
@@ -158,16 +160,14 @@ export default function Index() {
         <BannerCarousel title="Feitos para você" bannerList={bannerListData} />
       </View>
 
-      <View className="ps-7.5 mb-8">
+      <View className="mb-8">
         <MenuCircle title={MenuCircleData.title} list={MenuCircleData.list} />
       </View>
 
-      <View className="ps-7.5">
-        <HighlightCards
-          title={HighlightCardsData.title}
-          cardsData={HighlightCardsData.cardsData}
-        />
-      </View>
+      <HighlightCards
+        title={HighlightCardsData.title}
+        cardsData={HighlightCardsData.cardsData}
+      />
     </ScrollView>
   );
 }

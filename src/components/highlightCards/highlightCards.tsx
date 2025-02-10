@@ -51,7 +51,7 @@ export default function HighlightCards({
 
   return (
     <>
-      <View className="flex-row items-center justify-between mb-5 pr-7.5">
+      <View className="flex-row items-center justify-between mb-5 pr-7.5 ps-7.5">
         <TextComponent
           fontFamily="Obviously"
           fontWeight="SemiBold"
@@ -77,6 +77,7 @@ export default function HighlightCards({
           showsHorizontalScrollIndicator={false}
           keyExtractor={card => String(card.title)}
           data={cardsData}
+          contentContainerStyle={{paddingLeft: 30, paddingRight: 15}}
           renderItem={({item}) => {
             const isFavorite = favorites[item.title];
 
@@ -106,13 +107,15 @@ export default function HighlightCards({
                   </View>
                 </Pressable>
 
-                <View>
+                <View className="max-w-72">
                   <TextComponent
                     fontFamily="Obviously"
                     fontWeight="SemiBold"
                     color="dark"
                     fontSize="h6"
-                    customClassName="mb-0.5">
+                    customClassName="mb-0.5"
+                    numberOfLines={2}
+                    ellipsizeMode="tail">
                     {item.title}
                   </TextComponent>
                   {item.subtitle && (
@@ -121,13 +124,19 @@ export default function HighlightCards({
                       fontWeight="Medium"
                       color="dark"
                       fontSize="subtitleTwo"
-                      customClassName="mb-1.5">
+                      customClassName="mb-1.5"
+                      numberOfLines={2}
+                      ellipsizeMode="tail">
                       {item.subtitle}
                     </TextComponent>
                   )}
 
                   <View className="flex-row gap-2 items-center mb-2.5">
-                    <LocationComponent width={12} height={14} />
+                    <LocationComponent
+                      width={12}
+                      height={14}
+                      color={"grayTwo"}
+                    />
                     <TextComponent
                       fontFamily="TTInterphases"
                       fontWeight="Medium"

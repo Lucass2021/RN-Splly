@@ -18,6 +18,7 @@ export const Colors = {
   grayFour: "#9E9E9E",
   grayFive: "#EEEEEE",
   graySix: "#808080",
+  graySeven: "#E0E0E0",
   confirm: "#A9E5BB",
 } as const;
 
