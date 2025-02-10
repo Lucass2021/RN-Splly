@@ -9,15 +9,17 @@ export default function FilterScreen() {
   const filterOptionsData: FilterOptionsProps[] = [
     {
       title: "Serviços",
+      defaultSelected: "Barba",
       buttonData: [
         {title: "Barba", onPress: () => console.log("Barba")},
-        {title: "Cabelo", onPress: () => console.log("Cabelo")},
+        {title: "Cortes", onPress: () => console.log("Cabelo")},
         {title: "Massagem", onPress: () => console.log("Massagem")},
         {title: "Sobrancelha", onPress: () => console.log("Sobrancelha")},
       ],
     },
     {
       title: "Público",
+      defaultSelected: "Todos",
       buttonData: [
         {title: "Todos", onPress: () => console.log("Todos")},
         {title: "Masculino", onPress: () => console.log("Masculino")},
@@ -26,6 +28,7 @@ export default function FilterScreen() {
     },
     {
       title: "Conhecer Estabelecimentos",
+      defaultSelected: "Todos",
       buttonData: [
         {title: "Todos", onPress: () => console.log("Todos")},
         {
@@ -36,6 +39,7 @@ export default function FilterScreen() {
     },
     {
       title: "Valor",
+      defaultSelected: "Todos",
       buttonData: [
         {title: "Todos", onPress: () => console.log("Todos")},
         {title: "$$$$", onPress: () => console.log("$$$$")},
@@ -47,13 +51,15 @@ export default function FilterScreen() {
   ];
 
   return (
-    <ScrollView className="flex-1 px-7.5 pt-13 bg-light">
-      <BackButtonHeader title="Filtros" customClassName="mb-7" />
-      <View className="mb-4">
-        <AddressAndNotificationHeader
-          showNotificationBell={false}
-          locationPinColor="warningOne"
-        />
+    <ScrollView className="flex-1 pt-13 bg-light">
+      <View className="px-7.5">
+        <BackButtonHeader title="Filtros" customClassName="mb-7" />
+        <View className="mb-4">
+          <AddressAndNotificationHeader
+            showNotificationBell={false}
+            locationPinColor="warningOne"
+          />
+        </View>
       </View>
 
       {filterOptionsData.map((filterOption, index) => (
@@ -61,6 +67,7 @@ export default function FilterScreen() {
           key={index}
           title={filterOption.title}
           buttonData={filterOption.buttonData}
+          defaultSelected={filterOption.defaultSelected}
         />
       ))}
     </ScrollView>
