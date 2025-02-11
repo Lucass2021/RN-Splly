@@ -26,7 +26,7 @@ export default function FilterOptions({
         fontWeight="Medium"
         color="dark"
         fontSize="h5"
-        customClassName="mb-3 ps-7.5">
+        customClassName="mb-5 ps-7.5">
         {title}
       </TextComponent>
 
