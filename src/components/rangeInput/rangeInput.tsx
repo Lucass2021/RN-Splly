@@ -13,6 +13,7 @@ type RangeInputProps = {
 export default function RangeInput({
   title,
   onInteractionStart,
+  onInteractionEnd,
 }: RangeInputProps) {
   const [values, setValues] = useState([5, 80]);
 
@@ -31,6 +32,9 @@ export default function RangeInput({
   };
 
   const handleSlidingComplete = (newValues: number[]) => {
+    if (onInteractionEnd) {
+      onInteractionEnd();
+    }
     const snappedValues = newValues.map(value => snapToStep(value));
     setValues(snappedValues);
   };
