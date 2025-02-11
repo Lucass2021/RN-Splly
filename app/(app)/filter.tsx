@@ -4,9 +4,12 @@ import FilterOptions, {
   FilterOptionsProps,
 } from "@/components/filterOptions/filterOptions";
 import RangeInput from "@/components/rangeInput/rangeInput";
+import {useState} from "react";
 import {ScrollView, View} from "react-native";
 
 export default function FilterScreen() {
+  const [scrollEnabled, setScrollEnabled] = useState(true);
+
   const filterOptionsData: FilterOptionsProps[] = [
     {
       title: "Serviços",
@@ -52,7 +55,10 @@ export default function FilterScreen() {
   ];
 
   return (
-    <ScrollView className="flex-1 pt-13 bg-light">
+    <ScrollView
+      className="flex-1 pt-13 bg-light"
+      contentContainerStyle={{paddingBottom: 100}}
+      scrollEnabled={scrollEnabled}>
       <View className="px-7.5">
         <BackButtonHeader title="Filtros" customClassName="mb-7" />
         <View className="mb-4">
@@ -73,7 +79,11 @@ export default function FilterScreen() {
       ))}
 
       <View className="px-7.5">
-        <RangeInput />
+        <RangeInput
+          title="Distância"
+          onInteractionStart={() => setScrollEnabled(false)}
+          onInteractionEnd={() => setScrollEnabled(true)}
+        />
       </View>
     </ScrollView>
   );
