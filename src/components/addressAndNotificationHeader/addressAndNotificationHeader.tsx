@@ -4,19 +4,32 @@ import {Pressable, View} from "react-native";
 import IconButton from "../iconButton/iconButton";
 import TextComponent from "../text/text";
 import {Colors} from "@/theme/colors";
+import LocationModal from "../locationModal/locationModal";
+import {useState} from "react";
 
 type AddressAndNotificationHeaderProps = {
-  onPress?: () => void;
+  NotificationonPress?: () => void;
   showNotificationBell?: boolean;
   locationPinColor?: keyof typeof Colors;
 };
 
 export default function AddressAndNotificationHeader({
-  onPress,
+  NotificationonPress,
   showNotificationBell = true,
   locationPinColor = "grayTwo",
 }: AddressAndNotificationHeaderProps) {
+  const [isModalVisible, setIsModalVisible] = useState(false);
   const color = Colors[locationPinColor];
+
+  const handleOpenLocationModal = () => {
+    console.log("Open location modal");
+    setIsModalVisible(true);
+  };
+
+  const handleCloseLocationModal = () => {
+    console.log("Close location modal");
+    setIsModalVisible(false);
+  };
 
   return (
     <View>
@@ -29,7 +42,9 @@ export default function AddressAndNotificationHeader({
             fontSize="paragraphTwo">
             Localização
           </TextComponent>
-          <Pressable className="flex-row items-center gap-2.5">
+          <Pressable
+            className="flex-row items-center gap-2.5"
+            onPress={() => handleOpenLocationModal()}>
             <LocationPinComponent width={22} height={24} color={color} />
             <TextComponent
               fontFamily="Obviously"
@@ -53,10 +68,15 @@ export default function AddressAndNotificationHeader({
             buttonBackgroundColor="grayFive"
             iconWidth={24}
             iconHeight={24}
-            onPress={onPress}
+            onPress={NotificationonPress}
           />
         )}
       </View>
+
+      <LocationModal
+        isVisible={isModalVisible}
+        onClose={handleCloseLocationModal}
+      />
     </View>
   );
 }
