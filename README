@@ -59,3 +59,4 @@ Jest - Optional
 - Compress images size in HighlightCards - Ok
 
 - Fix navigation animation in tabBar onPress
+- Use user location

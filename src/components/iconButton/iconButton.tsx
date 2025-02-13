@@ -10,6 +10,7 @@ import HomeComponent from "@/assets/icons/home";
 import LocationPinComponent from "@/assets/icons/locationPin";
 import ProfileComponent from "@/assets/icons/profile";
 import ScheduleComponent from "@/assets/icons/schedule";
+import TargetComponent from "@/assets/icons/target";
 import {backgroundColors, Colors} from "@/theme/colors";
 import {TouchableOpacity, TouchableOpacityProps} from "react-native";
 
@@ -26,6 +27,7 @@ const iconRegistry = {
   filterSearch: FilterSearchComponent,
   favorite: FavoriteComponent,
   favoriteFill: FavoriteFillComponent,
+  target: TargetComponent,
 };
 
 type IconName = keyof typeof iconRegistry;

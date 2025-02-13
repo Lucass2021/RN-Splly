@@ -25,7 +25,7 @@ const signInFormSchema = z.object({
 type SignInForm = z.infer<typeof signInFormSchema>;
 
 export default function SignIn() {
-  const {setUserEmail, login} = useAuthActions();
+  const {setUserEmail} = useAuthActions();
 
   const form = useForm<SignInForm>({
     resolver: zodResolver(signInFormSchema),
@@ -41,8 +41,7 @@ export default function SignIn() {
     console.log("data", data);
     setUserEmail(data.email);
 
-    login();
-    router.replace("/");
+    router.push("/auth/ask-location");
   };
 
   return (
