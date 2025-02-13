@@ -13,6 +13,7 @@ module.exports = {
         15: "60px",
       },
       margin: {
+        3.8: "15px",
         7.5: "30px",
         13: "50px",
       },

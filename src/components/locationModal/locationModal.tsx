@@ -4,6 +4,8 @@ import Modal from "react-native-modal";
 import TextComponent from "../text/text";
 import ArrowDownComponent from "@/assets/icons/arrowDown";
 import {Colors} from "@/theme/colors";
+import {useAskUserLocation} from "@/hooks/useAskUserLocation";
+import SearchBar from "../searchBar/searchBar";
 
 type LocationModalProps = {
   isVisible: boolean;
@@ -15,6 +17,8 @@ export default function LocationModal({
   onClose,
 }: LocationModalProps) {
   const [isClosing, setIsClosing] = useState(false);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const {requestLocation} = useAskUserLocation();
 
   const customShadow = {
     shadowColor: "#0000000D", // Android and IOS
@@ -71,6 +75,12 @@ export default function LocationModal({
 
           <View className="w-5 h-2" />
         </Pressable>
+
+        <View className="mt-3.8">
+          <SearchBar placeholder="Buscar endereço e número" />
+
+          <View className="mt-4"></View>
+        </View>
       </View>
     </Modal>
   );

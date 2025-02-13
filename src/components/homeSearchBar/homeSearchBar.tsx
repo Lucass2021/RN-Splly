@@ -4,11 +4,11 @@ import {Pressable, TextInput, View} from "react-native";
 import {Colors} from "react-native/Libraries/NewAppScreen";
 import IconButton from "../iconButton/iconButton";
 
-type HomeHeaderProps = {
+type HomeSearchBarProps = {
   onPress: () => void;
 };
 
-export default function HomeHeader({onPress}: HomeHeaderProps) {
+export default function HomeSearchBar({onPress}: HomeSearchBarProps) {
   const inputExploreIconRef = useRef<TextInput | null>(null);
 
   const handleInputPress = () => {

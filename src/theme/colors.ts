@@ -10,6 +10,7 @@ export const Colors = {
   warningOne: "#F7B32B",
   light: "#FFFFFF",
   lightOne: "#FFFAFA",
+  lightTwo: "#FAFAFA",
   dark: "#000000",
   darkOne: "#191919",
   grayOne: "#616161",
@@ -20,6 +21,7 @@ export const Colors = {
   graySix: "#808080",
   graySeven: "#E0E0E0",
   grayEight: "#D9D9D9",
+  grayNine: "#BDBDBD",
   confirm: "#A9E5BB",
 } as const;
 
