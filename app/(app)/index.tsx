@@ -15,7 +15,7 @@ import HighlightCards, {
 } from "@/components/highlightCards/highlightCards";
 import MenuCircle, {MenuCircleProps} from "@/components/menuCircle/menuCircle";
 import {router} from "expo-router";
-import {ScrollView, View} from "react-native";
+import {Platform, ScrollView, View} from "react-native";
 
 export default function Index() {
   const bannerListData: BannerCarouselData[] = [
@@ -145,7 +145,7 @@ export default function Index() {
     <ScrollView
       className="flex-1 pt-13 bg-light"
       showsVerticalScrollIndicator={false}
-      contentContainerStyle={{paddingBottom: 100}}>
+      contentContainerStyle={{paddingBottom: Platform.OS === "ios" ? 20 : 50}}>
       <View className="px-7.5">
         <View className="mb-4">
           <AddressAndNotificationHeader />

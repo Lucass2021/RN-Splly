@@ -27,6 +27,9 @@ module.exports = {
         18: "75px",
         65: "260px",
       },
+      borderRadius: {
+        "t-20": "20px",
+      },
       fontFamily: {
         obviouslyLight: ["ObviouslyLight", "sans-serif"],
         obviouslyRegular: ["ObviouslyRegular", "sans-serif"],

@@ -5,7 +5,7 @@ import FilterOptions, {
 } from "@/components/filterOptions/filterOptions";
 import RangeInput from "@/components/rangeInput/rangeInput";
 import {useState} from "react";
-import {ScrollView, View} from "react-native";
+import {Platform, ScrollView, View} from "react-native";
 
 export default function FilterScreen() {
   const [scrollEnabled, setScrollEnabled] = useState(true);
@@ -57,7 +57,7 @@ export default function FilterScreen() {
   return (
     <ScrollView
       className="flex-1 pt-13 bg-light"
-      contentContainerStyle={{paddingBottom: 100}}
+      contentContainerStyle={{paddingBottom: Platform.OS === "ios" ? 50 : 100}}
       scrollEnabled={scrollEnabled}>
       <View className="px-7.5">
         <BackButtonHeader title="Filtros" customClassName="mb-7" />
