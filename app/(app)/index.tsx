@@ -5,7 +5,6 @@ import highLightCardsDemo3 from "@/assets/images/highlight-card-3.jpg";
 import highLightCardsDemo4 from "@/assets/images/highlight-card-4.jpg";
 import highLightCardsDemo5 from "@/assets/images/highlight-card-5.jpg";
 import AddressAndNotificationHeader from "@/components/addressAndNotificationHeader/addressAndNotificationHeader";
-import HomeHeader from "@/components/homeHeader/homeHeader";
 
 import BannerCarousel, {
   BannerCarouselData,
@@ -13,9 +12,10 @@ import BannerCarousel, {
 import HighlightCards, {
   HighlightCardsProps,
 } from "@/components/highlightCards/highlightCards";
+import HomeSearchBar from "@/components/homeSearchBar/homeSearchBar";
 import MenuCircle, {MenuCircleProps} from "@/components/menuCircle/menuCircle";
 import {router} from "expo-router";
-import {ScrollView, View} from "react-native";
+import {Platform, ScrollView, View} from "react-native";
 
 export default function Index() {
   const bannerListData: BannerCarouselData[] = [
@@ -145,14 +145,14 @@ export default function Index() {
     <ScrollView
       className="flex-1 pt-13 bg-light"
       showsVerticalScrollIndicator={false}
-      contentContainerStyle={{paddingBottom: 100}}>
+      contentContainerStyle={{paddingBottom: Platform.OS === "ios" ? 20 : 50}}>
       <View className="px-7.5">
         <View className="mb-4">
           <AddressAndNotificationHeader />
         </View>
 
         <View className="mb-7.5">
-          <HomeHeader onPress={() => router.push("/filter")} />
+          <HomeSearchBar onPress={() => router.push("/filter")} />
         </View>
       </View>
 

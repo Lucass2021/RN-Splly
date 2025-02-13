@@ -51,7 +51,7 @@ export default function AddressAndNotificationHeader({
               fontWeight="Bold"
               color="dark"
               fontSize="h6">
-              São Jorge, NH
+              Onde você está?
             </TextComponent>
             <ArrowDownComponent
               color={Colors.primaryVariantOne}

@@ -92,7 +92,7 @@ export default function ForgotPassword() {
 
           <View className="mt-12 w-full">
             <Button
-              text="Entrar"
+              text="Enviar"
               onPress={() => handleSubmit(handleResetPassword)()}
               disabled={false}
             />

@@ -86,7 +86,7 @@ export default function ResetPasswordScreen() {
 
           <View className="mt-12 w-full">
             <Button
-              text="Entrar"
+              text="Trocar senha"
               onPress={() => handleSubmit(handleResetPassword)()}
               disabled={false}
             />
