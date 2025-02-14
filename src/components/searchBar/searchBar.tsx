@@ -23,7 +23,7 @@ export default function SearchBar({placeholder}: SearchBarProps) {
       </Pressable>
       <TextInput
         ref={inputExploreIconRef}
-        className="flex-1 placeholder:text-grayNine"
+        className="flex-1 h-14 placeholder:text-grayNine"
         placeholder={placeholder}
       />
     </View>

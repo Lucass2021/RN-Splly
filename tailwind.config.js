@@ -13,6 +13,7 @@ module.exports = {
         15: "60px",
       },
       margin: {
+        3.8: "15px",
         7.5: "30px",
         13: "50px",
       },
@@ -20,12 +21,16 @@ module.exports = {
         6.5: "25px",
         13: "50px",
         18: "75px",
+        25: "100px",
         50: "200px",
       },
       width: {
         13: "50px",
         18: "75px",
         65: "260px",
+      },
+      borderRadius: {
+        "t-20": "20px",
       },
       fontFamily: {
         obviouslyLight: ["ObviouslyLight", "sans-serif"],
