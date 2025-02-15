@@ -2,7 +2,7 @@ import ArrowDownComponent from "@/assets/icons/arrowDown";
 import TargetComponent from "@/assets/icons/target";
 import {Colors} from "@/theme/colors";
 import React, {useState} from "react";
-import {Pressable, View} from "react-native";
+import {Pressable, ScrollView, View} from "react-native";
 import Modal from "react-native-modal";
 import ButtonWithIcon from "../buttonWithIcon/buttonWithIcon";
 import LocationCard from "../locationCard/locationCard";
@@ -115,7 +115,9 @@ export default function LocationModal({
                   fontFamily="TTInterphases"
                   fontWeight="Medium"
                   color="grayFour"
-                  fontSize="subtitleTwo">
+                  fontSize="subtitleTwo"
+                  numberOfLines={2}
+                  ellipsizeMode="tail">
                   R. Dezenove de Novembro - São Jorge - Novo Hamburgo
                 </TextComponent>
               </View>
@@ -123,7 +125,10 @@ export default function LocationModal({
           </View>
         </View>
 
-        <View className="flex-1 bg-lightThree mt-5 pt-2.5 px-7.5 rounded-t-20">
+        <ScrollView
+          className="flex-1 bg-lightThree mt-5 pt-2.5 px-7.5 rounded-t-20"
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={{paddingBottom: 50}}>
           {userLocationData.locations.map((location, index) => (
             <LocationCard
               key={index}
@@ -145,7 +150,7 @@ export default function LocationModal({
             iconWidth={20}
             customClassName="mt-2.5"
           />
-        </View>
+        </ScrollView>
       </View>
     </Modal>
   );
