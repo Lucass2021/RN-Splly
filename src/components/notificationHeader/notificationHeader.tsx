@@ -6,18 +6,17 @@ import TextComponent from "../text/text";
 import {Colors} from "@/theme/colors";
 import LocationModal from "../locationModal/locationModal";
 import {useState} from "react";
+import {router} from "expo-router";
 
-type AddressAndNotificationHeaderProps = {
-  NotificationonPress?: () => void;
+type NotificationHeaderProps = {
   showNotificationBell?: boolean;
   locationPinColor?: keyof typeof Colors;
 };
 
-export default function AddressAndNotificationHeader({
-  NotificationonPress,
+export default function NotificationHeader({
   showNotificationBell = true,
   locationPinColor = "grayTwo",
-}: AddressAndNotificationHeaderProps) {
+}: NotificationHeaderProps) {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const color = Colors[locationPinColor];
 
@@ -68,7 +67,7 @@ export default function AddressAndNotificationHeader({
             buttonBackgroundColor="grayFive"
             iconWidth={24}
             iconHeight={24}
-            onPress={NotificationonPress}
+            onPress={() => router.push("/(app)/notification")}
           />
         )}
       </View>

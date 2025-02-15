@@ -34,6 +34,10 @@ export const Texts = {
     fontSize: 14,
     lineHeight: 22,
   },
+  subtitleThree: {
+    fontSize: 14,
+    lineHeight: 18,
+  },
   paragraphOne: {
     fontSize: 16,
     lineHeight: 24,
