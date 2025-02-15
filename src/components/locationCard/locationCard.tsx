@@ -35,7 +35,9 @@ export default function LocationCard({
           fontFamily="TTInterphases"
           fontWeight="Medium"
           color="dark"
-          fontSize="subtitleOne">
+          fontSize="subtitleOne"
+          numberOfLines={2}
+          ellipsizeMode="tail">
           {name}
         </TextComponent>
 
@@ -43,7 +45,9 @@ export default function LocationCard({
           fontFamily="TTInterphases"
           fontWeight="Medium"
           color="grayFour"
-          fontSize="subtitleTwo">
+          fontSize="subtitleTwo"
+          numberOfLines={2}
+          ellipsizeMode="tail">
           {location}
         </TextComponent>
       </View>

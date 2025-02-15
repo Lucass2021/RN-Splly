@@ -4,7 +4,6 @@ import highLightCardsDemo2 from "@/assets/images/highlight-card-2.jpg";
 import highLightCardsDemo3 from "@/assets/images/highlight-card-3.jpg";
 import highLightCardsDemo4 from "@/assets/images/highlight-card-4.jpg";
 import highLightCardsDemo5 from "@/assets/images/highlight-card-5.jpg";
-import AddressAndNotificationHeader from "@/components/addressAndNotificationHeader/addressAndNotificationHeader";
 
 import BannerCarousel, {
   BannerCarouselData,
@@ -14,6 +13,7 @@ import HighlightCards, {
 } from "@/components/highlightCards/highlightCards";
 import HomeSearchBar from "@/components/homeSearchBar/homeSearchBar";
 import MenuCircle, {MenuCircleProps} from "@/components/menuCircle/menuCircle";
+import NotificationHeader from "@/components/notificationHeader/notificationHeader";
 import {router} from "expo-router";
 import {Platform, ScrollView, View} from "react-native";
 
@@ -148,7 +148,7 @@ export default function Index() {
       contentContainerStyle={{paddingBottom: Platform.OS === "ios" ? 20 : 50}}>
       <View className="px-7.5">
         <View className="mb-4">
-          <AddressAndNotificationHeader />
+          <NotificationHeader />
         </View>
 
         <View className="mb-7.5">

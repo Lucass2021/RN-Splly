@@ -6,16 +6,21 @@ import {useAuthActions} from "@/store/auth";
 import {router} from "expo-router";
 import {useState} from "react";
 import {Linking, View} from "react-native";
+import * as Location from "expo-location";
 
 export default function AskLocation() {
   const [openPhonePermissions, setOpenPhonePermissions] = useState(false);
-  const {login, logout} = useAuthActions();
+  const {login, logout, setUserLocation} = useAuthActions();
   const {requestLocation} = useAskUserLocation();
 
   const handleAskPermissionAndLogin = async () => {
     console.log("Ask Permission and Login");
     const userHasLocationPermission = await requestLocation();
     if (userHasLocationPermission) {
+      const location = await Location.getCurrentPositionAsync({});
+      console.log("location", location);
+      //Location must be send to API and API must return user location
+      setUserLocation(location);
       login();
       router.replace("/");
     } else {
@@ -87,6 +92,7 @@ export default function AskLocation() {
               : handleAskPermissionAndLogin()
           }
           customClassName="mb-5"
+          customDisabledEffect={0}
         />
         <Button
           text="Sair"

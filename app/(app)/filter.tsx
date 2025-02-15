@@ -1,8 +1,8 @@
-import AddressAndNotificationHeader from "@/components/addressAndNotificationHeader/addressAndNotificationHeader";
 import BackButtonHeader from "@/components/backButtonHeader/backButtonHeader";
 import FilterOptions, {
   FilterOptionsProps,
 } from "@/components/filterOptions/filterOptions";
+import NotificationHeader from "@/components/notificationHeader/notificationHeader";
 import RangeInput from "@/components/rangeInput/rangeInput";
 import {useState} from "react";
 import {Platform, ScrollView, View} from "react-native";
@@ -62,7 +62,7 @@ export default function FilterScreen() {
       <View className="px-7.5">
         <BackButtonHeader title="Filtros" customClassName="mb-7" />
         <View className="mb-4">
-          <AddressAndNotificationHeader
+          <NotificationHeader
             showNotificationBell={false}
             locationPinColor="warningOne"
           />
