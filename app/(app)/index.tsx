@@ -84,6 +84,7 @@ export default function Index() {
 
   const HighlightCardsData: HighlightCardsProps = {
     title: "Mais avaliados",
+    aboutOnPress: () => console.log("Ver tudo - Mais avaliados"),
     cardsData: [
       {
         title: "Corte + Barba Corte",
@@ -165,6 +166,7 @@ export default function Index() {
 
       <HighlightCards
         title={HighlightCardsData.title}
+        aboutOnPress={HighlightCardsData.aboutOnPress}
         cardsData={HighlightCardsData.cardsData}
       />
     </ScrollView>

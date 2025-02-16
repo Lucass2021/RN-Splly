@@ -13,6 +13,7 @@ import CustomIcon from "../customIcon/customIcon";
 
 export type HighlightCardsProps = {
   title: string;
+  aboutOnPress: () => void;
   cardsData: {
     title: string;
     subtitle?: string | null;
@@ -28,6 +29,7 @@ export type HighlightCardsProps = {
 
 export default function HighlightCards({
   title,
+  aboutOnPress,
   cardsData,
 }: HighlightCardsProps) {
   const LocationComponent = LocationPin;
@@ -62,7 +64,7 @@ export default function HighlightCards({
           {title}
         </TextComponent>
 
-        <Pressable onPress={() => console.log("Ver tudo")}>
+        <Pressable onPress={() => aboutOnPress()}>
           <TextComponent
             fontFamily="TTInterphases"
             fontWeight="Medium"

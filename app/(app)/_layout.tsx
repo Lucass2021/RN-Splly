@@ -150,6 +150,12 @@ export default function AppLayout() {
           href: null,
         }}
       />
+      <Tabs.Screen
+        name="barber-list"
+        options={{
+          href: null,
+        }}
+      />
     </Tabs>
   );
 }
