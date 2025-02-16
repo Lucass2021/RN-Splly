@@ -14,7 +14,6 @@ import HighlightCards, {
 import HomeSearchBar from "@/components/homeSearchBar/homeSearchBar";
 import MenuCircle, {MenuCircleProps} from "@/components/menuCircle/menuCircle";
 import NotificationHeader from "@/components/notificationHeader/notificationHeader";
-import {router} from "expo-router";
 import {Platform, ScrollView, View} from "react-native";
 
 export default function Index() {
@@ -145,14 +144,14 @@ export default function Index() {
     <ScrollView
       className="flex-1 pt-13 bg-light"
       showsVerticalScrollIndicator={false}
-      contentContainerStyle={{paddingBottom: Platform.OS === "ios" ? 20 : 50}}>
+      contentContainerStyle={{paddingBottom: Platform.OS === "ios" ? 20 : 100}}>
       <View className="px-7.5">
         <View className="mb-4">
           <NotificationHeader />
         </View>
 
         <View className="mb-7.5">
-          <HomeSearchBar onPress={() => router.push("/filter")} />
+          <HomeSearchBar />
         </View>
       </View>
 
