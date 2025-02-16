@@ -9,9 +9,11 @@ import {
 import TextComponent from "../text/text";
 import IconButton from "../iconButton/iconButton";
 import LocationPin from "@/assets/icons/location-pin.svg";
+import CustomIcon from "../customIcon/customIcon";
 
 export type HighlightCardsProps = {
   title: string;
+  aboutOnPress: () => void;
   cardsData: {
     title: string;
     subtitle?: string | null;
@@ -21,11 +23,13 @@ export type HighlightCardsProps = {
     onPress: () => void;
     image: ImageSourcePropType;
     isFavorite: boolean;
+    rating?: string;
   }[];
 };
 
 export default function HighlightCards({
   title,
+  aboutOnPress,
   cardsData,
 }: HighlightCardsProps) {
   const LocationComponent = LocationPin;
@@ -60,7 +64,7 @@ export default function HighlightCards({
           {title}
         </TextComponent>
 
-        <Pressable onPress={() => console.log("Ver tudo")}>
+        <Pressable onPress={() => aboutOnPress()}>
           <TextComponent
             fontFamily="TTInterphases"
             fontWeight="Medium"
@@ -104,6 +108,25 @@ export default function HighlightCards({
                       onPress={() => handleSetFavorite(item.title)}
                       customClassName="absolute top-3 right-3 z-10 w-9 h-9 rounded-lg"
                     />
+
+                    {item.rating && (
+                      <View className="absolute bottom-3 right-3 z-10 flex-row items-center bg-warningTwo px-3 py-0.5 rounded-2xl">
+                        <CustomIcon
+                          iconName="start"
+                          iconColor="warningOne"
+                          iconWidth={18}
+                          iconHeight={18}
+                        />
+                        <TextComponent
+                          fontFamily="Obviously"
+                          fontWeight="SemiBold"
+                          color="darkOne"
+                          fontSize="buttonMd"
+                          customClassName="ml-1.5">
+                          {item.rating}
+                        </TextComponent>
+                      </View>
+                    )}
                   </View>
                 </Pressable>
 
@@ -123,7 +146,7 @@ export default function HighlightCards({
                       fontFamily="TTInterphases"
                       fontWeight="Medium"
                       color="dark"
-                      fontSize="subtitleTwo"
+                      fontSize="subtitleThree"
                       customClassName="mb-1.5"
                       numberOfLines={2}
                       ellipsizeMode="tail">

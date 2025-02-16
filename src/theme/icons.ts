@@ -11,6 +11,7 @@ import LocationPinComponent from "@/assets/icons/locationPin";
 import PlusComponent from "@/assets/icons/plus";
 import ProfileComponent from "@/assets/icons/profile";
 import ScheduleComponent from "@/assets/icons/schedule";
+import StarComponent from "@/assets/icons/star";
 import TargetComponent from "@/assets/icons/target";
 
 export const iconRegistry = {
@@ -28,6 +29,7 @@ export const iconRegistry = {
   favoriteFill: FavoriteFillComponent,
   target: TargetComponent,
   plus: PlusComponent,
+  start: StarComponent,
 };
 
 export type IconName = keyof typeof iconRegistry;

@@ -3,12 +3,9 @@ import {useRef} from "react";
 import {Pressable, TextInput, View} from "react-native";
 import {Colors} from "react-native/Libraries/NewAppScreen";
 import IconButton from "../iconButton/iconButton";
+import {router} from "expo-router";
 
-type HomeSearchBarProps = {
-  onPress: () => void;
-};
-
-export default function HomeSearchBar({onPress}: HomeSearchBarProps) {
+export default function HomeSearchBar() {
   const inputExploreIconRef = useRef<TextInput | null>(null);
 
   const handleInputPress = () => {
@@ -33,7 +30,7 @@ export default function HomeSearchBar({onPress}: HomeSearchBarProps) {
         buttonBackgroundColor="warningOne"
         iconWidth={18}
         iconHeight={16}
-        onPress={onPress}
+        onPress={() => router.push("/filter")}
         customClassName="rounded-l-none"
         hitSlop={15}
       />
