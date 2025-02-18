@@ -65,3 +65,5 @@ Jest - Optional
 - Validation for long address name - Ok
 - Make Modal scrollview - Ok
 - App Routes are not stackiking each other (goBack from explore filter returns to home page, it should return to explore screen )
+- Try to add padding for label and padding for text in input component
+- Add stack navigation in app routes
