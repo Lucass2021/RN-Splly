@@ -67,3 +67,5 @@ Jest - Optional
 - App Routes are not stackiking each other (goBack from explore filter returns to home page, it should return to explore screen )
 - Try to add padding for label and padding for text in input component
 - Add stack navigation in app routes
+- Mudar cor das notificaçÕes conforme visualizada.
+- Remover Search e Serviços da home
