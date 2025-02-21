@@ -6,11 +6,13 @@ import TextComponent from "../text/text";
 type BackButtonHeaderProps = {
   title: string;
   customClassName?: string;
+  customGoBack?: () => void;
 };
 
 export default function BackButtonHeader({
   title,
   customClassName,
+  customGoBack = () => router.back(),
 }: BackButtonHeaderProps) {
   return (
     <View
@@ -21,7 +23,7 @@ export default function BackButtonHeader({
         buttonBackgroundColor="grayFive"
         iconWidth={50}
         iconHeight={25}
-        onPress={() => router.back()}
+        onPress={() => customGoBack()}
         customClassName="pt-2"
       />
       <TextComponent

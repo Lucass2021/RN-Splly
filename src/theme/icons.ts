@@ -7,6 +7,7 @@ import FavoriteComponent from "@/assets/icons/favorite";
 import FavoriteFillComponent from "@/assets/icons/favorite-fill";
 import FilterSearchComponent from "@/assets/icons/filterSearch";
 import HomeComponent from "@/assets/icons/home";
+import LineComponent from "@/assets/icons/line";
 import LocationPinComponent from "@/assets/icons/locationPin";
 import PlusComponent from "@/assets/icons/plus";
 import ProfileComponent from "@/assets/icons/profile";
@@ -30,6 +31,7 @@ export const iconRegistry = {
   target: TargetComponent,
   plus: PlusComponent,
   start: StarComponent,
+  line: LineComponent,
 };
 
 export type IconName = keyof typeof iconRegistry;

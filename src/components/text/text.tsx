@@ -58,7 +58,7 @@ export default function TextComponent({
   const fontClass = generateFontFamilyAndWeight(fontFamily, fontWeight);
   return (
     <Text
-      className={`${fontClass} ${customClassName}`}
+      className={`${fontClass} ${customClassName} pb-1`}
       style={{
         color: customColorName,
         fontSize: customFontSizeAndLineHeight.fontSize,
