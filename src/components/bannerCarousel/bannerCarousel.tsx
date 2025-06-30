@@ -1,12 +1,19 @@
+import {backgroundColors, Colors} from "@/theme/colors";
 import React, {useRef, useState} from "react";
-import {Dimensions, Image, ImageProps, Pressable, View} from "react-native";
-import Carousel, {ICarouselInstance} from "react-native-reanimated-carousel";
-import TextComponent from "../text/text";
+import {
+  Dimensions,
+  Image,
+  ImageSourcePropType,
+  Pressable,
+  View,
+} from "react-native";
 import {
   configureReanimatedLogger,
   ReanimatedLogLevel,
 } from "react-native-reanimated";
-import {backgroundColors, Colors} from "@/theme/colors";
+import Carousel, {ICarouselInstance} from "react-native-reanimated-carousel";
+import {ImageProps} from "react-native-svg";
+import TextComponent from "../text/text";
 
 configureReanimatedLogger({
   level: ReanimatedLogLevel.warn,
@@ -100,7 +107,7 @@ export default function BannerCarousel({
           renderItem={({item}) => (
             <View className="position-relative">
               <Image
-                source={item}
+                source={item as ImageSourcePropType}
                 className="w-full rounded-2xl"
                 style={{height: "100%"}}
                 resizeMode="cover"

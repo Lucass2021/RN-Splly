@@ -14,7 +14,9 @@ import HighlightCards, {
 import HomeSearchBar from "@/components/homeSearchBar/homeSearchBar";
 import MenuCircle, {MenuCircleProps} from "@/components/menuCircle/menuCircle";
 import NotificationHeader from "@/components/notificationHeader/notificationHeader";
-import {Platform, ScrollView, View} from "react-native";
+import {FC} from "react";
+import {ImageProps, Platform, ScrollView, View} from "react-native";
+import {SvgProps} from "react-native-svg";
 
 export default function Index() {
   const bannerListData: BannerCarouselData[] = [
@@ -22,21 +24,21 @@ export default function Index() {
       primaryTagTitle: "Acaba logo!",
       primaryTagBackroundColor: "accentOne",
       primaryTagTextColor: "light",
-      image: highLightCardsDemo1,
+      image: highLightCardsDemo1 as ImageProps,
       onPress: () => console.log("Serviço 1"),
     },
     {
       primaryTagTitle: "Promoção agora!",
       primaryTagBackroundColor: "warningOne",
       primaryTagTextColor: "light",
-      image: highLightCardsDemo2,
+      image: highLightCardsDemo2 as ImageProps,
       onPress: () => console.log("Serviço 2"),
     },
     {
       primaryTagTitle: "Último dia!",
       primaryTagBackroundColor: "accentOne",
       primaryTagTextColor: "light",
-      image: highLightCardsDemo3,
+      image: highLightCardsDemo3 as ImageProps,
       onPress: () => console.log("Serviço 3"),
     },
   ];
@@ -46,37 +48,37 @@ export default function Index() {
     list: [
       {
         name: "Cortes",
-        image: menuCircleDemo,
+        image: menuCircleDemo as FC<SvgProps>,
         onPress: () => console.log("Cortes"),
       },
       {
         name: "Barba",
-        image: menuCircleDemo,
+        image: menuCircleDemo as FC<SvgProps>,
         onPress: () => console.log("Barba"),
       },
       {
         name: "Massagem",
-        image: menuCircleDemo,
+        image: menuCircleDemo as FC<SvgProps>,
         onPress: () => console.log("Massagem"),
       },
       {
         name: "Colorir",
-        image: menuCircleDemo,
+        image: menuCircleDemo as FC<SvgProps>,
         onPress: () => console.log("Colorir"),
       },
       {
         name: "Lorem 1",
-        image: menuCircleDemo,
+        image: menuCircleDemo as FC<SvgProps>,
         onPress: () => console.log("Lorem 1"),
       },
       {
         name: "Lorem 2",
-        image: menuCircleDemo,
+        image: menuCircleDemo as FC<SvgProps>,
         onPress: () => console.log("Lorem 2"),
       },
       {
         name: "Lorem 3",
-        image: menuCircleDemo,
+        image: menuCircleDemo as FC<SvgProps>,
         onPress: () => console.log("Lorem 3"),
       },
     ],
@@ -93,7 +95,7 @@ export default function Index() {
         discountPrice: "50,00",
         price: "75,00",
         onPress: () => console.log("Corte + Barba"),
-        image: highLightCardsDemo1,
+        image: highLightCardsDemo1 as ImageProps,
         isFavorite: false,
       },
       {
@@ -103,7 +105,7 @@ export default function Index() {
         discountPrice: null,
         price: "35,00",
         onPress: () => console.log("Barba"),
-        image: highLightCardsDemo2,
+        image: highLightCardsDemo2 as ImageProps,
         isFavorite: true,
       },
       {
@@ -113,7 +115,7 @@ export default function Index() {
         discountPrice: "40,00",
         price: "60,00",
         onPress: () => console.log("Corte Masculino"),
-        image: highLightCardsDemo3,
+        image: highLightCardsDemo3 as ImageProps,
         isFavorite: false,
       },
       {
@@ -125,7 +127,7 @@ export default function Index() {
         discountPrice: "20,00",
         price: "30,00",
         onPress: () => console.log("Sobrancelha"),
-        image: highLightCardsDemo4,
+        image: highLightCardsDemo4 as ImageProps,
         isFavorite: true,
       },
       {
@@ -135,7 +137,7 @@ export default function Index() {
         discountPrice: null,
         price: "90,00",
         onPress: () => console.log("Corte + Hidratação"),
-        image: highLightCardsDemo5,
+        image: highLightCardsDemo5 as ImageProps,
         isFavorite: false,
       },
     ],

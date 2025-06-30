@@ -3,12 +3,12 @@ import BackButtonHeader from "@/components/backButtonHeader/backButtonHeader";
 import Notification, {
   NotificationItem,
 } from "@/components/notification/notification";
-import {Platform, ScrollView, View} from "react-native";
+import {ImageProps, Platform, ScrollView, View} from "react-native";
 
 export default function NotificationScreen() {
   const notificationData: NotificationItem[] = [
     {
-      image: notificationImage,
+      image: notificationImage as ImageProps,
       title: "Você ganhou R$ 50 de bônus para gastar aonde quiser!",
       description:
         "Lembrando que esse cupom é valido somente nessa semana, não perca e aproveite.",
@@ -16,7 +16,7 @@ export default function NotificationScreen() {
       onPress: () => console.log("Notificação 1"),
     },
     {
-      image: notificationImage,
+      image: notificationImage as ImageProps,
       title: "Hoje é o dia do barbeiro, mas quem ganha é você!",
       description:
         "Cupons aleatórios são sorteados ao fazer um agendamento, de até R$ 20, só hoje.",

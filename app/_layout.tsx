@@ -9,10 +9,11 @@ import Toast from "react-native-toast-message";
 import {StatusBar} from "expo-status-bar";
 
 import {useIsLoggedIn} from "@/store/auth";
+import {toastConfig} from "@/theme/toastConfig";
+import {BackHandler} from "react-native";
+import {GestureHandlerRootView} from "react-native-gesture-handler";
 import {SafeAreaProvider, SafeAreaView} from "react-native-safe-area-context";
 import "../src/global.css";
-import {toastConfig} from "@/theme/toastConfig";
-import {GestureHandlerRootView} from "react-native-gesture-handler";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -23,6 +24,17 @@ export const unstable_settings = {
   // Ensure that reloading on `/modal` keeps a back button present.
   initialRouteName: "(tabs)",
 };
+
+// Start Fix bug Expo SDK 53
+declare module "react-native" {
+  interface BackHandlerStatic {
+    removeEventListener?: () => void;
+  }
+}
+if (!BackHandler.removeEventListener) {
+  BackHandler.removeEventListener = () => {};
+}
+// End Fix bug Expo SDK 53
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();

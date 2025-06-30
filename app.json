@@ -34,7 +34,9 @@
         {
           "locationAlwaysAndWhenInUsePermission": "Permitir $(PRODUCT_NAME) acessar sua localização."
         }
-      ]
+      ],
+      "expo-font",
+      "expo-web-browser"
     ],
     "experiments": {
       "typedRoutes": true
