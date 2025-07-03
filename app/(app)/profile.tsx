@@ -109,7 +109,9 @@ export default function ProfileScreen() {
           </View>
         </Pressable>
 
-        <View className="px-7.5">
+        <Pressable
+          className="px-7.5"
+          onPress={() => router.push("/edit-profile")}>
           <View className="mt-5 bg-secondaryVariantThree rounded-2xl p-3 flex-row items-center gap-3.5 ">
             <Image
               source={userDemo}
@@ -143,42 +145,40 @@ export default function ProfileScreen() {
               </View>
             </View>
           </View>
-        </View>
+        </Pressable>
 
         <View className="mt-6">
           {profileOptionsList.map((item, index) => (
-            <>
-              <Pressable
-                className="flex-row items-center justify-between px-7.5 border-b-2 border-grayFive py-3"
-                onPress={item.onPress}
-                key={index}>
-                <View className="flex-row items-center">
-                  <CustomIcon
-                    iconName={item.iconName}
-                    iconColor={item.iconColor}
-                    iconWidth={item.iconWidth}
-                    iconHeight={item.iconHeight}
-                  />
+            <Pressable
+              className="flex-row items-center justify-between px-7.5 border-b-2 border-grayFive py-3"
+              onPress={item.onPress}
+              key={index}>
+              <View className="flex-row items-center">
+                <CustomIcon
+                  iconName={item.iconName}
+                  iconColor={item.iconColor}
+                  iconWidth={item.iconWidth}
+                  iconHeight={item.iconHeight}
+                />
 
-                  <TextComponent
-                    fontFamily="TTInterphases"
-                    fontWeight="Medium"
-                    color="dark"
-                    fontSize="h6"
-                    customClassName="ml-3">
-                    {item.name}
-                  </TextComponent>
-                </View>
+                <TextComponent
+                  fontFamily="TTInterphases"
+                  fontWeight="Medium"
+                  color="dark"
+                  fontSize="h6"
+                  customClassName="ml-3">
+                  {item.name}
+                </TextComponent>
+              </View>
 
-                <View className="-rotate-90">
-                  <ArrowDownComponent
-                    color={Colors.secondaryVariantOne}
-                    width={15}
-                    height={20}
-                  />
-                </View>
-              </Pressable>
-            </>
+              <View className="-rotate-90">
+                <ArrowDownComponent
+                  color={Colors.secondaryVariantOne}
+                  width={15}
+                  height={20}
+                />
+              </View>
+            </Pressable>
           ))}
         </View>
       </View>
