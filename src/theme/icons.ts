@@ -2,6 +2,7 @@ import ArrowDownComponent from "@/assets/icons/arrowDown";
 import ArrowLeftComponent from "@/assets/icons/arrowLeft";
 import ArrowRightComponent from "@/assets/icons/arrowRight";
 import BellComponent from "@/assets/icons/bell";
+import EditPencilComponent from "@/assets/icons/edit-pencil";
 import ExploreComponent from "@/assets/icons/explore";
 import FavoriteComponent from "@/assets/icons/favorite";
 import FavoriteFillComponent from "@/assets/icons/favorite-fill";
@@ -32,6 +33,7 @@ export const iconRegistry = {
   plus: PlusComponent,
   start: StarComponent,
   line: LineComponent,
+  editPencil: EditPencilComponent,
 };
 
 export type IconName = keyof typeof iconRegistry;

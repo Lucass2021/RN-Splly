@@ -2,7 +2,7 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 import {useFonts} from "expo-font";
 import {Stack, useRouter} from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
-import {useEffect} from "react";
+import {useCallback, useEffect} from "react";
 import "react-native-reanimated";
 import Toast from "react-native-toast-message";
 
@@ -10,7 +10,6 @@ import {StatusBar} from "expo-status-bar";
 
 import {useIsLoggedIn} from "@/store/auth";
 import {toastConfig} from "@/theme/toastConfig";
-import {BackHandler} from "react-native";
 import {GestureHandlerRootView} from "react-native-gesture-handler";
 import {SafeAreaProvider, SafeAreaView} from "react-native-safe-area-context";
 import "../src/global.css";
@@ -24,17 +23,6 @@ export const unstable_settings = {
   // Ensure that reloading on `/modal` keeps a back button present.
   initialRouteName: "(tabs)",
 };
-
-// Start Fix bug Expo SDK 53
-declare module "react-native" {
-  interface BackHandlerStatic {
-    removeEventListener?: () => void;
-  }
-}
-if (!BackHandler.removeEventListener) {
-  BackHandler.removeEventListener = () => {};
-}
-// End Fix bug Expo SDK 53
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -84,11 +72,16 @@ function RootLayoutNav() {
   const isLoggedIn = useIsLoggedIn();
   const router = useRouter();
 
-  useEffect(() => {
+  const checkAuthAndNavigate = useCallback(() => {
     if (isLoggedIn) {
       router.replace("/");
     }
   }, [isLoggedIn, router]);
+
+  useEffect(() => {
+    const timer = setTimeout(checkAuthAndNavigate, 100);
+    return () => clearTimeout(timer);
+  }, [checkAuthAndNavigate]);
 
   return (
     <SafeAreaView className="flex-1">
