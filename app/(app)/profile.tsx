@@ -5,7 +5,7 @@ import {useAuthActions} from "@/store/auth";
 import {Colors} from "@/theme/colors";
 import {IconName} from "@/theme/icons";
 import {router} from "expo-router";
-import {Image, Platform, Pressable, ScrollView, View} from "react-native";
+import {Image, Pressable, ScrollView, View} from "react-native";
 
 type ProfileOptionsListType = {
   name: string;
@@ -23,7 +23,7 @@ export default function ProfileScreen() {
   const profileOptionsList: ProfileOptionsListType = [
     {
       name: "Histórico",
-      iconName: "schedule",
+      iconName: "history",
       iconColor: "secondaryVariantOne",
       iconWidth: 20,
       iconHeight: 20,
@@ -31,7 +31,7 @@ export default function ProfileScreen() {
     },
     {
       name: "Pagamento",
-      iconName: "schedule",
+      iconName: "payment",
       iconColor: "secondaryVariantOne",
       iconWidth: 20,
       iconHeight: 20,
@@ -39,7 +39,7 @@ export default function ProfileScreen() {
     },
     {
       name: "Favoritos",
-      iconName: "schedule",
+      iconName: "favorite",
       iconColor: "secondaryVariantOne",
       iconWidth: 20,
       iconHeight: 20,
@@ -47,7 +47,7 @@ export default function ProfileScreen() {
     },
     {
       name: "Transações",
-      iconName: "schedule",
+      iconName: "transactions",
       iconColor: "secondaryVariantOne",
       iconWidth: 20,
       iconHeight: 20,
@@ -55,7 +55,7 @@ export default function ProfileScreen() {
     },
     {
       name: "Configurações",
-      iconName: "schedule",
+      iconName: "settings",
       iconColor: "secondaryVariantOne",
       iconWidth: 20,
       iconHeight: 20,
@@ -63,7 +63,7 @@ export default function ProfileScreen() {
     },
     {
       name: "Ajuda",
-      iconName: "schedule",
+      iconName: "help",
       iconColor: "secondaryVariantOne",
       iconWidth: 20,
       iconHeight: 20,
@@ -71,7 +71,7 @@ export default function ProfileScreen() {
     },
     {
       name: "Privacidade",
-      iconName: "schedule",
+      iconName: "privacy",
       iconColor: "secondaryVariantOne",
       iconWidth: 20,
       iconHeight: 20,
@@ -79,7 +79,7 @@ export default function ProfileScreen() {
     },
     {
       name: "Sair",
-      iconName: "schedule",
+      iconName: "logout",
       iconColor: "secondaryVariantOne",
       iconWidth: 20,
       iconHeight: 20,
@@ -95,91 +95,112 @@ export default function ProfileScreen() {
   return (
     <ScrollView
       className="flex-1 pt-13 bg-light"
-      contentContainerStyle={{paddingBottom: Platform.OS === "ios" ? 50 : 100}}>
-      <View>
-        <Pressable onPress={handleUserLogout}>
-          <View className="justify-center items-center">
-            <TextComponent
-              fontFamily="Obviously"
-              fontWeight="SemiBold"
-              color="dark"
-              fontSize="h6">
-              Perfil
-            </TextComponent>
-          </View>
-        </Pressable>
-
-        <Pressable
-          className="px-7.5"
-          onPress={() => router.push("/edit-profile")}>
-          <View className="mt-5 bg-secondaryVariantThree rounded-2xl p-3 flex-row items-center gap-3.5 ">
-            <Image
-              source={userDemo}
-              className="rounded-2xl"
-              resizeMode="cover"
-            />
-
-            <View>
+      contentContainerStyle={{
+        // paddingBottom: Platform.OS === "ios" ? 50 : 100,
+        flexGrow: 1,
+      }}>
+      <View className="flex-1 justify-between">
+        <View>
+          <Pressable onPress={handleUserLogout}>
+            <View className="justify-center items-center">
               <TextComponent
-                fontFamily="TTInterphases"
-                fontWeight="Bold"
-                color="lightOne"
+                fontFamily="Obviously"
+                fontWeight="SemiBold"
+                color="dark"
                 fontSize="h6">
-                Gabriel de Mello
+                Perfil
               </TextComponent>
-              <View className="flex-row items-center gap-x-2">
+            </View>
+          </Pressable>
+
+          <Pressable
+            className="px-7.5"
+            onPress={() => router.push("/edit-profile")}>
+            <View className="mt-5 bg-secondaryVariantThree rounded-2xl p-3 flex-row items-center gap-3.5">
+              <Image
+                source={userDemo}
+                className="rounded-2xl"
+                resizeMode="cover"
+              />
+
+              <View>
                 <TextComponent
-                  fontFamily="Obviously"
-                  fontWeight="Medium"
-                  color="grayNine"
-                  fontSize="caption">
-                  Editar Detalhes
+                  fontFamily="TTInterphases"
+                  fontWeight="Bold"
+                  color="lightOne"
+                  fontSize="h6">
+                  Gabriel de Mello
                 </TextComponent>
+                <View className="flex-row items-center gap-x-2">
+                  <TextComponent
+                    fontFamily="Obviously"
+                    fontWeight="Medium"
+                    color="grayNine"
+                    fontSize="caption">
+                    Editar Detalhes
+                  </TextComponent>
+                  <View className="-rotate-90">
+                    <ArrowDownComponent
+                      color={Colors.grayNine}
+                      width={15}
+                      height={20}
+                    />
+                  </View>
+                </View>
+              </View>
+            </View>
+          </Pressable>
+
+          <View className="mt-6">
+            {profileOptionsList.map((item, index) => (
+              <Pressable
+                className="flex-row items-center justify-between px-7.5 py-3"
+                style={[
+                  index !== profileOptionsList.length - 1 && {
+                    borderBottomWidth: 2,
+                    borderBottomColor: "#EEEEEE",
+                  },
+                ]}
+                onPress={item.onPress}
+                key={index}>
+                <View className="flex-row items-center">
+                  <CustomIcon
+                    iconName={item.iconName}
+                    iconColor={item.iconColor}
+                    iconWidth={item.iconWidth}
+                    iconHeight={item.iconHeight}
+                  />
+
+                  <TextComponent
+                    fontFamily="TTInterphases"
+                    fontWeight="Medium"
+                    color="dark"
+                    fontSize="h6"
+                    customClassName="ml-3">
+                    {item.name}
+                  </TextComponent>
+                </View>
+
                 <View className="-rotate-90">
                   <ArrowDownComponent
-                    color={Colors.grayNine}
+                    color={Colors.secondaryVariantOne}
                     width={15}
                     height={20}
                   />
                 </View>
-              </View>
-            </View>
+              </Pressable>
+            ))}
           </View>
-        </Pressable>
+        </View>
 
-        <View className="mt-6">
-          {profileOptionsList.map((item, index) => (
-            <Pressable
-              className="flex-row items-center justify-between px-7.5 border-b-2 border-grayFive py-3"
-              onPress={item.onPress}
-              key={index}>
-              <View className="flex-row items-center">
-                <CustomIcon
-                  iconName={item.iconName}
-                  iconColor={item.iconColor}
-                  iconWidth={item.iconWidth}
-                  iconHeight={item.iconHeight}
-                />
-
-                <TextComponent
-                  fontFamily="TTInterphases"
-                  fontWeight="Medium"
-                  color="dark"
-                  fontSize="h6"
-                  customClassName="ml-3">
-                  {item.name}
-                </TextComponent>
-              </View>
-
-              <View className="-rotate-90">
-                <ArrowDownComponent
-                  color={Colors.secondaryVariantOne}
-                  width={15}
-                  height={20}
-                />
-              </View>
-            </Pressable>
-          ))}
+        <View className="flex justify-center items-center mb-2.5">
+          <TextComponent
+            fontFamily="TTInterphases"
+            fontWeight="Medium"
+            color="grayNine"
+            fontSize="subtitleTwo">
+            Versão {process.env.EXPO_PUBLIC_APP_VERSION}
+          </TextComponent>
         </View>
       </View>
     </ScrollView>
