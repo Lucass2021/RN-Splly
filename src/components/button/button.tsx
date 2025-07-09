@@ -9,6 +9,7 @@ type ButtonProps = {
   disabled?: boolean;
   customClassName?: string;
   customTextColor?: keyof typeof textColors;
+  customFontFamily?: "TTInterphases" | "Obviously";
   customFontWeight?: "Light" | "Regular" | "Medium" | "SemiBold" | "Bold";
   customBackgroundColor?: keyof typeof backgroundColors;
   customBackgroundOnPressColor?: keyof typeof backgroundColors;
@@ -22,6 +23,7 @@ export default function Button({
   customClassName,
   customTextColor = "light",
   customFontWeight = "SemiBold",
+  customFontFamily = "Obviously",
   customBackgroundColor = "secondaryVariantOne",
   customBackgroundOnPressColor = "secondaryVariantOne",
   customDisabledEffect = 2000,
@@ -55,7 +57,7 @@ export default function Button({
       className={`h-14 rounded-2xl items-center justify-center ${customClassName}`}
       {...props}>
       <TextComponent
-        fontFamily="Obviously"
+        fontFamily={customFontFamily}
         fontWeight={customFontWeight}
         color={customTextColor}
         fontSize="buttonMd"

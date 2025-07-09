@@ -25,6 +25,7 @@ export const Colors = {
   grayEight: "#D9D9D9",
   grayNine: "#BDBDBD",
   confirm: "#A9E5BB",
+  transparent: "transparent",
 } as const;
 
 export const generateColorClasses = (prefix: string) =>
