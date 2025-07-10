@@ -1,10 +1,12 @@
 import userDemo from "@/assets/images/user.png";
 import BackButtonHeader from "@/components/backButtonHeader/backButtonHeader";
+import {BottomModal} from "@/components/bottomModal";
 import Button from "@/components/button/button";
 import CustomIcon from "@/components/customIcon/customIcon";
 import Input from "@/components/input/input";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {router} from "expo-router";
+import {useState} from "react";
 import {FormProvider, useForm} from "react-hook-form";
 import {Image, Pressable, ScrollView, View} from "react-native";
 import z from "zod";
@@ -18,6 +20,8 @@ const EditProfileSchema = z.object({
 type EditProfile = z.infer<typeof EditProfileSchema>;
 
 export default function EditProfileScreen() {
+  const [isDeleteModalVisible, setIsDeleteModalVisible] = useState(false);
+
   const form = useForm<EditProfile>({
     resolver: zodResolver(EditProfileSchema),
     defaultValues: {
@@ -104,7 +108,7 @@ export default function EditProfileScreen() {
         <View className="mb-5">
           <Button
             text="Apagar conta"
-            onPress={() => console.log("Apagar conta")}
+            onPress={() => setIsDeleteModalVisible(true)}
             customBackgroundColor="transparent"
             customTextColor="graySeven"
             customBackgroundOnPressColor="transparent"
@@ -114,6 +118,14 @@ export default function EditProfileScreen() {
           />
         </View>
       </View>
+
+      <BottomModal
+        isVisible={isDeleteModalVisible}
+        onClose={() => setIsDeleteModalVisible(false)}
+        text="Você deseja apagar sua conta?"
+        actionButtonText="Cancelar"
+        cancelButtonText="Sim, Apagar"
+      />
     </ScrollView>
   );
 }
