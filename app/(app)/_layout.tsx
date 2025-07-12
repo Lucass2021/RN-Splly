@@ -162,6 +162,12 @@ export default function AppLayout() {
           href: null,
         }}
       />
+      <Tabs.Screen
+        name="delete-account"
+        options={{
+          href: null,
+        }}
+      />
     </Tabs>
   );
 }

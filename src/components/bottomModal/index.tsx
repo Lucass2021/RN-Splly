@@ -1,14 +1,16 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import {useState} from "react";
-import {Text, View} from "react-native";
+import {View} from "react-native";
 import Modal from "react-native-modal";
 import {useSafeAreaInsets} from "react-native-safe-area-context";
+import Button from "../button/button";
+import TextComponent from "../text/text";
 
 type BottomModalProps = {
   isVisible: boolean;
   onClose: () => void;
   text: string;
   actionButtonText: string;
+  actionButton: () => void;
   cancelButtonText: string;
 };
 
@@ -17,10 +19,11 @@ export const BottomModal = ({
   onClose,
   text,
   actionButtonText,
+  actionButton,
   cancelButtonText,
 }: BottomModalProps) => {
   const [isClosing, setIsClosing] = useState(false);
-  const insets = useSafeAreaInsets(); // Isso vai nos dar as áreas seguras do dispositivo
+  const insets = useSafeAreaInsets();
 
   const handleClose = () => {
     setIsClosing(true);
@@ -57,6 +60,7 @@ export const BottomModal = ({
       avoidKeyboard={true}
       coverScreen={true}>
       <View
+        className="py-6 px-7.5"
         style={[
           customShadow,
           {
@@ -68,7 +72,32 @@ export const BottomModal = ({
             width: "100%",
           },
         ]}>
-        <Text>Modal</Text>
+        <TextComponent
+          fontFamily="Obviously"
+          fontWeight="SemiBold"
+          color="darkOne"
+          fontSize="h3"
+          customClassName="text-center">
+          {text}
+        </TextComponent>
+
+        <View className="border-t border-grayNine my-7" />
+
+        <View className="flex-row justify-between gap-x-5">
+          <Button
+            text={actionButtonText}
+            onPress={() => handleClose()}
+            customClassName="flex-1"
+          />
+          <Button
+            text={cancelButtonText}
+            onPress={() => actionButton()}
+            customBackgroundColor="transparent"
+            customTextColor="grayTwo"
+            customClassName="flex-1 border border-grayTwo"
+            customBackgroundOnPressColor="transparent"
+          />
+        </View>
       </View>
     </Modal>
   );

@@ -124,6 +124,7 @@ export default function EditProfileScreen() {
         onClose={() => setIsDeleteModalVisible(false)}
         text="Você deseja apagar sua conta?"
         actionButtonText="Cancelar"
+        actionButton={() => router.push("/delete-account")}
         cancelButtonText="Sim, Apagar"
       />
     </ScrollView>

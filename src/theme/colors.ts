@@ -24,6 +24,7 @@ export const Colors = {
   graySeven: "#E0E0E0",
   grayEight: "#D9D9D9",
   grayNine: "#BDBDBD",
+  grayTen: "#212121",
   confirm: "#A9E5BB",
   transparent: "transparent",
 } as const;
